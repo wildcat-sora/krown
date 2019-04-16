@@ -1,3 +1,134 @@
-// Place all the styles related to the krowns controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-contents{
+  width: calc(100% - 305px);
+  display: inline-block;
+  height: 100vh;
+  float: right;
+  font-family:"ＭＳ ゴシック",sans-serif;
+  color:#7F7F7F;
+
+// ユーザ情報表示項目
+  .main-header{
+    display: inline-block;
+    width: calc(100% - 310px);
+    height: 70px;
+    padding: 20px 0 10px 20px;
+    .header-left{
+      width: 50%;
+      display: inline-block;
+      &__result{
+        font-size:16px;
+        font-weight: 600;
+      }
+      &__result_p1{
+        font-size:12px;
+        padding: 2px 0 0 20px;
+      }
+    }
+  }
+
+// テーブル表示箇所
+  .main-tab{
+    display: inline-block;
+    height: 310px;
+    background-color: rgba(148,216,45,0.06);
+    .table-area{
+      // height: 100%;
+      margin: 20px;
+      font-size:12px;
+      font-weight: 400;
+      text-align: center;
+      color: grey;
+      table {
+        width: 1050px;
+        border: 1px solid gray;
+      }
+      table th{
+        background-color: rgba(148,216,45,0.60);
+        text-align: center;
+        border: 1px solid gray;
+      }
+      table td{
+        border: 1px solid gray;
+        height: 22px;
+      }
+      .td-decoration{
+        text-align: left;
+        font-size: 10px;
+        padding: 0 0 0 8px;
+      }
+    }
+  }
+
+
+// 詳細内容表示箇所
+  .main-krown-area{
+    display: inline-block;
+    width: 700px;
+    height: 230px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px 0 0 20px;
+    border: 1px solid #74B816;
+      .krown-header{
+        margin: 10px;
+        &__category{
+          font-size: 16px;
+          display: inline-block;
+        }
+        &__date{
+          font-size: 10px;
+          margin:0 0 0 20px;
+          display: inline-block;
+        }
+      }
+      .krown-title{
+        font-size: 14px;
+        margin: 10px 0 5px 10px;
+      }
+      .krown-border{
+        height: 1px;
+        width: 600px;
+        margin: 0 0 0 10px;
+        background-color: grey;
+      }
+      .krown-value{
+        overflow: auto;
+        height: 150px;
+        margin: 8px 30px 0 10px;
+        font-size: 10px;
+        font-weight: 600;
+      }
+  }
+
+    .main-krown-file{
+      display: inline-block;
+      width: 300px;
+      height: 230px;
+      background-color: white;
+      border-radius: 10px;
+      margin: 10px 0 0 20px;
+      border: 1px solid #74B816;
+      vertical-align: top;
+
+      .box{
+        margin: 15px 0 15px 20px;
+        &__val{
+          width: 70px;
+          height: 70px;
+          display: inline-block;
+        }
+        .status{
+          display: inline-block;
+          font-size: 10px;
+          vertical-align: top;
+        }
+        &__name{
+          font-size: 10px;
+        }
+        &__size{
+          font-size: 10px;
+        }
+      }
+    }
+// main-contents 終了タグ
+}

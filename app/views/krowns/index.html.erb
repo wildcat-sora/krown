@@ -1,1 +1,91 @@
-hellow
+<div class="contents">
+
+  <%= render "./shared/sidecontents" %>
+
+<div class="main-contents">
+  <!-- メインヘッダー部定義 -->
+  <div class="main-header">
+    <div class="header-left">
+      <div class="header-left__result">技術ノート／スキル・技術</div>
+      <div class="header-left__result_p1">3つの登録ジャンルがあります。</div>
+      <div class="header-left__result_p1">256個の登録ノウハウがあります。</div>
+    </div>
+  </div>
+
+  <!-- メインテーブル定義 -->
+  <div class="main-tab">
+    <div class="table-area">
+      <table cellspacing="0" cellpadding="5">
+        <!-- ヘッダ部定義 -->
+        <tr>
+        <th width="8%">ユーザ</th>
+        <th width="4%">番号</th>
+        <th width="4%">作成日</th>
+        <th width="4%">時刻</th>
+        <th width="20%">タイトル</th>
+        <th width="7%">file</th>
+        <th width="25%">内容</th>
+        </tr>
+        <!-- データ部定義 -->
+
+        <% for num in 1..10 do %>
+          <tr>
+            <td>test</td>
+            <td><%= num %></td>
+            <td>10/14</td>
+            <td>9:00</td>
+            <td>pingが通らないのはなぜか。</td>
+            <td>○img</td>
+            <td class="td-decoration">pingはICMP というプロトコルを使って通信します。    </td>
+          </tr>
+        <% end %>
+      </table>
+      </div>
+    </div>
+
+    <!-- クラウン表示 -->
+    <div class="main-krown-area">
+      <div class="krown-header">
+        <div class="krown-header__category">カテゴリ： スキル・技術</div>
+        <div class="krown-header__date">作成日:2019/4/14</div>
+        <div class="krown-header__date">更新日:2019/4/16</div>
+      </div>
+      <div class="krown-title">No.10 pingが通らないのはなぜか。</div>
+      <div class="krown-border"></div>
+      <div class="krown-value">
+PING は、ICMP というプロトコルを使って通信します。
+ほとんどのネットワーク機器は、言うなれば「ICMP サーバ」というソフトウェアが常時動作しているような状態になっていて、
+それが Ping によるICMP データに対し、応答を返しているのです。ですので、途中のルーターでICMP を通さないようにするとか、ファイヤウォールでICMPに応答しないようにするとか、そういったことになっていると「ネットワーク的に何の問題もないけど、Pingには応答しない」という状況になります。
+      </div>
+    </div>
+
+    <!-- クラウンイメージ表示 -->
+    <div class="main-krown-file">
+      <div class="box">
+        <div class="box__val">
+          <img src="https://www.tcmobile.jp/dev_blog/wp-content/uploads/2015/09/022c1ca11803434db443573590757756.png" width="70" height="70">
+        </div>
+        <div class="status">
+          <div class="status__name">sample_file.img</div>
+          <div class="status__size">100kb</div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box__val">
+          <img src="https://pics.prcm.jp/ad56d880abad8/72758073/jpeg/72758073.jpeg" width="70" height="70">
+        </div>
+        <div class="status">
+          <div class="status__name">sample_file.img</div>
+          <div class="status__size">100kb</div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <!-- main-contents 終了タグ -->
+  </div>
+
+<!-- contents 終了タグ -->
+</div>
+

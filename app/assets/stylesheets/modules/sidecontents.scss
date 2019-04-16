@@ -1,0 +1,113 @@
+.l-contents{
+  width: 300px;
+  background-color: #94d82d;
+  display: inline-block;
+  height: 100vh;
+
+// ユーザ情報表示項目
+  .user-info{
+    width: calc(100% - 40px);
+    height: 50px;
+    padding: 20px;
+
+    &__img{
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background-color: #74b816;
+      border-radius: 50%;
+    }
+
+    &__name{
+      display: inline-block;
+      vertical-align: top;
+      width: 130px;
+      height: 30px;
+      padding: 13px 10px;
+    }
+  }
+
+// ユーザノート表示項目
+  .krown-list{
+    height: 200px;
+    width: 100%;
+    margin: 40px 0;
+    overflow: auto;
+
+    .note-info{
+      width: calc(100% - 40px);
+      height: 30px;
+      padding: 10px 0 0 20px;
+      &__icon{
+        width: 20px;
+        font-size: 16px;
+        margin: 7px;
+        display: inline-block;
+      }
+      &__name{
+        display: inline-block;
+        vertical-align: top;
+        width: 180px;
+        padding: 7px 0 0 0;
+        font-size: 16px;
+      }
+    }
+
+    .note-group1{
+      width: calc(100% - 60px);
+      // height: 20px;
+      padding: 5px 0 0 50px;
+      &__icon{
+        width:  10px;
+        margin: 7px 0 0 15px;
+        display:inline-block;
+      }
+      &__name{
+        display: inline-block;
+        vertical-align: top;
+        width: 180px;
+        padding: 7px 0 0 7px;
+      }
+    }
+  }
+
+  .operation_area{
+  width: 100%;
+  margin: 40px 0 0 0;
+
+    .action{
+      width: calc(100% - 40px);
+      padding: 10px 0 0 20px;
+      &__icon{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+
+        margin: 7px;
+        background-color: #74b816;
+        border-radius: 50%;
+        text-align: center;
+        i{
+          font-size: 16px;
+          line-height: 30px;
+        }
+      }
+      &__name{
+        display: inline-block;
+        vertical-align: top;
+        width: 180px;
+        padding: 10px 0 0 0;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.l-contents-line{
+    float: left;
+    display: inline-block;
+    background-color: #74b816;
+    width: 5px;
+    height: 100vh;
+    margin: 0 auto;
+}

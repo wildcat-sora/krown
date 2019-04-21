@@ -6,7 +6,7 @@
   <!-- メインヘッダー部定義 -->
   <div class="main-header">
     <div class="header-left">
-      <div class="header-left__result">技術ノート／スキル・技術</div>
+      <div class="header-left__result">知識カテゴリ／<%= @knowledges[0].genre.in_genre %></div>
       <div class="header-left__result_p1">3つの登録ジャンルがあります。</div>
       <div class="header-left__result_p1">256個の登録ノウハウがあります。</div>
     </div>
@@ -20,23 +20,22 @@
         <tr>
         <th width="8%">ユーザ</th>
         <th width="4%">番号</th>
-        <th width="4%">作成日</th>
-        <th width="4%">時刻</th>
+        <th width="8%">作成日時</th>
         <th width="20%">タイトル</th>
         <th width="7%">file</th>
         <th width="25%">内容</th>
         </tr>
         <!-- データ部定義 -->
 
-        <% for num in 1..10 do %>
+
+        <% @knowledges.each do |knowledge| %>
           <tr>
-            <td>test</td>
-            <td><%= num %></td>
-            <td>10/14</td>
-            <td>9:00</td>
-            <td>pingが通らないのはなぜか。</td>
+            <td><%= knowledge.user.name %></td>
+            <td><%= knowledge.id %></td>
+            <td><%= knowledge.created_at.strftime('%m/%d %H:%M') %></td>
+            <td><%= knowledge.title %></td>
             <td>○img</td>
-            <td class="td-decoration">pingはICMP というプロトコルを使って通信します。    </td>
+            <td class="td-decoration"><%= knowledge.content.truncate(35) %></td>
           </tr>
         <% end %>
       </table>
@@ -46,16 +45,14 @@
     <!-- クラウン表示 -->
     <div class="main-krown-area">
       <div class="krown-header">
-        <div class="krown-header__category">カテゴリ： スキル・技術</div>
-        <div class="krown-header__date">作成日:2019/4/14</div>
-        <div class="krown-header__date">更新日:2019/4/16</div>
+        <div class="krown-header__category">カテゴリ： <%= @knowledges[0].genre.in_genre %></div>
+        <div class="krown-header__date">作成日:<%= @knowledges[0].created_at.strftime('%y/%m/%d') %></div>
+        <div class="krown-header__date">更新日:<%= @knowledges[0].updated_at.strftime('%y/%m/%d') %></div>
       </div>
-      <div class="krown-title">No.10 pingが通らないのはなぜか。</div>
+      <div class="krown-title"><%= @knowledges[0].title %></div>
       <div class="krown-border"></div>
       <div class="krown-value">
-PING は、ICMP というプロトコルを使って通信します。
-ほとんどのネットワーク機器は、言うなれば「ICMP サーバ」というソフトウェアが常時動作しているような状態になっていて、
-それが Ping によるICMP データに対し、応答を返しているのです。ですので、途中のルーターでICMP を通さないようにするとか、ファイヤウォールでICMPに応答しないようにするとか、そういったことになっていると「ネットワーク的に何の問題もないけど、Pingには応答しない」という状況になります。
+        <%= simple_format(@knowledges[0].content) %>
       </div>
     </div>
 

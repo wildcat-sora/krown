@@ -72,8 +72,8 @@
   }
 
   .operation_area{
-  width: 100%;
-  margin: 40px 0 0 0;
+    width: 100%;
+    margin: 40px 0 0 0;
 
     .action{
       width: calc(100% - 40px);
@@ -98,6 +98,7 @@
         width: 180px;
         padding: 10px 0 0 0;
         font-size: 16px;
+        text-decoration: none;
       }
     }
   }

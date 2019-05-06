@@ -59,7 +59,9 @@
       <% end %>
       <div class="action">
         <div class="action__icon"><i class="fas fa-plus"></i></div>
-        <div class="action__name">メモ追加</div>
+        <div class="action__name">
+          <%= link_to "メモ追加", edit_krown_path(2), method: :get %>
+        </div>
       </div>
       <div class="action">
         <div class="action__icon"><i class="fas fa-minus"></i></div>

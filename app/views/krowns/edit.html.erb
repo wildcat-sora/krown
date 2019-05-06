@@ -1,20 +1,96 @@
 <!-- 編集画面 -->
-
+<title>ナレッジベース：メモ追加</title>
 <div class="contents">
   <!-- サイドコンテンツ(左側)表示 -->
   <%= render "./shared/sidecontents" %>
 
   <div class="edit-form">
-    <% form_for [@knowledge] do |f| %>
-
+    <%= form_for (@knowledge), url:  krowns_path(:id), method: :post do |f| %>
+    <!-- 基本情報入力フォーム -->
       <div class="edit-basic">
+        <%= f.label :id,"知識番号：" ,class: "edit-basic__lavel"%>
+        <%= f.text_field :id ,class: "edit-basic__value" ,value: @max_id, readonly:true %>
+        <%= f.label :user_id,"User-ID：" ,class: "edit-basic__lavel"%>
+        <%= f.text_field :user_id ,class: "edit-basic__value" ,value: '未ログイン', readonly:true %>
+        <div class="line-fied"></div>
+    <!-- 日付指定フォーム -->
+        <%= f.label :created_at,"作成日時：" ,class: "edit-basic__lavel"%>
+        <%= f.text_field :created_at ,class: "edit-basic__value" ,value: Time.now.strftime('%Y/%m/%d %H:%M'), readonly:true %>
+        <%= f.label :updated_at,"更新日時：" ,class: "edit-basic__lavel"%>
+        <%= f.text_field :updated_at ,class: "edit-basic__value" ,value: Time.now.strftime('%Y/%m/%d %H:%M'), readonly:true %>
+      </div>
 
-    </div>
+      <div class="edit-contents">
+      <!-- シークレットモード選択フォーム -->
+        <div class="secret-form">
+          <div class="secret-form__decoration">
+            <i class="fas fa-key"></i>
+          </div>
+          <%= f.label :yobi_1,"ノウハウを公開します" ,class: "secret-form__lavel"%>
+          <%= f.check_box :yobi_1,class: "secret-form__box" ,checked: true%>
+        </div>
+      <!-- ジャンル選択フォーム -->
+        <div class="genre-form">
+          <div class="genre-form__decoration">
+            <i class="far fa-folder-open"></i>
+          </div>
+          <%= f.label :yobi_1,"ジャンルを登録(必須)" ,class: "genre-form__lavel"%>
+          <%= f.select :yobi_1, ["テスト","test"],{},{class: "genre-form__select"} %>
+        </div>
+      <!-- タイトル入力フォーム -->
+        <div class="title-form">
+          <div class="title-form__decoration">
+            <i class="far fa-hand-point-right"></i>
+          </div>
+          <%= f.label :title,"タイトル登録" ,class: "title-form__lavel" %>
+          <%= f.text_field :title ,class: "title-form__text" %>
+        </div>
 
+        <div class="ac-border"></div>
+
+      <!-- コンテント入力フォーム -->
+        <div class="content-form">
+          <div class="content-form__decoration">
+            <i class="far fa-edit"></i>
+          </div>
+          <%= f.label :content,"コンテンツの登録" ,class: "content-form__lavel" %>
+          <%= f.text_area :content ,class: "content-form__text" ,placeholder:"コンテンツを入力してください（100,000文字まで）"%>
+        </div>
+
+
+      <!-- 検索１入力フォーム -->
+        <div class="search-form">
+          <div class="search-form__decoration">
+            <i class="fas fa-angle-right"></i>
+          </div>
+          <%= f.label :keyword_1,"検索ワード１登録" ,class: "search-form__lavel" %>
+          <%= f.text_field :keyword_1 ,class: "search-form__text" %>
+        </div>
+
+      <!-- 検索２入力フォーム -->
+        <div class="search-form">
+          <div class="search-form__decoration">
+            <i class="fas fa-angle-double-right"></i>
+          </div>
+          <%= f.label :keyword_2,"検索ワード２登録" ,class: "search-form__lavel" %>
+          <%= f.text_field :keyword_2 ,class: "search-form__text" %>
+        </div>
+
+      <!-- edit-contents終了タグ -->
+      </div>
+
+      <!-- イメージ添付エリア（仮置き） -->
+       <div class="edit-image"></div>
+
+      <!-- ボタン定義エリア -->
+       <div class="edit-button">
+          <%= f.submit "登録する" ,class: "edit-button__submit" %>
+          <%= f.submit "キャンセルする" ,class: "edit-button__cancel" %>
+       </div>
+
+    <!-- form_for閉じタグ -->
+    <% end %>
   </div>
-
-  <!-- form_for閉じタグ -->
-  <% end %>
 
 <!-- contents 終了タグ -->
 </div>

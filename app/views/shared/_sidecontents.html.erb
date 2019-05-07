@@ -39,32 +39,32 @@
       <% if user_signed_in? %>
         <div class="action">
           <div class="action__icon"><i class="fas fa-sign-out-alt"></i></div>
-          <div class="action__name">
+          <div class="action__name dis-link">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
         </div>
       <% else %>
         <div class="action">
           <div class="action__icon"><i class="fas fa-sign-in-alt"></i></div>
-          <div class="action__name">
+          <div class="action__name dis-link">
             <%= link_to "ログイン", new_user_session_path %>
           </div>
         </div>
         <div class="action">
           <div class="action__icon"><i class="fas fa-sign-in-alt"></i></div>
-          <div class="action__name">
+          <div class="action__name dis-link">
             <%= link_to "アカウント作成", new_user_registration_path %>
           </div>
         </div>
       <% end %>
       <div class="action">
         <div class="action__icon"><i class="fas fa-plus"></i></div>
-        <div class="action__name">
+        <div class="action__name dis-link">
           <%= link_to "メモ追加", edit_krown_path(2), method: :get %>
         </div>
       </div>
       <div class="action">
-        <div class="action__icon"><i class="fas fa-minus"></i></div>
+        <div class="action__icon dis-link"><i class="fas fa-minus"></i></div>
         <div class="action__name">メモ削除</div>
       </div>
     </div>

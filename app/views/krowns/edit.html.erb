@@ -11,7 +11,14 @@
         <%= f.label :id,"知識番号：" ,class: "edit-basic__lavel"%>
         <%= f.text_field :id ,class: "edit-basic__value" ,value: @max_id, readonly:true %>
         <%= f.label :user_id,"User-ID：" ,class: "edit-basic__lavel"%>
-        <%= f.text_field :user_id ,class: "edit-basic__value" ,value: '未ログイン', readonly:true %>
+        <% if user_signed_in? %>
+          <%= f.text_field :user_id ,class: "edit-basic__value" ,value: current_user.name, readonly:true %>
+          <%= f.hidden_field :user_id  ,value: current_user.id%>
+        <% else %>
+          <%= f.text_field :user_id ,class: "edit-basic__value" ,value: '未ログイン', readonly:true %>
+          <!-- 仮配置.ログインしていない場合は、ユーザid:99ー固定 -->
+          <%= f.hidden_field :user_id  ,value: 99 %>
+        <% end %>
         <div class="line-fied"></div>
     <!-- 日付指定フォーム -->
         <%= f.label :created_at,"作成日時：" ,class: "edit-basic__lavel"%>
@@ -29,14 +36,20 @@
           <%= f.label :yobi_1,"ノウハウを公開します" ,class: "secret-form__lavel"%>
           <%= f.check_box :yobi_1,class: "secret-form__box" ,checked: true%>
         </div>
+
       <!-- ジャンル選択フォーム -->
         <div class="genre-form">
           <div class="genre-form__decoration">
             <i class="far fa-folder-open"></i>
           </div>
           <%= f.label :yobi_1,"ジャンルを登録(必須)" ,class: "genre-form__lavel"%>
-          <%= f.select :yobi_1, ["テスト","test"],{},{class: "genre-form__select"} %>
+          <% if user_signed_in? %>
+            <%= f.select :genre_id, @genres.map{|t| [t.in_genre,t.id]},{},{class: "genre-form__select"} %>
+          <% else %>
+            <%= f.select :genre_id, ["未登録","99"],{},{class: "genre-form__select"} %>
+          <% end %>
         </div>
+
       <!-- タイトル入力フォーム -->
         <div class="title-form">
           <div class="title-form__decoration">
@@ -45,7 +58,6 @@
           <%= f.label :title,"タイトル登録" ,class: "title-form__lavel" %>
           <%= f.text_field :title ,class: "title-form__text" %>
         </div>
-
         <div class="ac-border"></div>
 
       <!-- コンテント入力フォーム -->
@@ -56,7 +68,6 @@
           <%= f.label :content,"コンテンツの登録" ,class: "content-form__lavel" %>
           <%= f.text_area :content ,class: "content-form__text" ,placeholder:"コンテンツを入力してください（100,000文字まで）"%>
         </div>
-
 
       <!-- 検索１入力フォーム -->
         <div class="search-form">

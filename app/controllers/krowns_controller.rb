@@ -1,6 +1,6 @@
 class KrownsController < ApplicationController
-  before_action :select_genre, only: [:edit, :index, :show]
-  before_action :get_max_id, only: [:edit, :index, :show]
+  before_action :select_genre, only: [:edit, :new, :index, :show]
+  before_action :get_max_id, only: [:edit, :new, :index, :show]
 
   def index
     # @knowledgebases = Knowledgebase.order("created_at DESC").page(params[:page]).per(5)
@@ -16,30 +16,27 @@ class KrownsController < ApplicationController
      @knowledge = Knowledge.find(get_knowledge)
   end
 
-  def edit
+  def new
     @knowledge = Knowledge.new
-    @max_id = Knowledge.maximum(:id) + 1
-    # @genres = Genre.where(user_id: current_user.id.to_s)
   end
 
   def create
     @knowledge = Knowledge.new(params_knowledge)
     if @knowledge.save!
       redirect_to root_path, notice: 'ナレッジを作成しました'
-    # else
-    #   render :new
+    else
+      render :new
     end
-
   end
 
 private
 
-  # 編集ページ用、パラメータ取得用メソッド
+  # 詳細ぺージ出力用、検索用メソッド
   def get_knowledge
     params.require(:id)
   end
 
-  # 詳細ぺージ出力用、検索用メソッド
+  # 編集ページ用、パラメータ取得用メソッド
   def params_knowledge
     params.require(:knowledge).permit(
       :id,

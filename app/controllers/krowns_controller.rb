@@ -1,5 +1,6 @@
 class KrownsController < ApplicationController
-
+  before_action :select_genre, only: [:edit, :index, :show]
+  before_action :get_max_id, only: [:edit, :index, :show]
 
   def index
     # @knowledgebases = Knowledgebase.order("created_at DESC").page(params[:page]).per(5)
@@ -18,7 +19,7 @@ class KrownsController < ApplicationController
   def edit
     @knowledge = Knowledge.new
     @max_id = Knowledge.maximum(:id) + 1
-    @genres = Genre.where(user_id: current_user.id.to_s)
+    # @genres = Genre.where(user_id: current_user.id.to_s)
   end
 
   def create
@@ -33,10 +34,12 @@ class KrownsController < ApplicationController
 
 private
 
+  # 編集ページ用、パラメータ取得用メソッド
   def get_knowledge
     params.require(:id)
   end
 
+  # 詳細ぺージ出力用、検索用メソッド
   def params_knowledge
     params.require(:knowledge).permit(
       :id,
@@ -51,5 +54,16 @@ private
       :updated_at
       )
   end
+
+  def select_genre
+    if user_signed_in?
+      @genres = Genre.where(user_id: current_user.id.to_s)
+    end
+  end
+
+  def get_max_id
+    @max_id = Knowledge.maximum(:id) + 1
+  end
+
 
 end

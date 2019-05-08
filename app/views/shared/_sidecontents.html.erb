@@ -3,10 +3,11 @@
 
 <!-- ユーザ情報 -->
     <div class="user-info">
-      <div class="user-info__img"></div>
       <% if user_signed_in? %>
+        <div class="user-info__img"><%= current_user.name[0] %></div>
         <div class="user-info__name"><a><%= current_user.name %></a></div>
       <% else %>
+        <div class="user-info__img">未</div>
         <div class="user-info__name"><a>ログインしていません</a></div>
       <% end %>
     </div>
@@ -19,19 +20,25 @@
         <div class="note-info__name">知識カテゴリ</div>
       </div>
       <div class="note-group1">
-        <div class="note-group1__icon"><i class="fas fa-horse-head"></i></div>
-        <div class="note-group1__name">スキル・技術</div>
+        <div class="note-group1__icon"><i class="fas fa-frog"></i></div>
+        <div class="note-group1__name">未ジャンル</div>
       </div>
 
-      <!-- 以下、ページは仮置き -->
-      <div class="note-group1">
-        <div class="note-group1__icon"><i class="fas fa-dove"></i></div>
-        <div class="note-group1__name">ニュース</div>
-      </div>
-      <div class="note-group1">
-        <div class="note-group1__icon"><i class="fas fa-frog"></i></div>
-        <div class="note-group1__name">はじめてのノート</div>
-      </div>
+      <% if user_signed_in? %>
+        <% @genres.each do | g | %>
+          <div class="note-group1">
+            <div class="note-group1__icon"><i class="fas fa-arrow-right"></i></div>
+            <div class="note-group1__name"><%= g.in_genre %></div>
+          </div>
+        <% end %>
+
+      <% else %>
+        <div class="note-group1">
+          <div class="note-group1__icon"><i class="fas fa-dove"></i></div>
+          <div class="note-group1__name">ログイン後、ジャンル作成を行ってください</div>
+        </div>
+      <% end %>
+
     </div>
 
 <!-- 操作情報 -->
@@ -43,6 +50,12 @@
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </div>
         </div>
+        <div class="action">
+          <div class="action__icon"><i class="fas fa-university"></i></div>
+          <div class="action__name dis-link">
+            <%= link_to "ジャンル追加", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
       <% else %>
         <div class="action">
           <div class="action__icon"><i class="fas fa-sign-in-alt"></i></div>
@@ -51,7 +64,11 @@
           </div>
         </div>
         <div class="action">
-          <div class="action__icon"><i class="fas fa-sign-in-alt"></i></div>
+          <div class="action__icon"><i class="fas fa-university"></i></div>
+          <div class="action__name dis-link">ジャンル分けできません</div>
+        </div>
+        <div class="action">
+          <div class="action__icon"><i class="fas fa-user-plus"></i></div>
           <div class="action__name dis-link">
             <%= link_to "アカウント作成", new_user_registration_path %>
           </div>
@@ -60,7 +77,7 @@
       <div class="action">
         <div class="action__icon"><i class="fas fa-plus"></i></div>
         <div class="action__name dis-link">
-          <%= link_to "メモ追加", edit_krown_path(2), method: :get %>
+          <%= link_to "メモ追加", edit_krown_path(@max_id), method: :get %>
         </div>
       </div>
       <div class="action">

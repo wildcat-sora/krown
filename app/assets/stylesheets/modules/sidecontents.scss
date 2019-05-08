@@ -16,6 +16,9 @@
       height: 50px;
       background-color: #74b816;
       border-radius: 50%;
+      font-size: 30px;
+      text-align: center;
+      line-height: 50px;
     }
 
     &__name{
@@ -66,7 +69,7 @@
         display: inline-block;
         vertical-align: top;
         width: 180px;
-        padding: 7px 0 0 7px;
+        padding: 7px 0 0 13px;
       }
     }
   }

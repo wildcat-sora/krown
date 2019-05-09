@@ -81,10 +81,14 @@
           <%= link_to "メモ追加", new_krown_path, method: :get %>
         </div>
       </div>
-      <div class="action">
-        <div class="action__icon dis-link"><i class="fas fa-minus"></i></div>
-        <div class="action__name">メモ削除</div>
-      </div>
+      <% if @destroy_flg %>
+        <div class="action">
+          <div class="action__icon"><i class="fas fa-minus"></i></div>
+          <div class="action__name dis-link">
+            <%= link_to "メモ削除", krown_path(@knowledge.id), method: :delete %>
+          </div>
+        </div>
+      <% end %>
     </div>
 
 <!-- レフトコンテンツ終了タグ -->

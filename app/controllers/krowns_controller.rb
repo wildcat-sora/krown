@@ -1,6 +1,10 @@
 class KrownsController < ApplicationController
+  #ユーザが所有しているジャンルの抽出
   before_action :select_genre, only: [:edit, :new, :index, :show]
+  #ナレッジ採番用
   before_action :get_max_id, only: [:edit, :new, :index, :show]
+  #ページ用フラグ(削除機能)
+  # before_action @destroy_flg = false
 
   def index
     # @knowledgebases = Knowledgebase.order("created_at DESC").page(params[:page]).per(5)
@@ -14,6 +18,7 @@ class KrownsController < ApplicationController
   def show
      @knowledges = Knowledge.order("created_at DESC").limit(10)
      @knowledge = Knowledge.find(get_knowledge)
+     @destroy_flg = true
   end
 
   def new
@@ -28,6 +33,16 @@ class KrownsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    krown = Knowledge.find(params[:id])
+    if krown.user_id == current_user.id || krown.user_id == 99
+      krown.destroy
+      redirect_to root_path, notice: 'ナレッジを削除しました'
+    end
+  end
+
+
 
 private
 

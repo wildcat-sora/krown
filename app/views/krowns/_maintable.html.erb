@@ -4,8 +4,8 @@
       <!-- ヘッダ部定義 -->
       <tr>
       <th width="8%">ユーザ</th>
-      <th width="4%">番号</th>
       <th width="8%">作成日時</th>
+      <th width="4%">番号</th>
       <th width="20%">タイトル</th>
       <th width="7%">file</th>
       <th width="25%">内容</th>
@@ -16,8 +16,8 @@
       <% @knowledges.each do |knowledge| %>
         <tr>
           <td><%= knowledge.user.name %></td>
-          <td><%= knowledge.id %></td>
           <td><%= knowledge.created_at.strftime('%m/%d %H:%M') %></td>
+          <td><%= link_to knowledge.id, krown_path(knowledge.id) %></td>
           <td><%= link_to knowledge.title.truncate(25), krown_path(knowledge.id) %></td>
           <td>○img</td>
           <td class="td-decoration"><%= knowledge.content.truncate(35) %></td>

@@ -7,8 +7,8 @@
       <th width="8%">作成日時</th>
       <th width="4%">番号</th>
       <th width="20%">タイトル</th>
-      <th width="7%">file</th>
-      <th width="25%">内容</th>
+      <th width="3%">file</th>
+      <th width="29%">内容</th>
       </tr>
       <!-- データ部定義 -->
 
@@ -19,8 +19,13 @@
           <td><%= knowledge.created_at.strftime('%m/%d %H:%M') %></td>
           <td><%= link_to knowledge.id, krown_path(knowledge.id) %></td>
           <td><%= link_to knowledge.title.truncate(25), krown_path(knowledge.id) %></td>
-          <td>○img</td>
-          <td class="td-decoration"><%= knowledge.content.truncate(35) %></td>
+          <!-- 添付ファイル有無フラグチェック -->
+          <% if knowledge.img_flg == "1" %>
+            <td><i class="fas fa-file-alt"></i></td>
+          <% else %>
+            <td> - </td>
+          <% end %>
+          <td class="td-decoration"><%= knowledge.content.truncate(45) %></td>
         </tr>
       <% end %>
     </table>

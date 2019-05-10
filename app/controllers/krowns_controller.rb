@@ -27,6 +27,8 @@ class KrownsController < ApplicationController
 
   def create
     @knowledge = Knowledge.new(params_knowledge)
+    binding.pry
+    @knowledge.img_flg = 1 unless @knowledge.image == ""
     if @knowledge.save!
       redirect_to root_path, notice: 'ナレッジを作成しました'
     else
@@ -62,6 +64,7 @@ private
       :keyword_1,
       :keyword_2,
       :yobi_1,
+      :image,
       :created_at,
       :updated_at
       )
@@ -77,5 +80,8 @@ private
     @max_id = Knowledge.maximum(:id) + 1
   end
 
+  def up_img_flg
+
+  end
 
 end

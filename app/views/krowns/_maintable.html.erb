@@ -25,9 +25,12 @@
           <% else %>
             <td> - </td>
           <% end %>
-          <td class="td-decoration"><%= knowledge.content.truncate(45) %></td>
+          <td class="td-decoration"><%= knowledge.content.truncate(35) %></td>
         </tr>
       <% end %>
     </table>
+      <div class="page-nation">
+        <%= paginate(@knowledges) %>
+      </div>
     </div>
   </div>

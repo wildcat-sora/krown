@@ -1,0 +1,10 @@
+<title>メモのカテゴリを登録</title>
+<p>ジャンルの追加<br></p>
+<%= form_for (@genre), url:  genres_path(:id), method: :post do |f| %>
+      <%= f.label :id,"ユーザ名" ,class: "com-box" %>
+      <%= f.text_field :user_id ,class: "com-box" ,value: current_user.name, readonly:true %>
+      <%= f.hidden_field :user_id  ,value: current_user.id%>
+      <%= f.label :id,"ジャンル名を登録してください" ,class: "com-box" %>
+      <%= f.text_field :in_genre ,class: "com-box" %>
+      <%= f.submit "登録する" %>
+<% end %>

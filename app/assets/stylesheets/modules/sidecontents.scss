@@ -16,6 +16,9 @@
       height: 50px;
       background-color: #74b816;
       border-radius: 50%;
+      font-size: 30px;
+      text-align: center;
+      line-height: 50px;
     }
 
     &__name{
@@ -26,12 +29,23 @@
       padding: 13px 0px 13px 10px;
     }
   }
+    .user-krown-box{
+      width: calc(100% - 40px);
+      height: 50px;
+      padding: 0 0 0 20px;
+      &__sum{
+        font-size: 13px;
+        padding: 0 0 0 20px;
+      }
+    }
+
+
 
 // ユーザノート表示項目
   .krown-list{
-    height: 200px;
+    height: 280px;
     width: 100%;
-    margin: 40px 0;
+    margin: 25px 0;
     overflow: auto;
 
     .note-info{
@@ -66,7 +80,7 @@
         display: inline-block;
         vertical-align: top;
         width: 180px;
-        padding: 7px 0 0 7px;
+        padding: 7px 0 0 13px;
       }
     }
   }

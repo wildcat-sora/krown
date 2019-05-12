@@ -11,7 +11,14 @@
         <%= f.label :id,"知識番号：" ,class: "edit-basic__lavel"%>
         <%= f.text_field :id ,class: "edit-basic__value" ,value: @max_id, readonly:true %>
         <%= f.label :user_id,"User-ID：" ,class: "edit-basic__lavel"%>
-        <%= f.text_field :user_id ,class: "edit-basic__value" ,value: '未ログイン', readonly:true %>
+        <% if user_signed_in? %>
+          <%= f.text_field :user_id ,class: "edit-basic__value" ,value: current_user.name, readonly:true %>
+          <%= f.hidden_field :user_id  ,value: current_user.id%>
+        <% else %>
+          <%= f.text_field :user_id ,class: "edit-basic__value" ,value: '未ログイン', readonly:true %>
+          <!-- 仮配置.ログインしていない場合は、ユーザid:99ー固定 -->
+          <%= f.hidden_field :user_id  ,value: 99 %>
+        <% end %>
         <div class="line-fied"></div>
     <!-- 日付指定フォーム -->
         <%= f.label :created_at,"作成日時：" ,class: "edit-basic__lavel"%>
@@ -29,14 +36,20 @@
           <%= f.label :yobi_1,"ノウハウを公開します" ,class: "secret-form__lavel"%>
           <%= f.check_box :yobi_1,class: "secret-form__box" ,checked: true%>
         </div>
+
       <!-- ジャンル選択フォーム -->
         <div class="genre-form">
           <div class="genre-form__decoration">
             <i class="far fa-folder-open"></i>
           </div>
           <%= f.label :yobi_1,"ジャンルを登録(必須)" ,class: "genre-form__lavel"%>
-          <%= f.select :yobi_1, ["テスト","test"],{},{class: "genre-form__select"} %>
+          <% if user_signed_in? %>
+            <%= f.select :genre_id, @genres.map{|t| [t.in_genre,t.id]},{},{class: "genre-form__select"} %>
+          <% else %>
+            <%= f.select :genre_id, ["未登録","99"],{},{class: "genre-form__select"} %>
+          <% end %>
         </div>
+
       <!-- タイトル入力フォーム -->
         <div class="title-form">
           <div class="title-form__decoration">
@@ -45,7 +58,6 @@
           <%= f.label :title,"タイトル登録" ,class: "title-form__lavel" %>
           <%= f.text_field :title ,class: "title-form__text" %>
         </div>
-
         <div class="ac-border"></div>
 
       <!-- コンテント入力フォーム -->
@@ -57,7 +69,6 @@
           <%= f.text_area :content ,class: "content-form__text" ,placeholder:"コンテンツを入力してください（100,000文字まで）"%>
         </div>
 
-
       <!-- 検索１入力フォーム -->
         <div class="search-form">
           <div class="search-form__decoration">
@@ -65,10 +76,8 @@
           </div>
           <%= f.label :keyword_1,"検索ワード１登録" ,class: "search-form__lavel" %>
           <%= f.text_field :keyword_1 ,class: "search-form__text" %>
-        </div>
 
       <!-- 検索２入力フォーム -->
-        <div class="search-form">
           <div class="search-form__decoration">
             <i class="fas fa-angle-double-right"></i>
           </div>
@@ -76,16 +85,24 @@
           <%= f.text_field :keyword_2 ,class: "search-form__text" %>
         </div>
 
+      <!-- イメージ添付エリア（仮置き） -->
+       <div class="image-form">
+          <div class="image-form__decoration">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <%= f.label :title,"ファイルの添付" ,class: "image-form__lavel" %>
+          <%= f.label :image do %>
+            <%= f.file_field :image ,class: "image-form__file" %>
+          <% end %>
+       </div>
+
       <!-- edit-contents終了タグ -->
       </div>
-
-      <!-- イメージ添付エリア（仮置き） -->
-       <div class="edit-image"></div>
 
       <!-- ボタン定義エリア -->
        <div class="edit-button">
           <%= f.submit "登録する" ,class: "edit-button__submit" %>
-          <%= f.submit "キャンセルする" ,class: "edit-button__cancel" %>
+          <%= button_to "キャンセルする" ,class: "edit-button__cancel" %>
        </div>
 
     <!-- form_for閉じタグ -->

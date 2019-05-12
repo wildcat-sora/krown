@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: krown_production
-  username: krown
+  username: root
   password: <%= ENV['KROWN_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

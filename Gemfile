@@ -83,5 +83,8 @@ gem 'rspec-rails'
 
 # 2019.4.14 gemファイルの追加        〜ここまで
 
+group :production do
+  gem 'unicorn', '5.4.1'
+end
 
 

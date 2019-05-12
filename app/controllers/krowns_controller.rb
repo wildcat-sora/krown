@@ -46,6 +46,10 @@ class KrownsController < ApplicationController
     end
   end
 
+  def search
+    # binding.pry
+    # @products = Knowledge.where('title LIKE(?)', "%#{params[:keyword]}%").limit(20)
+  end
 
 
 private

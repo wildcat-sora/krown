@@ -4,6 +4,7 @@
       <div class="krown-header__date">作成日:<%= @knowledge.created_at.strftime('%y/%m/%d') %></div>
       <div class="krown-header__date">更新日:<%= @knowledge.updated_at.strftime('%y/%m/%d') %></div>
     </div>
+    <div class="krown-no">No.<%= @knowledge.id %></div>
     <div class="krown-title"><%= @knowledge.title %></div>
     <div class="krown-border"></div>
     <div class="krown-value">

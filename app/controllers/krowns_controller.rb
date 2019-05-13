@@ -102,9 +102,4 @@ private
     end
   end
 
-  def zero_set(set_args)
-    @knowledge = {id: 0, genre_id: 0,created_at: "2019-01-01 18:00:00", updated_at: "2019-01-01 18:00:00"}
-  end
-
-
 end

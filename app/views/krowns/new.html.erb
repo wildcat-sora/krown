@@ -1,5 +1,5 @@
 <!-- 編集画面 -->
-<title>ナレッジベース：メモ追加</title>
+<title>subaco メモ追加</title>
 <div class="contents">
   <!-- サイドコンテンツ(左側)表示 -->
   <%= render "./shared/sidecontents" %>
@@ -46,7 +46,8 @@
           <% if user_signed_in? %>
             <%= f.select :genre_id, @genres.map{|t| [t.in_genre,t.id]},{},{class: "genre-form__select"} %>
           <% else %>
-            <%= f.select :genre_id, ["未登録","99"],{},{class: "genre-form__select"} %>
+            <%= f.select :genre_id, ['未登録'],{},{class: "genre-form__select"} %>
+            <%= f.hidden_field :genre_id  ,value: 99 %>
           <% end %>
         </div>
 
@@ -102,7 +103,7 @@
       <!-- ボタン定義エリア -->
        <div class="edit-button">
           <%= f.submit "登録する" ,class: "edit-button__submit" %>
-          <%= button_to "キャンセルする" ,class: "edit-button__cancel" %>
+          <div class="edit-button__cancel dis-link"><%= link_to "キャンセル", root_path %></div>
        </div>
 
     <!-- form_for閉じタグ -->

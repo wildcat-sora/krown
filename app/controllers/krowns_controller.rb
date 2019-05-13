@@ -3,8 +3,8 @@ class KrownsController < ApplicationController
   before_action :select_genre, only: [:edit, :new, :index, :show]
   #ナレッジ採番用
   before_action :get_max_id, only: [:edit, :new, :index, :show]
-  #ページ用フラグ(削除機能)
-  # before_action @destroy_flg = false
+  #カウンター
+  before_action :get_count
 
   def index
     # 最新ナレッジを10件最新
@@ -85,5 +85,18 @@ private
   def get_max_id
     @max_id = Knowledge.maximum(:id) + 1
   end
+
+  def get_count
+    if user_signed_in?
+      @knowledge_count = Knowledge.where(user_id: current_user.id.to_s).count
+      @genre_count = Genre.where(user_id: current_user.id.to_s).count
+    else
+      @knowledge_count = Knowledge.where(user_id: 99).count
+      @genre_count = 0
+    end
+  end
+
+
+
 
 end

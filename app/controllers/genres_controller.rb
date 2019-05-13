@@ -13,7 +13,6 @@ class GenresController < ApplicationController
     end
   end
 
-
 private
   # 編集ページ用、パラメータ取得用メソッド
   def params_genre

@@ -12,8 +12,8 @@
       <% end %>
     </div>
     <div class="user-krown-box">
-      <div class="user-krown-box__sum">3つの登録ジャンルがあります</div>
-      <div class="user-krown-box__sum">256個の登録ノウハウがあります</div>
+      <div class="user-krown-box__sum"><%= @genre_count %>個の登録ジャンルがあります</div>
+      <div class="user-krown-box__sum"><%= @knowledge_count %>個の登録ノウハウがあります</div>
     </div>
 
 <!-- ノート情報 -->
@@ -65,10 +65,6 @@
           <div class="action__name dis-link">
             <%= link_to "ログイン", new_user_session_path %>
           </div>
-        </div>
-        <div class="action">
-          <div class="action__icon"><i class="fas fa-university"></i></div>
-          <div class="action__name dis-link">分類はできません</div>
         </div>
         <div class="action">
           <div class="action__icon"><i class="fas fa-user-plus"></i></div>

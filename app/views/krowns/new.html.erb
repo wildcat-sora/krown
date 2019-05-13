@@ -43,7 +43,7 @@
             <i class="far fa-folder-open"></i>
           </div>
           <%= f.label :yobi_1,"ジャンルを登録(必須)" ,class: "genre-form__lavel"%>
-          <% if user_signed_in? %>
+          <% if user_signed_in? && @genre_count >= 1 %>
             <%= f.select :genre_id, @genres.map{|t| [t.in_genre,t.id]},{},{class: "genre-form__select"} %>
           <% else %>
             <%= f.select :genre_id, ['未登録'],{},{class: "genre-form__select"} %>

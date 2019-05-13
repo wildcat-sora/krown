@@ -11,22 +11,31 @@
       <th width="29%">内容</th>
       </tr>
       <!-- データ部定義 -->
-
-
-      <% @knowledges.each do |knowledge| %>
-        <tr>
-          <td><%= knowledge.user.name %></td>
-          <td><%= knowledge.created_at.strftime('%m/%d %H:%M') %></td>
-          <td><%= link_to knowledge.id, krown_path(knowledge.id) %></td>
-          <td><%= link_to knowledge.title.truncate(25), krown_path(knowledge.id) %></td>
-          <!-- 添付ファイル有無フラグチェック -->
-          <% if knowledge.img_flg == "1" %>
-            <td><i class="fas fa-file-alt"></i></td>
-          <% else %>
+      <% if @knowledge.present? %>
+        <% @knowledges.each do |knowledge| %>
+          <tr>
+            <td><%= knowledge.user.name %></td>
+            <td><%= knowledge.created_at.strftime('%m/%d %H:%M') %></td>
+            <td><%= link_to knowledge.id, krown_path(knowledge.id) %></td>
+            <td><%= link_to knowledge.title.truncate(25), krown_path(knowledge.id) %></td>
+            <!-- 添付ファイル有無フラグチェック -->
+            <% if knowledge.img_flg == "1" %>
+              <td><i class="fas fa-file-alt"></i></td>
+            <% else %>
+              <td> - </td>
+            <% end %>
+            <td class="td-decoration"><%= knowledge.content.truncate(35) %></td>
+          </tr>
+        <% end %>
+      <% else %>
+          <tr>
             <td> - </td>
-          <% end %>
-          <td class="td-decoration"><%= knowledge.content.truncate(35) %></td>
-        </tr>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+          </tr>
       <% end %>
     </table>
       <div class="page-nation">

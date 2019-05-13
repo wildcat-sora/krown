@@ -1,4 +1,5 @@
 <div class="main-krown-area">
+  <% if not @knowledge.nil? %>
     <div class="krown-header">
       <div class="krown-header__category">ジャンル： <%= @knowledge.genre.in_genre %></div>
       <div class="krown-header__date">作成日:<%= @knowledge.created_at.strftime('%y/%m/%d') %></div>
@@ -10,4 +11,15 @@
     <div class="krown-value">
       <%= simple_format(@knowledge.content) %>
     </div>
+  <% else %>
+    <div class="krown-header">
+      <div class="krown-header__category">ジャンル： - </div>
+      <div class="krown-header__date">作成日: - </div>
+      <div class="krown-header__date">更新日: - </div>
+    </div>
+    <div class="krown-no">No. - </div>
+    <div class="krown-title"> 登録がありません</div>
+    <div class="krown-border"></div>
+    <div class="krown-value">該当するジャンルにクラウンの登録がないため、表示する内容がありません</div>
+  <% end %>
 </div>

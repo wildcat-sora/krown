@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :krowns do
     collection do
       get 'search'
+      get 'wordsearch'
     end
   end
 

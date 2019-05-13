@@ -1,6 +1,6 @@
 class KrownsController < ApplicationController
   #ユーザが所有しているジャンルの抽出
-  before_action :select_genre, only: [:edit, :new, :index, :show]
+  before_action :select_genre, only: [:edit, :new, :index, :show, :search ]
   #ナレッジ採番用
   before_action :get_max_id, only: [:edit, :new, :index, :show]
   #カウンター
@@ -15,9 +15,10 @@ class KrownsController < ApplicationController
   end
 
   def show
-     @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
-     @knowledge = Knowledge.find(get_knowledge)
-     @destroy_flg = true
+      @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
+      @knowledge = Knowledge.find(get_knowledge)
+      # zero_set(@knowledge)
+      @destroy_flg = true
   end
 
   def new
@@ -47,10 +48,15 @@ class KrownsController < ApplicationController
   end
 
   def search
-    # binding.pry
-    # @products = Knowledge.where('title LIKE(?)', "%#{params[:keyword]}%").limit(20)
+     @knowledges = Knowledge.where(genre_id: params[:format]).page(params[:page]).per(12).order("created_at DESC")
+     wk_knowledge = Knowledge.where(genre_id: params[:format]).order("created_at DESC").limit(1)
+     @knowledge = wk_knowledge[0]
   end
 
+  def wordsearch
+    redirect_to root_path
+    # @products = Knowledge.where('title LIKE(?)', "%#{params[:keyword]}%").limit(20)
+  end
 
 private
 
@@ -96,7 +102,9 @@ private
     end
   end
 
-
+  def zero_set(set_args)
+    @knowledge = {id: 0, genre_id: 0,created_at: "2019-01-01 18:00:00", updated_at: "2019-01-01 18:00:00"}
+  end
 
 
 end

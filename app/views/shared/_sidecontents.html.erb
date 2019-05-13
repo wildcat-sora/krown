@@ -24,14 +24,17 @@
       </div>
       <div class="note-group1">
         <div class="note-group1__icon"><i class="fas fa-frog"></i></div>
-        <div class="note-group1__name">未分類</div>
+        <div class="note-group1__name dis-link">
+          <%= link_to "未分類", root_path %></div>
       </div>
 
       <% if user_signed_in? %>
         <% @genres.each do | g | %>
           <div class="note-group1">
             <div class="note-group1__icon"><i class="fas fa-arrow-right"></i></div>
-            <div class="note-group1__name"><%= g.in_genre %></div>
+            <div class="note-group1__name dis-link">
+              <%= link_to g.in_genre, search_krowns_path(g.id), method: :get %>
+            </div>
           </div>
         <% end %>
 

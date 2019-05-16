@@ -14,7 +14,7 @@
       <% if @knowledge.present? %>
         <% @knowledges.each do |knowledge| %>
           <tr>
-            <td><%= knowledge.user.name %></td>
+            <td><%= knowledge.user.name.truncate(10) %></td>
             <td><%= knowledge.created_at.strftime('%m/%d %H:%M') %></td>
             <td><%= link_to knowledge.id, krown_path(knowledge.id) %></td>
             <td><%= link_to knowledge.title.truncate(25), krown_path(knowledge.id) %></td>

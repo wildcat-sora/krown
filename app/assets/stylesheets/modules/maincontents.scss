@@ -144,15 +144,19 @@
 
       .box{
         margin: 15px 0 15px 20px;
+        width: 150px;
+        height: 150px;
+
         &__val{
-          width: 70px;
-          height: 70px;
-          display: inline-block;
+          width: 150px;
+          height: 100%;
+          display: block;
         }
         .status{
           display: inline-block;
           font-size: 10px;
           vertical-align: top;
+          margin: 15px 0 0 0;
         }
         &__name{
           font-size: 10px;

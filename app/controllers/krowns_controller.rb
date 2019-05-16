@@ -1,6 +1,6 @@
 class KrownsController < ApplicationController
   #ユーザが所有しているジャンルの抽出
-  before_action :select_genre, only: [:edit, :new, :index, :show, :search ]
+  before_action :select_genre, only: [:edit, :new, :index, :show, :search, :wordsearch ]
   #ナレッジ採番用
   before_action :get_max_id, only: [:edit, :new, :index, :show]
   #カウンター
@@ -17,7 +17,6 @@ class KrownsController < ApplicationController
   def show
       @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
       @knowledge = Knowledge.find(get_knowledge)
-      # zero_set(@knowledge)
       @destroy_flg = true
   end
 
@@ -54,9 +53,12 @@ class KrownsController < ApplicationController
   end
 
   def wordsearch
-    redirect_to root_path
-    # @products = Knowledge.where('title LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    @knowledges = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{params[:keyword]}%","%#{params[:keyword]}%").page(params[:page]).per(12).order("created_at DESC")
+    wk_knowledge = @knowledges.order("created_at DESC").limit(1)
+    @knowledge = wk_knowledge[0]
   end
+
+
 
 private
 

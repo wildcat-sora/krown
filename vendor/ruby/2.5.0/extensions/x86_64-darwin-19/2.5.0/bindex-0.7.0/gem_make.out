@@ -1,0 +1,15 @@
+current directory: /Users/ichikawadaisuke/projects/krown/vendor/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+/Users/ichikawadaisuke/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20200524-42725-c792oi.rb extconf.rb
+creating Makefile
+
+current directory: /Users/ichikawadaisuke/projects/krown/vendor/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/ichikawadaisuke/projects/krown/vendor/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/cruby.bundle
+
+current directory: /Users/ichikawadaisuke/projects/krown/vendor/ruby/2.5.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20200524-42725-39cemq/skiptrace

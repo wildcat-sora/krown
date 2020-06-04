@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  #include '../../services/krown/genre.rb'
 
   def new
     @genre = Genre.new

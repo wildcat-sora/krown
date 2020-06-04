@@ -79,6 +79,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rspec-rails'
+gem 'therubyracer'
 
 
 # 2019.4.14 gemファイルの追加        〜ここまで

@@ -1,0 +1,4 @@
+language: ruby
+sudo: false
+script: 'ci/travis.rb'
+before_install: 'test'

@@ -1,0 +1,13 @@
+current directory: /Users/ichikawadaisuke/projects/krown/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/ext/libv8
+/Users/ichikawadaisuke/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20200601-624-7bcikq.rb extconf.rb --with-system-v8
+creating Makefile
+
+current directory: /Users/ichikawadaisuke/projects/krown/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR=" clean
+
+current directory: /Users/ichikawadaisuke/projects/krown/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/ichikawadaisuke/projects/krown/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR=" install

@@ -91,7 +91,7 @@ private
   end
 
   def get_max_id
-    @max_id = Knowledge.maximum(:id) + 1
+    #@max_id = Knowledge.maximum(:id) + 1
   end
 
   def get_count

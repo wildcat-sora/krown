@@ -1,4 +1,8 @@
+#require Rails.root.join('app/services/krown/krown_table_output_service.rb')
+require Rails.root.join('app/lib/services/*')
+
 class KrownsController < ApplicationController
+
   #ユーザが所有しているジャンルの抽出
   before_action :select_genre, only: [:edit, :new, :index, :show, :search, :wordsearch ]
   #ナレッジ採番用
@@ -7,6 +11,8 @@ class KrownsController < ApplicationController
   before_action :get_count
 
   def index
+    test = KrownTableOutputService.new()
+    test.test_output
     # 最新ナレッジを10件最新
     @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
     # 最新ナレッジのみを取得

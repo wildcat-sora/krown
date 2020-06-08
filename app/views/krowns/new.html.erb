@@ -9,7 +9,7 @@
     <!-- 基本情報入力フォーム -->
       <div class="edit-basic">
         <%= f.label :id,"知識番号：" ,class: "edit-basic__lavel"%>
-        <%= f.text_field :id ,class: "edit-basic__value" ,value: @max_id, readonly:true %>
+        <%= f.text_field :id ,class: "edit-basic__value" ,value: @knowledge.id, readonly:true %>
         <%= f.label :user_id,"User-ID：" ,class: "edit-basic__lavel"%>
         <% if user_signed_in? %>
           <%= f.text_field :user_id ,class: "edit-basic__value" ,value: current_user.name, readonly:true %>

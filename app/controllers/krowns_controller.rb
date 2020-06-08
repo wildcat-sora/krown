@@ -1,33 +1,28 @@
-#require Rails.root.join('app/services/krown/krown_table_output_service.rb')
-require Rails.root.join('app/lib/services/*')
-
 class KrownsController < ApplicationController
 
   #ユーザが所有しているジャンルの抽出
   before_action :select_genre, only: [:edit, :new, :index, :show, :search, :wordsearch ]
-  #ナレッジ採番用
-  before_action :get_max_id, only: [:edit, :new, :index, :show]
   #カウンター
   before_action :get_count
 
   def index
-    test = KrownTableOutputService.new()
-    test.test_output
     # 最新ナレッジを10件最新
     @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
-    # 最新ナレッジのみを取得
-    @setsql = Knowledge.order("created_at DESC").limit(1)
-    @knowledge = @setsql[0]
+    # 最新ナレッジが存在するかどうか
+    set_sql = Knowledge.order("created_at DESC").limit(1)
+    @knowledge = set_sql[0]
   end
 
   def show
-      @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
-      @knowledge = Knowledge.find(get_knowledge)
-      @destroy_flg = true
+    @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
+    @knowledge = Knowledge.find(get_knowledge)
+    @destroy_flg = true
   end
 
   def new
     @knowledge = Knowledge.new
+    # 同時並行性は今回考慮しない(工数考慮)
+    @knowledge.id = set_id(@knowledge)
   end
 
   def create
@@ -96,8 +91,9 @@ private
     end
   end
 
-  def get_max_id
-    #@max_id = Knowledge.maximum(:id) + 1
+  def set_id(knowledge)
+    id = Knowledge.count != 0 ? Knowledge.maximum(:id) + 1 : 1
+    id
   end
 
   def get_count

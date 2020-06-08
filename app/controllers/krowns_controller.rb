@@ -6,7 +6,9 @@ class KrownsController < ApplicationController
   before_action :get_count
 
   def index
-    # 最新ナレッジを10件最新
+    # アプリケーション起動時、ログオンユーザがない場合は新規作成する
+    make_default_user if User.count == 0 && Genre.count == 0
+
     @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
     # 最新ナレッジが存在するかどうか
     set_sql = Knowledge.order("created_at DESC").limit(1)
@@ -23,10 +25,12 @@ class KrownsController < ApplicationController
     @knowledge = Knowledge.new
     # 同時並行性は今回考慮しない(工数考慮)
     @knowledge.id = set_id(@knowledge)
+
   end
 
   def create
     @knowledge = Knowledge.new(params_knowledge)
+
     if @knowledge.save!
       image_check = Knowledge.find(@knowledge.id)
       if image_check.image?
@@ -41,7 +45,7 @@ class KrownsController < ApplicationController
 
   def destroy
     krown = Knowledge.find(params[:id])
-    if krown.user_id == current_user.id || krown.user_id == 99
+    if krown.user_id == current_user.id || krown.user_id == 1
       krown.destroy
       redirect_to root_path, notice: 'ナレッジを削除しました'
     end
@@ -101,9 +105,18 @@ private
       @knowledge_count = Knowledge.where(user_id: current_user.id.to_s).count
       @genre_count = Genre.where(user_id: current_user.id.to_s).count
     else
-      @knowledge_count = Knowledge.where(user_id: 99).count
+      @knowledge_count = Knowledge.where(user_id: 1).count
       @genre_count = 0
     end
   end
+
+ def make_default_user
+   p "test"
+   if User.count == 0
+     MakeDefaultDataService.new(mode: 'new_data')
+
+   end
+ end
+
 
 end

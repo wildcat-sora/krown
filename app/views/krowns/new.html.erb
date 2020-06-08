@@ -9,15 +9,15 @@
     <!-- 基本情報入力フォーム -->
       <div class="edit-basic">
         <%= f.label :id,"知識番号：" ,class: "edit-basic__lavel"%>
-        <%= f.text_field :id ,class: "edit-basic__value" ,value: @max_id, readonly:true %>
+        <%= f.text_field :id ,class: "edit-basic__value" ,value: @knowledge.id, readonly:true %>
         <%= f.label :user_id,"User-ID：" ,class: "edit-basic__lavel"%>
         <% if user_signed_in? %>
           <%= f.text_field :user_id ,class: "edit-basic__value" ,value: current_user.name, readonly:true %>
           <%= f.hidden_field :user_id  ,value: current_user.id%>
         <% else %>
           <%= f.text_field :user_id ,class: "edit-basic__value" ,value: '未ログイン', readonly:true %>
-          <!-- 仮配置.ログインしていない場合は、ユーザid:99ー固定 -->
-          <%= f.hidden_field :user_id  ,value: 99 %>
+          <!-- 仮配置.ログインしていない場合は、ユーザid:1ー固定 -->
+          <%= f.hidden_field :user_id  ,value: 1 %>
         <% end %>
         <div class="line-fied"></div>
     <!-- 日付指定フォーム -->
@@ -47,7 +47,7 @@
             <%= f.select :genre_id, @genres.map{|t| [t.in_genre,t.id]},{},{class: "genre-form__select"} %>
           <% else %>
             <%= f.select :genre_id, ['未登録'],{},{class: "genre-form__select"} %>
-            <%= f.hidden_field :genre_id  ,value: 99 %>
+            <%= f.hidden_field :genre_id  ,value: 1 %>
           <% end %>
         </div>
 

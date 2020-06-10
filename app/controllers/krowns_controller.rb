@@ -31,7 +31,7 @@ class KrownsController < ApplicationController
   def create
     @knowledge = Knowledge.new(params_knowledge)
 
-    if @knowledge.save!
+    if @knowledge.save
       image_check = Knowledge.find(@knowledge.id)
       if image_check.image?
         image_check.img_flg = 1

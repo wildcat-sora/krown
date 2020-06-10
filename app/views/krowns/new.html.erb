@@ -100,6 +100,14 @@
       <!-- edit-contents終了タグ -->
       </div>
 
+      <% if @knowledge.errors.any? %>
+        <div class="edit-message">
+          <% @knowledge.errors.full_messages.each do |message| %>
+            <%= message %><br>
+          <% end %>
+        </div>
+      <% end %>
+
       <!-- ボタン定義エリア -->
        <div class="edit-button">
           <%= f.submit "登録する" ,class: "edit-button__submit" %>

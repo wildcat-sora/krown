@@ -199,7 +199,11 @@
   //  edit-contents終了。
   }
 
-
+  .edit-message{
+    color: red;
+    font-size: 12px;
+    margin: 10px 20px;
+  }
 
   .edit-button{
     display: block;
@@ -217,16 +221,6 @@
 
     }
     &__cancel{
-      // background-color:gray;
-      // margin:20px 20px 0 20px;
-      // border: 1px solid gray;
-      // border-radius:5px;
-      // width: 120px;
-      // height: 30px;
-      // color:white;
-      // font-weight: 400;
-      // font-size: 14px;
-      //       display: inline-block;
       display: inline-block;
       width: 120px;
       background-color: gray;

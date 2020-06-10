@@ -1,10 +1,14 @@
+# 初期データ生成サービス
+# パラメータ：モード
+# 機能概要：パラメータに従って、フェーズに合わせたデータを生成する
+
 class MakeDefaultDataService
 
   def initialize(mode:)
     case mode
-    when "new_data" then
-      make_default_data
-    else
+      when "new_data" then
+        make_default_data
+      else
     end
 
   end

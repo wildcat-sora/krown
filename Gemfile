@@ -79,7 +79,14 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rspec-rails'
+
+# 再開発時にgemを導入
 gem 'therubyracer'
+
+
+# 非同期処理導入
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails'
 
 
 # 2019.4.14 gemファイルの追加        〜ここまで

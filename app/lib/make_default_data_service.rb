@@ -19,6 +19,9 @@ class MakeDefaultDataService
       ## ユーザ未登録でも同アプリが使用出来るようにデフォルトユーザを作成する
       insert_genre_data()
 
+      ##
+      insert_krown_data()
+
     end
 
   end
@@ -36,10 +39,9 @@ class MakeDefaultDataService
 
       default_user.save
     rescue
-      p "データ登録に失敗しました。"
+      p "（ユーザ）データ登録に失敗しました。"
     end
   end
-
   def insert_genre_data
     begin
       default_genre = Genre.new
@@ -52,7 +54,26 @@ class MakeDefaultDataService
 
       default_genre.save
     rescue
-      p "データ登録に失敗しました。"
+      p "（ジャンル）データ登録に失敗しました。"
+    end
+  end
+
+  def insert_krown_data
+    begin
+      default_krown = Knowledge.new
+      insert_data = YAML.load_file('app/lib/yaml/default_krown.yml')
+      insert_data.each do | data |
+        #next if Knowledge.find(data["id"]).count != 0
+        default_krown.id = data["id"]
+        default_krown.user_id = data["user_id"]
+        default_krown.genre_id = data["genre_id"]
+        default_krown.title = data["title"]
+        default_krown.content = data["content"]
+      end
+
+      default_krown.save!
+    rescue
+      p "（ノウハウ）データ登録に失敗しました。"
     end
   end
 

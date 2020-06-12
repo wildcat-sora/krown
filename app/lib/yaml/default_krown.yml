@@ -1,0 +1,23 @@
+- id: 1,
+  user_id: 1
+  genre_id: 1
+  title:  'RubyMineの日本語化'
+  content:  '注意事項として、¥n
+  サイトはIDE　Ecripsになっているが正常に実施出来る。
+  「https://qiita.com/iwaseasahi/items/e59ac503373adf1a7f11」'
+
+
+#  params.require(:knowledge).permit(
+#  :id,
+#  :user_id,
+#  :genre_id,
+#  :title,
+#  :content,
+#  :keyword_1,
+#  :keyword_2,
+#  :yobi_1,
+#  :image,
+#  :created_at,
+#  :updated_at
+#  )
+#  end

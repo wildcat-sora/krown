@@ -35,6 +35,8 @@ class MakeDefaultDataService
       end
 
       default_user.save
+    rescue
+      p "データ登録に失敗しました。"
     end
   end
 
@@ -49,8 +51,9 @@ class MakeDefaultDataService
       end
 
       default_genre.save
+    rescue
+      p "データ登録に失敗しました。"
     end
   end
-
 
 end

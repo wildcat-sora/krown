@@ -26,6 +26,10 @@
         margin: 10px 0 0 20px;
         color: lightgray;
 
+        input::placeholder{
+          color:#c9c9c9;
+        }
+
         &__query{
           display: inline-block;
           border-radius: 5px;

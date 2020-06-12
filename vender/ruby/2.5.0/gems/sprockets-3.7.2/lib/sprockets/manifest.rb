@@ -264,7 +264,7 @@ module Sprockets
     #
     # Examples
     #
-    #   To force only 1 backup to be kept, set count=1 and age=0.
+    #   To force only 1 taihi to be kept, set count=1 and age=0.
     #
     #   To only keep files created within the last 10 minutes, set count=0 and
     #   age=600.

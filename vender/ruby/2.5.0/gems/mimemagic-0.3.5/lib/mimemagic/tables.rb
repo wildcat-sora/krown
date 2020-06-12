@@ -1321,7 +1321,7 @@ class MimeMagic
     'application/x-thomson-cartridge-memo7' => [%w(m7), %w(), "Thomson M\303\251mo7 cartridge"],
     'application/x-thomson-cassette' => [%w(k7), %w(), 'Thomson cassette'],
     'application/x-thomson-sap-image' => [%w(sap), %w(), 'SAP Thomson floppy disk image'],
-    'application/x-trash' => [%w(bak old sik), %w(), 'backup file'],
+    'application/x-trash' => [%w(bak old sik), %w(), 'taihi file'],
     'application/x-troff-man' => [%w(man), %w(text/plain), 'Manpage manual document'],
     'application/x-tzo' => [%w(tar.lzo tzo), %w(application/x-lzop), 'Tar archive (LZO-compressed)'],
     'application/x-ufraw' => [%w(ufraw), %w(application/xml), 'UFRaw ID image'],

@@ -94,7 +94,7 @@ class Pry
 
       # Update the source code so that when it has the right owner when eval'd.
       #
-      # This (combined with definition_for_owner) is backup for the case that
+      # This (combined with definition_for_owner) is taihi for the case that
       # wrap_for_nesting fails, to ensure that the method will stil be defined in
       # the correct place.
       #

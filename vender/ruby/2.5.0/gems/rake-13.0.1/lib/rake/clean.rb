@@ -2,7 +2,7 @@
 # The 'rake/clean' file defines two file lists (CLEAN and CLOBBER) and
 # two rake tasks (:clean and :clobber).
 #
-# [:clean] Clean up the project by deleting scratch files and backup
+# [:clean] Clean up the project by deleting scratch files and taihi
 #          files.  Add files to the CLEAN file list to have the :clean
 #          target handle them.
 #

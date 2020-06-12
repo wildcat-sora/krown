@@ -218,6 +218,26 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="autoprefixer-rails (vbundled(9.7.6)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/autoprefixer-rails-9.7.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/autoprefixer-rails-9.7.6/spec" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/autoprefixer-rails-9.7.6/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/autoprefixer-rails-9.7.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/autoprefixer-rails-9.7.6/spec" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/autoprefixer-rails-9.7.6/vendor" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/autoprefixer-rails-9.7.6/spec" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="bcrypt (vbundled(3.1.13)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -280,6 +300,33 @@
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootsnap-1.4.6/bin" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootsnap-1.4.6/ext" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootsnap-1.4.6/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bootstrap-sass (vbundled(3.4.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/assets" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/templates" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/assets" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/templates" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/assets" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/bootstrap-sass-3.4.1/templates" />
         </excluded>
       </library>
     </orderEntry>
@@ -727,26 +774,26 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="ffi (vbundled(1.13.0)) [path][gem]" type="rubylib">
+      <library name="ffi (vbundled(1.13.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/.github" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/samples" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/samples" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/.github" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/samples" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/samples" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/.github" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.0/samples" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/.github" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ffi-1.13.1/samples" />
         </excluded>
       </library>
     </orderEntry>
@@ -847,15 +894,15 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="i18n (vbundled(1.8.2)) [path][gem]" type="rubylib">
+      <library name="i18n (vbundled(1.8.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/i18n-1.8.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/i18n-1.8.3/lib" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/i18n-1.8.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/i18n-1.8.3/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -908,6 +955,26 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jbuilder-2.10.0/test" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jbuilder-2.10.0/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jquery-rails (vbundled(4.4.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jquery-rails-4.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jquery-rails-4.4.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jquery-rails-4.4.0/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jquery-rails-4.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jquery-rails-4.4.0/test" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jquery-rails-4.4.0/vendor" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/jquery-rails-4.4.0/test" />
         </excluded>
       </library>
     </orderEntry>
@@ -999,35 +1066,6 @@
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/kgio-2.11.3/ext" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/kgio-2.11.3/test" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/kgio-2.11.3/archive" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="libv8 (vbundled(3.16.14.19)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/spec" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/vendor" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/patches" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/release" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/spec" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/vendor" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/patches" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/release" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/spec" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/patches" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/libv8-3.16.14.19/release" />
         </excluded>
       </library>
     </orderEntry>
@@ -1187,6 +1225,27 @@
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_portile2-2.4.0/test" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_portile2-2.4.0/concourse" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="mini_racer (vbundled(0.2.14)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_racer-0.2.14/bin" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_racer-0.2.14/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_racer-0.2.14/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_racer-0.2.14/bin" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_racer-0.2.14/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_racer-0.2.14/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_racer-0.2.14/bin" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/mini_racer-0.2.14/ext" />
         </excluded>
       </library>
     </orderEntry>
@@ -1634,38 +1693,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="ref (vbundled(2.0.0)) [path][gem]" type="rubylib">
+      <library name="regexp_parser (vbundled(1.7.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ref-2.0.0/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ref-2.0.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.1/spec" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ref-2.0.0/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ref-2.0.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.1/spec" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/ref-2.0.0/ext" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="regexp_parser (vbundled(1.7.0)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.0/spec" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.0/spec" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/regexp_parser-1.7.1/spec" />
         </excluded>
       </library>
     </orderEntry>
@@ -1871,6 +1912,27 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="sassc (vbundled(2.4.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sassc-2.4.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sassc-2.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sassc-2.4.0/test" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sassc-2.4.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sassc-2.4.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sassc-2.4.0/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sassc-2.4.0/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sassc-2.4.0/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="selenium-webdriver (vbundled(3.142.7)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1884,20 +1946,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="sexp_processor (vbundled(4.14.1)) [path][gem]" type="rubylib">
+      <library name="sexp_processor (vbundled(4.15.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.14.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.14.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.15.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.15.0/test" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.14.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.14.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.15.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.15.0/test" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.14.1/test" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/sexp_processor-4.15.0/test" />
         </excluded>
       </library>
     </orderEntry>
@@ -1983,27 +2045,6 @@
         </SOURCES>
         <excluded>
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/temple-0.8.2/test" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="therubyracer (vbundled(0.12.3)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/therubyracer-0.12.3/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/therubyracer-0.12.3/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/therubyracer-0.12.3/spec" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/therubyracer-0.12.3/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/therubyracer-0.12.3/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/therubyracer-0.12.3/spec" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/therubyracer-0.12.3/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/therubyracer-0.12.3/spec" />
         </excluded>
       </library>
     </orderEntry>
@@ -2145,7 +2186,6 @@
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/bin" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/ext" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/man" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/test" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/archive" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/examples" />
@@ -2156,7 +2196,6 @@
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/bin" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/ext" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/man" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/test" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/archive" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/examples" />
@@ -2166,7 +2205,6 @@
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/t" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/bin" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/ext" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/man" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/test" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/archive" />
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/unicorn-5.4.1/examples" />
@@ -2219,15 +2257,15 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="websocket-extensions (vbundled(0.1.4)) [path][gem]" type="rubylib">
+      <library name="websocket-extensions (vbundled(0.1.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/websocket-extensions-0.1.4/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/websocket-extensions-0.1.5/lib" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/websocket-extensions-0.1.4/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/websocket-extensions-0.1.5/lib" />
         </SOURCES>
       </library>
     </orderEntry>

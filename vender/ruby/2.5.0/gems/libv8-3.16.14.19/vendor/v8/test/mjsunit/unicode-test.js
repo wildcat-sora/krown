@@ -3917,7 +3917,7 @@ var source =
 "  Define HAVE_MMAP as true to optionally make malloc() use mmap() to\n" +
 "  allocate very large blocks.  These will be returned to the\n" +
 "  operating system immediately after a free(). Also, if mmap\n" +
-"  is available, it is used as a backup strategy in cases where\n" +
+"  is available, it is used as a taihi strategy in cases where\n" +
 "  MORECORE fails to provide space from system.\n" +
 "\n" +
 "  This malloc is best tuned to work with mmap for large requests.\n" +
@@ -3948,9 +3948,9 @@ var source =
 "\n" +
 "/*\n") +
 ("   MMAP_AS_MORECORE_SIZE is the minimum mmap size argument to use if\n" +
-"   sbrk fails, and mmap is used as a backup (which is done only if\n" +
+"   sbrk fails, and mmap is used as a taihi (which is done only if\n" +
 "   HAVE_MMAP).  The value must be a multiple of page size.  This\n" +
-"   backup strategy generally applies only when systems have \"holes\" in\n" +
+"   taihi strategy generally applies only when systems have \"holes\" in\n" +
 "   address space, so sbrk cannot perform contiguous expansion, but\n" +
 "   there is still space available on system.  On systems for which\n" +
 "   this is known to be useful (i.e. most linux kernels), this occurs\n" +
@@ -6311,7 +6311,7 @@ var source =
 "    brk = (char*)(MORECORE(size));\n" +
 "\n" +
 "  /*\n" +
-"    If have mmap, try using it as a backup when MORECORE fails or\n" +
+"    If have mmap, try using it as a taihi when MORECORE fails or\n" +
 "    cannot be used. This is worth doing on systems that have \"holes\" in\n" +
 "    address space, so sbrk cannot extend to give contiguous space, but\n" +
 "    space is available elsewhere.  Note that we ignore mmap max count\n" +
@@ -6326,7 +6326,7 @@ var source =
 "    if (contiguous(av))\n" +
 "      size = (size + old_size + pagemask) & ~pagemask;\n" +
 "\n" +
-"    /* If we are relying on mmap as backup, then use larger units */\n" +
+"    /* If we are relying on mmap as taihi, then use larger units */\n" +
 "    if ((CHUNK_SIZE_T)(size) < (CHUNK_SIZE_T)(MMAP_AS_MORECORE_SIZE))\n" +
 "      size = MMAP_AS_MORECORE_SIZE;\n" +
 "\n" +
@@ -6342,7 +6342,7 @@ var source =
 "\n" +
 "        /*\n" +
 "           Record that we no longer have a contiguous sbrk region.\n" +
-"           After the first time mmap is used as backup, we do not\n" +
+"           After the first time mmap is used as taihi, we do not\n" +
 "           ever rely on contiguous space since this could incorrectly\n" +
 "           bridge regions.\n" +
 "        */\n" +
@@ -8141,7 +8141,7 @@ var source =
 "\n" +
 "  Additionally, if MORECORE ever returns failure for a positive\n" +
 "  request, and HAVE_MMAP is true, then mmap is used as a noncontiguous\n" +
-"  system allocator. This is a useful backup strategy for systems with\n" +
+"  system allocator. This is a useful taihi strategy for systems with\n" +
 "  holes in address spaces -- in this case sbrk cannot contiguously\n" +
 "  expand the heap, but mmap may be able to map noncontiguous space.\n" +
 "\n" +

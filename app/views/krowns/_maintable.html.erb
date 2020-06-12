@@ -16,8 +16,8 @@
           <tr>
             <td><%= knowledge.user.name.truncate(10) %></td>
             <td><%= knowledge.created_at.strftime('%m/%d %H:%M') %></td>
-            <td><%= link_to knowledge.id, krown_path(knowledge.id) %></td>
-            <td><%= link_to knowledge.title.truncate(25), krown_path(knowledge.id) %></td>
+            <td><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true  %></td>
+            <td><%= knowledge.title.truncate(25) %></td>
             <!-- 添付ファイル有無フラグチェック -->
             <% if knowledge.img_flg == "1" %>
               <td><i class="fas fa-file-alt"></i></td>

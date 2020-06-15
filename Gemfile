@@ -20,7 +20,8 @@ gem 'sass-rails', '5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
+# therubyracerを使用していたが、miniracer推奨のため変更（2020/6/11）
+gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -79,8 +80,15 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rspec-rails'
-gem 'therubyracer'
 
+# 再開発時にgemを導入
+#gem 'therubyracer'
+
+# 非同期処理導入
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+
+#gem 'autoprefixer-rails', '~> 8.0'
 
 # 2019.4.14 gemファイルの追加        〜ここまで
 

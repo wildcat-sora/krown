@@ -25,3 +25,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/vender/ruby/2.5.0/cache/*
+
+/public/uploads/*
+
+/.idea/krown.iml
+/Users/ichikawadaisuke/projects/krown/.idea/krown.iml
+/.idea/*

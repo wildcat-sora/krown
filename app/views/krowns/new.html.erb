@@ -91,10 +91,11 @@
           <div class="image-form__decoration">
             <i class="fas fa-file-alt"></i>
           </div>
-          <%= f.label :title,"ファイルの添付" ,class: "image-form__lavel" %>
+          <%= f.label :title,"ファイル添付" ,class: "image-form__lavel" %>
           <%= f.label :image do %>
             <%= f.file_field :image ,class: "image-form__file" %>
           <% end %>
+          <font size="2" color="#6495ed">※ 申し訳ありませんが、画像添付機能は未実装です。添付しないで下さい。</font>
        </div>
 
       <!-- edit-contents終了タグ -->

@@ -1,25 +1,48 @@
 <div class="main-krown-area">
-  <% if not @knowledge.nil? %>
-    <div class="krown-header">
-      <div class="krown-header__category">ジャンル： <%= @knowledge.genre.in_genre %></div>
-      <div class="krown-header__date">作成日:<%= @knowledge.created_at.strftime('%y/%m/%d') %></div>
-      <div class="krown-header__date">更新日:<%= @knowledge.updated_at.strftime('%y/%m/%d') %></div>
+  <div class="krown-area">
+    <% if not @knowledge.nil? %>
+      <div class="krown-header">
+        <div class="krown-header__category">ジャンル： <%= @knowledge.genre.in_genre %></div>
+        <div class="krown-header__date">作成日:<%= @knowledge.created_at.strftime('%y/%m/%d') %></div>
+        <div class="krown-header__date">更新日:<%= @knowledge.updated_at.strftime('%y/%m/%d') %></div>
+      </div>
+      <div class="krown-no">No.<%= @knowledge.id %></div>
+      <div class="krown-title"><%= @knowledge.title %></div>
+      <div class="krown-border"></div>
+      <div class="krown-value">
+        <%#= simple_format(br(@knowledge.content)) %>
+        <%= br(@knowledge.content) %>
+      </div>
+    <% else %>
+      <div class="krown-header">
+        <div class="krown-header__category">ジャンル： - </div>
+        <div class="krown-header__date">作成日: - </div>
+        <div class="krown-header__date">更新日: - </div>
+      </div>
+      <div class="krown-no">No. - </div>
+      <div class="krown-title"> 登録がありません</div>
+      <div class="krown-border"></div>
+      <div class="krown-value">該当するジャンルにクラウンの登録がないため、表示する内容がありません</div>
+    <% end %>
+  </div>
+  <div class="main-krown-file">
+    <div class="box">
+      <%# if @knowledge.img_flg.to_i == 1 %>
+      <% if false %>
+        <%= image_tag(@knowledge.image.url, class: "box__val" )%>
+        <div class="status">
+          <div class="status__name">ファイル名表示は未実装</div>
+          <div class="status__size">xxxxxｰkb</div>
+        </div>
+      <% else %>
+        <div class="box__val">
+          <img src="https://www.tcmobile.jp/dev_blog/wp-content/uploads/2015/09/022c1ca11803434db443573590757756.png" width="70" height="70">
+        </div>
+        <div class="status">
+          <div class="status__name">画像は表示しません</div>
+          <div class="status__size">100kb</div>
+        </div>
+      <% end %>
     </div>
-    <div class="krown-no">No.<%= @knowledge.id %></div>
-    <div class="krown-title"><%= @knowledge.title %></div>
-    <div class="krown-border"></div>
-    <div class="krown-value">
-      <%= simple_format(@knowledge.content) %>
-    </div>
-  <% else %>
-    <div class="krown-header">
-      <div class="krown-header__category">ジャンル： - </div>
-      <div class="krown-header__date">作成日: - </div>
-      <div class="krown-header__date">更新日: - </div>
-    </div>
-    <div class="krown-no">No. - </div>
-    <div class="krown-title"> 登録がありません</div>
-    <div class="krown-border"></div>
-    <div class="krown-value">該当するジャンルにクラウンの登録がないため、表示する内容がありません</div>
-  <% end %>
+  </div>
 </div>

@@ -26,6 +26,10 @@
         margin: 10px 0 0 20px;
         color: lightgray;
 
+        input::placeholder{
+          color:#c9c9c9;
+        }
+
         &__query{
           display: inline-block;
           border-radius: 5px;
@@ -89,80 +93,90 @@
 // 詳細内容表示箇所
   .main-krown-area{
     display: inline-block;
-    width: 700px;
-    height: 230px;
-    background-color: white;
-    border-radius: 10px;
-    margin: 30px 0 0 20px;
-    border: 1px solid #74B816;
-      .krown-header{
-        margin: 10px;
-        &__category{
-          font-size: 16px;
-          display: inline-block;
-        }
-        &__date{
-          font-size: 10px;
-          margin:0 0 0 20px;
-          display: inline-block;
-        }
-      }
-      .krown-no{
-        font-size: 14px;
-        margin: 0 0 5px 10px;
-        display: inline-block;
-      }
-      .krown-title{
-        font-size: 14px;
-        margin: 0 0 5px 10px;
-        display: inline-block;
-      }
-      .krown-border{
-        height: 1px;
-        width: 600px;
-        margin: 0 0 0 10px;
-        background-color: grey;
-      }
-      .krown-value{
-        overflow: auto;
-        height: 130px;
-        margin: 8px 30px 0 10px;
-        font-size: 10px;
-        font-weight: 600;
-      }
-  }
+    height: 240px;
+    //background-color: black;
+    //background-color: rgba(148,216,45,0.06);
 
-    .main-krown-file{
+    .krown-area{
       display: inline-block;
-      width: 300px;
+      width: 700px;
       height: 230px;
       background-color: white;
       border-radius: 10px;
       margin: 30px 0 0 20px;
       border: 1px solid #74B816;
-      vertical-align: top;
-
-      .box{
-        margin: 15px 0 15px 20px;
-        width: 150px;
-        height: 150px;
-
-        &__val{
-          width: 150px;
-          height: 100%;
-          display: block;
+        .krown-header{
+          margin: 10px;
+          &__category{
+            font-size: 16px;
+            display: inline-block;
+          }
+          &__date{
+            font-size: 10px;
+            margin:0 0 0 20px;
+            display: inline-block;
+          }
         }
-        .status{
+        .krown-no{
+          font-size: 14px;
+          margin: 0 0 5px 10px;
           display: inline-block;
-          font-size: 10px;
-          vertical-align: top;
-          margin: 15px 0 0 0;
         }
-        &__name{
-          font-size: 10px;
+        .krown-title{
+          font-size: 14px;
+          margin: 0 0 5px 10px;
+          display: inline-block;
         }
-        &__size{
+        .krown-border{
+          height: 1px;
+          width: 600px;
+          margin: 0 0 0 10px;
+          background-color: grey;
+        }
+        .krown-value{
+          overflow: auto;
+          height: 130px;
+          margin: 8px 30px 0 10px;
           font-size: 10px;
+          font-weight: 600;
+        }
+    }
+
+      .main-krown-file {
+        display: inline-block;
+        width: 300px;
+        height: 230px;
+        background-color: white;
+        border-radius: 10px;
+        margin: 30px 0 0 20px;
+        border: 1px solid #74B816;
+        vertical-align: top;
+
+        .box {
+          margin: 15px 0 15px 20px;
+          width: 150px;
+          height: 150px;
+
+          &__val {
+            width: 150px;
+            height: 100%;
+            display: block;
+          }
+
+          .status {
+            display: inline-block;
+            font-size: 10px;
+            vertical-align: top;
+            margin: 15px 0 0 0;
+          }
+
+          &__name {
+            font-size: 10px;
+          }
+
+          &__size {
+            font-size: 10px;
+          }
         }
       }
     }

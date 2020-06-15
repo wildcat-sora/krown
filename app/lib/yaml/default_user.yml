@@ -1,4 +1,9 @@
 - id: 1,
   password: 111111
-  name: '未登録ユーザ'
+  name: '未登録'
+  email: 'default_user@test.com'
+
+- id: 2,
+  password: 111111
+  name: 'サンプルユーザ'
   email: 'example@test.com'

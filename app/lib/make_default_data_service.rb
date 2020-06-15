@@ -28,41 +28,54 @@ class MakeDefaultDataService
   end
 
   def insert_user_data
-    begin
-      default_user = User.new
       insert_data = YAML.load_file('app/lib/yaml/default_user.yml')
       insert_data.each do | data |
-        default_user.id = data["id"]
-        default_user.password = data["password"]
-        default_user.name = data["name"]
-        default_user.email = data["email"]
-      end
+        begin
+          default_user = User.new
+          default_user.id = data["id"]
+          default_user.password = data["password"]
+          default_user.name = data["name"]
+          default_user.email = data["email"]
 
-      default_user.save
-    rescue
-      p "（ユーザ）データ登録に失敗しました。"
-    end
+          if default_user.save
+            p "（ユーザ）データID：#{default_user.id}を登録しました。"
+          else
+            p "（ユーザ）データID：#{default_user.id}の登録に失敗しました。"
+            p default_user
+            p default_user.errors.full_messages
+          end
+        rescue
+          next
+        end
+      end
   end
+
   def insert_genre_data
-    begin
-      default_genre = Genre.new
       insert_data = YAML.load_file('app/lib/yaml/default_genre.yml')
       insert_data.each do | data |
-        default_genre.id = data["id"]
-        default_genre.user_id = data["user_id"]
-        default_genre.in_genre = data["in_genre"]
-      end
+        begin
+          default_genre = Genre.new
+          default_genre.id = data["id"]
+          default_genre.user_id = data["user_id"]
+          default_genre.in_genre = data["in_genre"]
 
-      default_genre.save
-    rescue
-      p "（ジャンル）データ登録に失敗しました。"
-    end
+          if default_genre.save!
+            p "（ジャンル）データID：#{default_genre.id}を登録しました。"
+          else
+            p "（ジャンル）データID：#{default_genre.id}の登録に失敗しました。"
+            p default_genre
+            p default_genre.errors.full_messages
+          end
+        rescue
+          next
+        end
+
+      end
   end
 
   def insert_krown_data
 
     insert_data = YAML.load_file('app/lib/yaml/default_krown.yml')
-    p insert_data
     insert_data.each do | data |
       begin
         default_krown = Knowledge.new
@@ -70,13 +83,14 @@ class MakeDefaultDataService
         default_krown.user_id = data["user_id"]
         default_krown.genre_id = data["genre_id"]
         default_krown.title = data["title"]
-        p data["content"]
-        default_krown.content = br(data["content"])
+        default_krown.content = data["content"]
 
         if default_krown.save
-          "（ノウハウ）データID：#{default_krown.id}を登録しました。"
+          p "（ノウハウ）データID：#{default_krown.id}を登録しました。"
         else
-          "（ノウハウ）データID：#{default_krown.id}の登録に失敗しました。"
+          p "（ノウハウ）データID：#{default_krown.id}の登録に失敗しました。"
+          p default_krown
+          p default_krown.errors.full_messages
         end
 
       rescue

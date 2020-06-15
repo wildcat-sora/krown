@@ -1,5 +1,6 @@
 class MakeDefaultDataService
   require('yaml')
+  include ApplicationHelper
 
   def initialize(mode:)
     case mode
@@ -59,22 +60,30 @@ class MakeDefaultDataService
   end
 
   def insert_krown_data
-    begin
-      default_krown = Knowledge.new
-      insert_data = YAML.load_file('app/lib/yaml/default_krown.yml')
-      insert_data.each do | data |
-        #next if Knowledge.find(data["id"]).count != 0
+
+    insert_data = YAML.load_file('app/lib/yaml/default_krown.yml')
+    p insert_data
+    insert_data.each do | data |
+      begin
+        default_krown = Knowledge.new
         default_krown.id = data["id"]
         default_krown.user_id = data["user_id"]
         default_krown.genre_id = data["genre_id"]
         default_krown.title = data["title"]
-        default_krown.content = data["content"]
-      end
+        p data["content"]
+        default_krown.content = br(data["content"])
 
-      default_krown.save!
-    rescue
-      p "（ノウハウ）データ登録に失敗しました。"
+        if default_krown.save
+          "（ノウハウ）データID：#{default_krown.id}を登録しました。"
+        else
+          "（ノウハウ）データID：#{default_krown.id}の登録に失敗しました。"
+        end
+
+      rescue
+        next
+      end
     end
+
   end
 
 end

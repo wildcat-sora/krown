@@ -1,4 +1,5 @@
 class KrownsController < ApplicationController
+  include ApplicationHelper
 
   #ユーザが所有しているジャンルの抽出
   before_action :select_genre, only: [:edit, :new, :index, :show, :search, :wordsearch ]
@@ -8,15 +9,14 @@ class KrownsController < ApplicationController
   def index
     # アプリケーション起動時、ログオンユーザがない場合は新規作成する
     make_default_user if User.count == 0 && Genre.count == 0
-
-    @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
+    @knowledges = Knowledge.page(params[:page]).per(12).order("user_id ASC").order("created_at DESC").order("id DESC")
     # 最新ナレッジが存在するかどうか
-    set_sql = Knowledge.order("created_at DESC").limit(1)
+    set_sql = @knowledges.limit(1)
     @knowledge = set_sql[0]
   end
 
   def show
-    @knowledges = Knowledge.page(params[:page]).per(12).order("created_at DESC")
+    @knowledges = Knowledge.page(params[:page]).per(12).order("user_id ASC").order("created_at DESC").order("id DESC")
     @knowledge = Knowledge.find(get_knowledge)
     @destroy_flg = true
   end
@@ -25,7 +25,6 @@ class KrownsController < ApplicationController
     @knowledge = Knowledge.new
     # 同時並行性は今回考慮しない(工数考慮)
     @knowledge.id = set_id(@knowledge)
-
   end
 
   def create
@@ -111,10 +110,8 @@ private
   end
 
  def make_default_user
-   p "test"
    if User.count == 0
      MakeDefaultDataService.new(mode: 'new_data')
-
    end
  end
 

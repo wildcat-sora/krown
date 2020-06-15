@@ -647,22 +647,22 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="devise (vbundled(4.7.1)) [path][gem]" type="rubylib">
+      <library name="devise (vbundled(4.7.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.1/app" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.2/app" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.2/config" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.1/app" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.1/lib" />
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.2/app" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.2/config" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.1/config" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/devise-4.7.2/config" />
         </excluded>
       </library>
     </orderEntry>

@@ -10,7 +10,8 @@
       <div class="krown-title"><%= @knowledge.title %></div>
       <div class="krown-border"></div>
       <div class="krown-value">
-        <%= simple_format(@knowledge.content) %>
+        <%#= simple_format(br(@knowledge.content)) %>
+        <%= br(@knowledge.content) %>
       </div>
     <% else %>
       <div class="krown-header">

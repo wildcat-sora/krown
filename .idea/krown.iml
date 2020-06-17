@@ -26,6 +26,7 @@
       <sourceFolder url="file://$MODULE_DIR$/features" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/vender/ruby/2.5.0/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor" />
     </content>
     <orderEntry type="jdk" jdkName="rbenv: 2.5.1" jdkType="RUBY_SDK" />

@@ -51,7 +51,7 @@ class KrownsController < ApplicationController
   end
 
   def search
-     @knowledges = Knowledge.where(genre_id: params[:format]).page(params[:page]).per(12).order("created_at DESC")
+     @knowledges = Knowledge.where(genre_id: params[:format]).page(params[:page]).per(10  ).order("created_at DESC")
      wk_knowledge = Knowledge.where(genre_id: params[:format]).order("created_at DESC").limit(1)
      @knowledge = wk_knowledge[0]
   end

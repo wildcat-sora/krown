@@ -3,12 +3,12 @@
     <table cellspacing="0" cellpadding="5">
       <!-- ヘッダ部定義 -->
       <tr>
-      <th width="8%">投稿 ユーザ</th>
-      <th width="8%">作成日時</th>
-      <th width="4%">番号</th>
-      <th width="24%">タイトル</th>
+      <th width="7%">投稿 ユーザ</th>
+      <th width="7%">作成日時</th>
+      <th width="3%">番号</th>
+      <th width="23%">タイトル</th>
       <th width="3%">file</th>
-      <th width="25%">内容</th>
+      <th width="28%">内容</th>
       </tr>
       <!-- データ部定義 -->
       <% if @knowledge.present? %>
@@ -24,7 +24,7 @@
             <% else %>
               <td> - </td>
             <% end %>
-            <td class="td-decoration"><%= knowledge.content.truncate(35) %></td>
+            <td class="td-decoration"><%= knowledge.content.truncate(45) %></td>
           </tr>
         <% end %>
       <% else %>

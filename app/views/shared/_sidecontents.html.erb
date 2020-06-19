@@ -23,7 +23,7 @@
         <div class="note-info__name">知識ジャンル</div>
       </div>
       <div class="note-group1">
-        <div class="note-group1__icon"><i class="fas fa-frog"></i></div>
+        <div class="note-group1__icon"><i class="fas fa-book"></i></div>
         <div class="note-group1__name dis-link">
           <%= link_to "未分類(トップページ)", root_path %></div>
       </div>
@@ -38,17 +38,17 @@
         <% end %>
       <% elsif user_signed_in? && @genre_count == 0 %>
         <div class="note-group1">
-          <div class="note-group1__icon"><i class="fas fa-dove"></i></div>
+          <div class="note-group1__icon"><i class="fas fa-child"></i></div>
           <div class="note-group1__name">ジャンル作成を行ってください</div>
         </div>
       <% else %>
         <div class="note-group1">
-          <div class="note-group1__icon"><i class="fas fa-dove"></i></div>
+          <div class="note-group1__icon"><i class="fas fa-child"></i></div>
           <div class="note-group1__name">ログイン後、ジャンル作成を行ってください</div>
         </div>
         <div class="note-group1">
-          <div class="note-group1__icon"><i class="fas fa-kiwi-bird"></i></div>
-          <div class="note-group1__name">メモ削除は出来ません</div>
+          <div class="note-group1__icon"><i class="fas fa-check"></i></div>
+          <div class="note-group1__name">現在メモは削除不可</div>
         </div>
       <% end %>
 

@@ -1,14 +1,14 @@
 .l-contents{
-  width: 300px;
+  width: 200px;
   background-color: #94d82d;
   display: inline-block;
   height: 100vh;
 
 // ユーザ情報表示項目
   .user-info{
-    width: calc(100% - 40px);
-    height: 50px;
-    padding: 20px;
+    //width: calc(100% - 40px);
+    height: 75px;
+    padding: 10px;
 
     &__img{
       display: inline-block;
@@ -24,18 +24,19 @@
     &__name{
       display: inline-block;
       vertical-align: top;
-      width: 180px;
-      height: 30px;
-      padding: 13px 0px 13px 10px;
+      width: 100px;
+      height: 50px;
+      padding: 11px 0px 13px 10px;
+      font-size: 13px;
     }
   }
     .user-krown-box{
+      font-size: 11px;
       width: calc(100% - 40px);
       height: 50px;
-      padding: 0 0 0 20px;
       &__sum{
         font-size: 13px;
-        padding: 0 0 0 20px;
+        padding: 10px 0 0 20px;
       }
     }
 
@@ -43,15 +44,15 @@
 
 // ユーザノート表示項目
   .krown-list{
-    height: 280px;
+    height: 250px;
     width: 100%;
-    margin: 25px 0;
+    margin: 20px 0;
     overflow: auto;
 
     .note-info{
-      width: calc(100% - 40px);
-      height: 30px;
-      padding: 10px 0 0 20px;
+      //width: calc(100% - 40px);
+      height: 40px;
+      padding: 10px 0 0 5px;
       &__icon{
         width: 20px;
         font-size: 16px;
@@ -61,37 +62,39 @@
       &__name{
         display: inline-block;
         vertical-align: top;
-        width: 180px;
+        width: 100px;
         padding: 7px 0 0 0;
         font-size: 16px;
       }
     }
 
     .note-group1{
-      width: calc(100% - 60px);
+      //width: calc(100% - 60px);
       // height: 20px;
-      padding: 5px 0 0 50px;
+      padding: 10px 0 0 15px;
       &__icon{
-        width:  10px;
-        margin: 7px 0 0 15px;
         display:inline-block;
+        width:  10px;
+        margin: 7px 0 0 10px;
+        font-size: 13px;
       }
       &__name{
         display: inline-block;
         vertical-align: top;
-        width: 180px;
-        padding: 7px 0 0 13px;
+        width: 140px;
+        margin: 7px 0 0 10px;
+        font-size: 13px;
       }
     }
   }
 
   .operation_area{
     width: 100%;
-    margin: 40px 0 0 0;
+    margin: 20px 0 0 0;
 
     .action{
-      width: calc(100% - 40px);
-      padding: 10px 0 0 20px;
+      //width: calc(100% - 40px);
+      margin: 10px 0 0 10px;
       &__icon{
         display: inline-block;
         width: 30px;
@@ -109,7 +112,7 @@
       &__name{
         display: inline-block;
         vertical-align: top;
-        width: 180px;
+        width: 100px;
         padding: 10px 0 0 0;
         font-size: 16px;
         text-decoration: none;

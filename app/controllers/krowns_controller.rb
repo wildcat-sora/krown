@@ -9,14 +9,14 @@ class KrownsController < ApplicationController
   def index
     # アプリケーション起動時、ログオンユーザがない場合は新規作成する
     make_default_user if User.count == 0 && Genre.count == 0
-    @knowledges = Knowledge.page(params[:page]).per(12).order("user_id ASC").order("created_at DESC").order("id DESC")
+    @knowledges = Knowledge.page(params[:page]).per(10).order("user_id ASC").order("created_at DESC").order("id DESC")
     # 最新ナレッジが存在するかどうか
     set_sql = @knowledges.limit(1)
     @knowledge = set_sql[0]
   end
 
   def show
-    @knowledges = Knowledge.page(params[:page]).per(12).order("user_id ASC").order("created_at DESC").order("id DESC")
+    @knowledges = Knowledge.page(params[:page]).per(10).order("user_id ASC").order("created_at DESC").order("id DESC")
     @knowledge = Knowledge.find(get_knowledge)
     @destroy_flg = true
   end

@@ -1,5 +1,5 @@
 .main-contents{
-  width: calc(100% - 305px);
+  width: calc(100% - 205px);
   display: inline-block;
   height: 100vh;
   float: right;
@@ -9,9 +9,9 @@
 // ユーザ情報表示項目(ヘッダ)
   .main-header{
     display: inline-block;
-    width: calc(100% - 310px);
-    height: 70px;
-    padding: 20px 0 10px 20px;
+    width: calc(100% - 210px);
+    height: 50px;
+    margin: 10px 0 10px 20px;
     .header-left{
       width: 50%;
       display: inline-block;
@@ -55,17 +55,20 @@
 // テーブル表示箇所
   .main-tab{
     display: inline-block;
-    height: 360px;
+    height: 315px;
     background-color: rgba(148,216,45,0.06);
+    width: 1200px;
+    margin: 20px 0 0 0;
     .table-area{
       // height: 100%;
-      margin: 20px;
+      margin: 20px 0 0 20px;
       font-size:12px;
       font-weight: 400;
       text-align: center;
       color: grey;
+      display: inline-block;
       table {
-        width: 1050px;
+        width: 1150px;
         border: 1px solid gray;
       }
       table th{
@@ -85,7 +88,11 @@
     }
     .page-nation{
       text-align: left;
-      margin: 10px 0 0 15px;
+      margin: 0 0 0 20px;
+      font-size:12px;
+      font-weight: 400;
+      //text-align: center;
+      color: grey;
     }
   }
 
@@ -93,17 +100,17 @@
 // 詳細内容表示箇所
   .main-krown-area{
     display: inline-block;
-    height: 240px;
+    height: 320px;
     //background-color: black;
     //background-color: rgba(148,216,45,0.06);
 
     .krown-area{
       display: inline-block;
-      width: 700px;
-      height: 230px;
+      width: 850px;
+      height: 310px;
       background-color: white;
       border-radius: 10px;
-      margin: 30px 0 0 20px;
+      margin: 10px 0 0 20px;
       border: 1px solid #74B816;
         .krown-header{
           margin: 10px;
@@ -129,15 +136,15 @@
         }
         .krown-border{
           height: 1px;
-          width: 600px;
+          width: 800px;
           margin: 0 0 0 10px;
           background-color: grey;
         }
         .krown-value{
           overflow: auto;
-          height: 130px;
+          height: 210px;
           margin: 8px 30px 0 10px;
-          font-size: 10px;
+          font-size: 12px;
           font-weight: 600;
         }
     }
@@ -145,10 +152,10 @@
       .main-krown-file {
         display: inline-block;
         width: 300px;
-        height: 230px;
+        height: 310px;
         background-color: white;
         border-radius: 10px;
-        margin: 30px 0 0 20px;
+        margin: 10px 0 0 20px;
         border: 1px solid #74B816;
         vertical-align: top;
 

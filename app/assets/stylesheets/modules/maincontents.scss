@@ -6,6 +6,22 @@
   font-family:"ＭＳ ゴシック",sans-serif;
   color:#7F7F7F;
 
+  .main-title{
+    display: inline-block;
+    width: calc(100% - 210px);
+    height: 25px;
+    margin: 10px 0 10px 20px;
+    .title-left{
+      width: 50%;
+      display: inline-block;
+      &__thema{
+        font-size:16px;
+        font-weight: 600;
+      }
+    }
+  }
+
+
 // ユーザ情報表示項目(ヘッダ)
   .main-header{
     display: inline-block;
@@ -69,15 +85,17 @@
       display: inline-block;
       table {
         width: 1150px;
-        border: 1px solid gray;
+        border: 1px solid gainsboro;
       }
       table th{
         background-color: rgba(148,216,45,0.60);
         text-align: center;
-        border: 1px solid gray;
+        //デザイン変更:2020/6/19
+        //border: 1px solid gray;
       }
       table td{
-        border: 1px solid gray;
+        //デザイン変更:2020/6/19
+        //border: 1px solid gray;
         height: 22px;
       }
       .td-decoration{
@@ -107,7 +125,7 @@
     .krown-area{
       display: inline-block;
       width: 850px;
-      height: 310px;
+      height: 260px;
       background-color: white;
       border-radius: 10px;
       margin: 10px 0 0 20px;
@@ -152,7 +170,7 @@
       .main-krown-file {
         display: inline-block;
         width: 300px;
-        height: 310px;
+        height: 260px;
         background-color: white;
         border-radius: 10px;
         margin: 10px 0 0 20px;

@@ -5,15 +5,16 @@
     <div class="user-info">
       <% if user_signed_in? %>
         <div class="user-info__img"><%= current_user.name[0] %></div>
-        <div class="user-info__name"><a><%= current_user.name %></a></div>
+        <div class="user-info__name"><%= current_user.name %>です。</div>
       <% else %>
         <div class="user-info__img">未</div>
-        <div class="user-info__name"><a>ログインしていません</a></div>
+        <div class="user-info__name">ログインしていません</div>
       <% end %>
     </div>
     <div class="user-krown-box">
-      <div class="user-krown-box__sum"><%= @genre_count %>個の登録ジャンルがあります</div>
-      <div class="user-krown-box__sum"><%= @knowledge_count %>個の登録ノウハウがあります</div>
+<!--      ジャンル数を制限するため、ジャンル数表示は廃止-->
+<!--      <div class="user-krown-box__sum">登録ジャンル数：<%#= @genre_count %></div>-->
+      <div class="user-krown-box__sum"><%= @knowledge_count %>個のノウハウが登録されています。</div>
     </div>
 
 <!-- ノート情報 -->
@@ -25,7 +26,7 @@
       <div class="note-group1">
         <div class="note-group1__icon"><i class="fas fa-book"></i></div>
         <div class="note-group1__name dis-link">
-          <%= link_to "未分類(トップページ)", root_path %></div>
+          <%= link_to "トップページ(未分類)", root_path %></div>
       </div>
       <% if user_signed_in? && @genre_count >= 1 %>
         <% @genres.each do | g | %>

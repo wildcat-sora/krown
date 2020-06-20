@@ -1,5 +1,6 @@
 class KrownsController < ApplicationController
   include ApplicationHelper
+  include KrownsHelper
 
   #ユーザが所有しているジャンルの抽出
   before_action :select_genre, only: [:edit, :new, :index, :show, :search, :wordsearch ]
@@ -9,14 +10,16 @@ class KrownsController < ApplicationController
   def index
     # アプリケーション起動時、ログオンユーザがない場合は新規作成する
     make_default_user if User.count == 0 && Genre.count == 0
-    @knowledges = Knowledge.page(params[:page]).per(12).order("user_id ASC").order("created_at DESC").order("id DESC")
+
+    @knowledges = search_knowledge_data(page: params[:page])
     # 最新ナレッジが存在するかどうか
     set_sql = @knowledges.limit(1)
     @knowledge = set_sql[0]
   end
 
   def show
-    @knowledges = Knowledge.page(params[:page]).per(12).order("user_id ASC").order("created_at DESC").order("id DESC")
+    # showアクションで画面表示に使用しない。
+    # @knowledges = search_knowledge_data(page: params[:page])
     @knowledge = Knowledge.find(get_knowledge)
     @destroy_flg = true
   end
@@ -51,13 +54,13 @@ class KrownsController < ApplicationController
   end
 
   def search
-     @knowledges = Knowledge.where(genre_id: params[:format]).page(params[:page]).per(12).order("created_at DESC")
+     @knowledges = Knowledge.where(genre_id: params[:format]).page(params[:page]).per(10  ).order("created_at DESC")
      wk_knowledge = Knowledge.where(genre_id: params[:format]).order("created_at DESC").limit(1)
      @knowledge = wk_knowledge[0]
   end
 
   def wordsearch
-    @knowledges = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{params[:keyword]}%","%#{params[:keyword]}%").page(params[:page]).per(12).order("created_at DESC")
+    @knowledges = search_result_knowledge_data(keyword: params[:keyword], page: params[:page])
     wk_knowledge = @knowledges.order("created_at DESC").limit(1)
     @knowledge = wk_knowledge[0]
   end

@@ -151,6 +151,19 @@
             display: inline-block;
           }
         }
+        .krown-delete{
+          &__button{
+            margin: 0 0 0 20px;
+          }
+          &__label{
+            a {
+              color: white;
+            }
+            a:hover {
+              text-decoration: none;
+            }
+          }
+        }
         .krown-no{
           font-size: 14px;
           margin: 0 0 5px 10px;

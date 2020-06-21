@@ -39,9 +39,12 @@
 // ユーザ情報表示項目(ヘッダ)
   .main-header{
     display: inline-block;
-    width: calc(100% - 210px);
+    //width: calc(100% - 210px);
     height: 50px;
     margin: 10px 0 10px 20px;
+    .input-group{
+      width: 200px;
+    }
     .header-left{
       width: 50%;
       display: inline-block;
@@ -51,7 +54,7 @@
       }
       .search-box{
         display: inline-block;
-        width: 400px;
+        //width: 400px;
         height: 50px;
         margin: 10px 0 0 20px;
         color: lightgray;
@@ -87,7 +90,9 @@
     display: inline-block;
     height: 315px;
     background-color: rgba(148,216,45,0.06);
-    width: 1200px;
+    margin: 0 0 0 30px;
+    width: 1380px;
+
     //margin: 20px 0 0 0;
     .table-area{
       // height: 100%;
@@ -98,7 +103,7 @@
       color: grey;
       display: inline-block;
       table {
-        width: 1150px;
+        width: 1330px;
         border: 1px solid gainsboro;
       }
       table th{
@@ -138,7 +143,7 @@
 
     .krown-area{
       display: inline-block;
-      width: 850px;
+      width: 780px;
       height: 260px;
       background-color: white;
       border-radius: 10px;
@@ -181,7 +186,7 @@
         }
         .krown-border{
           height: 1px;
-          width: 800px;
+          width: 720px;
           margin: 0 0 0 10px;
           background-color: grey;
         }
@@ -196,7 +201,7 @@
 
       .main-krown-file {
         display: inline-block;
-        width: 300px;
+        width: 250px;
         height: 260px;
         background-color: white;
         border-radius: 10px;

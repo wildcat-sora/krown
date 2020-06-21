@@ -1,10 +1,15 @@
 .main-contents{
-  width: calc(100% - 205px);
+  //サイドバー 化に伴い、デザイン変更
+  //width: calc(100% - 205px);
+  width: 100%;
   display: inline-block;
   height: 100vh;
   float: right;
   font-family:"ＭＳ ゴシック",sans-serif;
   color:#7F7F7F;
+  //コンテンツ全体にmarginをかけると、先の要素から判断するため、ブロックが収まるように自動配備される。
+  //これで、レイアウトが崩れるため、marginは設定しない。
+  //margin: 0 0 0 30px;
 
   .main-title{
     display: inline-block;

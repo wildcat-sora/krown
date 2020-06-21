@@ -1,108 +1,119 @@
 <!-- 左コンテンツ -->
   <div class="l-contents">
 
-<!-- ユーザ情報 -->
-    <div class="user-info">
-      <% if user_signed_in? %>
-        <div class="user-info__img"><%= current_user.name[0] %></div>
-        <div class="user-info__name"><%= current_user.name %>です。</div>
-      <% else %>
-        <div class="user-info__img">未</div>
-        <div class="user-info__name">ログインしていません</div>
-      <% end %>
-    </div>
-    <div class="user-krown-box">
-<!--      ジャンル数を制限するため、ジャンル数表示は廃止-->
-<!--      <div class="user-krown-box__sum">登録ジャンル数：<%#= @genre_count %></div>-->
-      <div class="user-krown-box__sum"><%= @knowledge_count %>個のノウハウが登録されています。</div>
-    </div>
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+      <div class="spinner diagonal part-1"></div>
+      <div class="spinner horizontal"></div>
+      <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+      <!-- ユーザ情報 -->
+      <div class="user-info">
+        <% if user_signed_in? %>
+          <div class="user-info__img"><%= current_user.name[0] %></div>
+          <div class="user-info__name"><%= current_user.name %>です。</div>
+        <% else %>
+          <div class="user-info__img">未</div>
+          <div class="user-info__name">ログインしていません</div>
+        <% end %>
+      </div>
+      <div class="user-krown-box">
+        <!--      ジャンル数を制限するため、ジャンル数表示は廃止-->
+        <!--      <div class="user-krown-box__sum">登録ジャンル数：<%#= @genre_count %></div>-->
+        <div class="user-krown-box__sum"><%= @knowledge_count %>個のノウハウが登録されています。</div>
+      </div>
 
-<!-- ノート情報 -->
-    <div class="krown-list">
-      <div class="note-info">
-        <div class="note-info__icon"><i class="fas fa-book-open"></i></div>
-        <div class="note-info__name">知識ジャンル</div>
-      </div>
-      <div class="note-group1">
-        <div class="note-group1__icon"><i class="fas fa-book"></i></div>
-        <div class="note-group1__name dis-link">
-          <%= link_to "トップページ(未分類)", root_path %></div>
-      </div>
-      <% if user_signed_in? && @genre_count >= 1 %>
-        <% @genres.each do | g | %>
+      <!-- ノート情報 -->
+      <div class="krown-list">
+        <div class="note-info">
+          <div class="note-info__icon"><i class="fas fa-book-open"></i></div>
+          <div class="note-info__name">知識ジャンル</div>
+        </div>
+        <div class="note-group1">
+          <div class="note-group1__icon"><i class="fas fa-book"></i></div>
+          <div class="note-group1__name dis-link">
+            <%= link_to "トップページ(未分類)", root_path %></div>
+        </div>
+        <% if user_signed_in? && @genre_count >= 1 %>
+          <% @genres.each do | g | %>
+            <div class="note-group1">
+              <div class="note-group1__icon"><i class="fas fa-arrow-right"></i></div>
+              <div class="note-group1__name dis-link">
+                <%= link_to g.in_genre, search_krowns_path(g.id), method: :get %>
+              </div>
+            </div>
+          <% end %>
+        <% elsif user_signed_in? && @genre_count == 0 %>
           <div class="note-group1">
-            <div class="note-group1__icon"><i class="fas fa-arrow-right"></i></div>
-            <div class="note-group1__name dis-link">
-              <%= link_to g.in_genre, search_krowns_path(g.id), method: :get %>
+            <div class="note-group1__icon"><i class="fas fa-child"></i></div>
+            <div class="note-group1__name">ジャンル作成を行ってください</div>
+          </div>
+        <% else %>
+          <div class="note-group1">
+            <div class="note-group1__icon"><i class="fas fa-child"></i></div>
+            <div class="note-group1__name">ログイン後、ジャンル作成を行ってください</div>
+          </div>
+          <div class="note-group1">
+            <div class="note-group1__icon"><i class="fas fa-check"></i></div>
+            <div class="note-group1__name">現在メモは削除不可</div>
+          </div>
+        <% end %>
+
+      </div>
+
+      <!-- 操作情報 -->
+      <div class="operation_area">
+        <% if user_signed_in? %>
+          <div class="action">
+            <div class="action__icon"><i class="fas fa-sign-out-alt"></i></div>
+            <div class="action__name dis-link">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </div>
+          </div>
+          <div class="action">
+            <div class="action__icon"><i class="fas fa-university"></i></div>
+            <div class="action__name dis-link">
+              <%= link_to "ジャンル追加", new_genre_path, method: :get %>
+            </div>
+          </div>
+        <% else %>
+          <div class="action">
+            <div class="action__icon"><i class="fas fa-sign-in-alt"></i></div>
+            <div class="action__name dis-link">
+              <%= link_to "ログイン", new_user_session_path %>
+            </div>
+          </div>
+          <div class="action">
+            <div class="action__icon"><i class="fas fa-user-plus"></i></div>
+            <div class="action__name dis-link">
+              <%= link_to "アカウント作成", new_user_registration_path %>
             </div>
           </div>
         <% end %>
-      <% elsif user_signed_in? && @genre_count == 0 %>
-        <div class="note-group1">
-          <div class="note-group1__icon"><i class="fas fa-child"></i></div>
-          <div class="note-group1__name">ジャンル作成を行ってください</div>
-        </div>
-      <% else %>
-        <div class="note-group1">
-          <div class="note-group1__icon"><i class="fas fa-child"></i></div>
-          <div class="note-group1__name">ログイン後、ジャンル作成を行ってください</div>
-        </div>
-        <div class="note-group1">
-          <div class="note-group1__icon"><i class="fas fa-check"></i></div>
-          <div class="note-group1__name">現在メモは削除不可</div>
-        </div>
-      <% end %>
 
-    </div>
-
-<!-- 操作情報 -->
-    <div class="operation_area">
-      <% if user_signed_in? %>
         <div class="action">
-          <div class="action__icon"><i class="fas fa-sign-out-alt"></i></div>
+          <div class="action__icon"><i class="fas fa-plus"></i></div>
+
           <div class="action__name dis-link">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "メモ追加", new_krown_path, method: :get %>
           </div>
         </div>
-        <div class="action">
-          <div class="action__icon"><i class="fas fa-university"></i></div>
-          <div class="action__name dis-link">
-            <%= link_to "ジャンル追加", new_genre_path, method: :get %>
+        <% if @destroy_flg && user_signed_in? %>
+          <div class="action">
+            <div class="action__icon"><i class="fas fa-minus"></i></div>
+            <div class="action__name dis-link">
+              <%= link_to "メモ削除", krown_path(@knowledge.id), method: :delete %>
+            </div>
           </div>
-        </div>
-      <% else %>
-        <div class="action">
-          <div class="action__icon"><i class="fas fa-sign-in-alt"></i></div>
-          <div class="action__name dis-link">
-            <%= link_to "ログイン", new_user_session_path %>
-          </div>
-        </div>
-        <div class="action">
-          <div class="action__icon"><i class="fas fa-user-plus"></i></div>
-          <div class="action__name dis-link">
-            <%= link_to "アカウント作成", new_user_registration_path %>
-          </div>
-        </div>
-      <% end %>
-
-      <div class="action">
-        <div class="action__icon"><i class="fas fa-plus"></i></div>
-
-        <div class="action__name dis-link">
-          <%= link_to "メモ追加", new_krown_path, method: :get %>
-        </div>
+        <% end %>
       </div>
-      <% if @destroy_flg && user_signed_in? %>
-        <div class="action">
-          <div class="action__icon"><i class="fas fa-minus"></i></div>
-          <div class="action__name dis-link">
-            <%= link_to "メモ削除", krown_path(@knowledge.id), method: :delete %>
-          </div>
-        </div>
-      <% end %>
+
+      <!-- レフトコンテンツ終了タグ -->
+    </div>
     </div>
 
-<!-- レフトコンテンツ終了タグ -->
-  </div>
 
-  <div class="l-contents-line"></div>
+
+<!--  <div class="l-contents-line"></div>-->

@@ -15,17 +15,17 @@
     display: inline-block;
     width: calc(100% - 210px);
     height: 25px;
-    margin: 10px 0 10px 20px;
+    margin: 10px 0 10px 1270px;
     .title-left{
       &__awesome{
-        font-size:18px;
+        font-size:21px;
         font-weight: 600;
         font-family: 'Meiryo';
         color: mediumseagreen;
         display: inline-block;
       }
       &__thema{
-        font-size:20px;
+        font-size:25px;
         font-weight: 600;
         font-family: 'Meiryo';
         color: silver;
@@ -41,7 +41,7 @@
     display: block;
     //width: calc(100% - 210px);
     //height: 50px;
-    margin: 10px 0 10px 60px;
+    margin: 10px 0 10px 80px;
     .input-group{
       width: 400px;
     }
@@ -146,11 +146,11 @@
 
     .krown-area{
       display: inline-block;
-      width: 800px;
+      width: 850px;
       height: 310px;
       background-color: white;
       border-radius: 10px;
-      margin: 10px 0 0 50px;
+      margin: 10px 0 0 70px;
       border: 1px solid #74B816;
       //ナレッジへの影付け
       box-shadow: 0 10px 15px 0 rgba(60, 194, 235, 0.45);
@@ -194,6 +194,7 @@
           width: 720px;
           margin: 0 0 0 10px;
           background-color: grey;
+          background-color: #308fb8;
         }
         .krown-value{
           overflow: auto;

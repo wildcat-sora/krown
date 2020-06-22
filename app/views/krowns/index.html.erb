@@ -5,19 +5,21 @@
   <!-- サイドコンテンツ(左側)表示 -->
   <%= render "./shared/sidecontents" %>
 
-<div class="main-contents">
+  <div class="main-contents">
 
-  <!-- メインコンテンツタイトル部表示 -->
-  <%= render "maintitle"%>
+    <!-- メインコンテンツタイトル部表示 -->
+    <%= render "maintitle"%>
 
-  <!-- メインテーブル定義 -->
-  <%= render "maintable" %>
+    <div class="main-table-area">
+      <!-- メインテーブル定義 -->
+      <%= render "maintable" %>
 
-  <!-- メインコンテンツヘッダ部表示 -->
-  <%= render "mainheader"%>
+    </div>
+      <!-- メインコンテンツヘッダ部表示 -->
+      <%= render "mainheader"%>
 
-  <!-- クラウン表示 -->
-  <%= render "mainknowledge" %>
+    <!-- クラウン表示 -->
+    <%= render "mainknowledge" %>
 
   <!-- main-contents 終了タグ -->
   </div>

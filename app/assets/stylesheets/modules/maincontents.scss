@@ -15,17 +15,17 @@
     display: inline-block;
     width: calc(100% - 210px);
     height: 25px;
-    margin: 10px 0 10px 20px;
+    margin: 10px 0 10px 1270px;
     .title-left{
       &__awesome{
-        font-size:18px;
+        font-size:21px;
         font-weight: 600;
         font-family: 'Meiryo';
         color: mediumseagreen;
         display: inline-block;
       }
       &__thema{
-        font-size:20px;
+        font-size:25px;
         font-weight: 600;
         font-family: 'Meiryo';
         color: silver;
@@ -38,10 +38,13 @@
 
 // ユーザ情報表示項目(ヘッダ)
   .main-header{
-    display: inline-block;
-    width: calc(100% - 210px);
-    height: 50px;
-    margin: 10px 0 10px 20px;
+    display: block;
+    //width: calc(100% - 210px);
+    //height: 50px;
+    margin: 10px 0 10px 80px;
+    .input-group{
+      width: 400px;
+    }
     .header-left{
       width: 50%;
       display: inline-block;
@@ -51,8 +54,6 @@
       }
       .search-box{
         display: inline-block;
-        width: 400px;
-        height: 50px;
         margin: 10px 0 0 20px;
         color: lightgray;
 
@@ -83,11 +84,18 @@
   }
 
 // テーブル表示箇所
+  .main-table-area{
+    margin: 0 0 0 30px;
+  }
+
   .main-tab{
     display: inline-block;
-    height: 315px;
-    background-color: rgba(148,216,45,0.06);
-    width: 1200px;
+    height: 300px;
+    //background-color: rgba(148,216,45,0.06);
+    background-color: #f7fcf7;
+
+    width: 1380px;
+
     //margin: 20px 0 0 0;
     .table-area{
       // height: 100%;
@@ -98,7 +106,7 @@
       color: grey;
       display: inline-block;
       table {
-        width: 1150px;
+        width: 1330px;
         border: 1px solid gainsboro;
       }
       table th{
@@ -118,9 +126,9 @@
         padding: 0 0 0 8px;
       }
     }
-    .page-nation{
+    .pagination{
       text-align: left;
-      margin: 0 0 0 20px;
+      margin: 10px 30px;
       font-size:12px;
       font-weight: 400;
       //text-align: center;
@@ -139,11 +147,13 @@
     .krown-area{
       display: inline-block;
       width: 850px;
-      height: 260px;
+      height: 310px;
       background-color: white;
       border-radius: 10px;
-      margin: 10px 0 0 20px;
+      margin: 10px 0 0 70px;
       border: 1px solid #74B816;
+      //ナレッジへの影付け
+      box-shadow: 0 10px 15px 0 rgba(60, 194, 235, 0.45);
         .krown-header{
           margin: 10px;
           &__category{
@@ -181,9 +191,10 @@
         }
         .krown-border{
           height: 1px;
-          width: 800px;
+          width: 720px;
           margin: 0 0 0 10px;
           background-color: grey;
+          background-color: #308fb8;
         }
         .krown-value{
           overflow: auto;
@@ -193,21 +204,22 @@
           font-weight: 600;
         }
     }
-
+  // 画像表示エリア
       .main-krown-file {
         display: inline-block;
         width: 300px;
-        height: 260px;
+        height: 310px;
         background-color: white;
         border-radius: 10px;
-        margin: 10px 0 0 20px;
+        margin: 10px 0 0 40px;
         border: 1px solid #74B816;
         vertical-align: top;
 
         .box {
           margin: 15px 0 15px 20px;
-          width: 150px;
-          height: 150px;
+          width: 220px;
+          height: 220px;
+          font-size: 12px;
 
           &__val {
             width: 150px;
@@ -217,17 +229,17 @@
 
           .status {
             display: inline-block;
-            font-size: 10px;
+            //font-size: 10px;
             vertical-align: top;
             margin: 15px 0 0 0;
           }
 
           &__name {
-            font-size: 10px;
+            //font-size: 10px;
           }
 
           &__size {
-            font-size: 10px;
+            //font-size: 10px;
           }
         }
       }

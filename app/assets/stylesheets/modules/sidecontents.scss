@@ -150,9 +150,10 @@ body {
   width: 200px;
   max-width: 100%;
   box-shadow: none;
-  background-color: #FC466B;
+  background-color: #3aabac;
   position: fixed;
-  height: 60px;
+  //デフォルト表示大きさ変更済み（元60px）。
+  height: 50px;
   overflow: hidden;
   z-index: 10;
   float: left;
@@ -161,7 +162,8 @@ body {
   margin: 0 auto;
   display: block;
   height: 100%;
-  margin-top: 60px;
+  //デフォルト表示に合わせる必要あり。
+  margin-top: 50px;
 }
 .mainInner{
   display: table;
@@ -181,10 +183,20 @@ body {
   position: fixed;
   left: 0;
   width: 200px;
-  margin-top: 60px;
+  //デフォルト表示に合わせる必要あり。
+  margin-top: 50px;
   transform: translateX(-250px);
   transition: transform 250ms ease-in-out;
-  background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%);
+  //元設定グラデーション
+  //background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%);
+  //採用
+  background: linear-gradient(180deg, #71b784 50%, #4066ab);
+  //参考
+  //background: linear-gradient(to right, #add96c,#9cd941);
+  //検索ボックス対策
+  z-index: 3;
+  opacity: 0.70;
+
 }
 .sidebarMenuInner{
   margin:0;

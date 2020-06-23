@@ -7,7 +7,7 @@
         <div class="krown-header__date">更新日:<%= @knowledge.updated_at.strftime('%y/%m/%d') %></div>
         <button type="button" class="btn btn-success btn-xs krown-delete__button">
           <div class="krown-delete__label">
-            <%= link_to "メモ削除", krown_path(@knowledge.id), method: :delete  %>
+            <%= link_to "このメモを削除", krown_path(@knowledge.id), method: :delete  %>
           </div>
         </button>
 

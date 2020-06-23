@@ -8,7 +8,6 @@ module KrownsHelper
     data = tmp_data.page(page).per(10)
 
     data
-
   end
 
   def search_result_knowledge_data(keyword: nil, page: nil)

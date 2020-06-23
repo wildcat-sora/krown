@@ -5,7 +5,8 @@
   display: inline-block;
   height: 100vh;
   float: right;
-  font-family:"ＭＳ ゴシック",sans-serif;
+  //font-family:"ＭＳ ゴシック",sans-serif;
+  font-family: Meiryo;
   color:#7F7F7F;
   //コンテンツ全体にmarginをかけると、先の要素から判断するため、ブロックが収まるように自動配備される。
   //これで、レイアウトが崩れるため、marginは設定しない。

@@ -4,6 +4,9 @@
   background: linear-gradient(to right, #add96c,#9cd941);
   display: inline-block;
   height: 100vh;
+  font-weight: normal;
+  font-family: Meiryo;
+  color: white;
 
 // ユーザ情報表示項目
   .user-info{
@@ -195,7 +198,8 @@ body {
   //background: linear-gradient(to right, #add96c,#9cd941);
   //検索ボックス対策
   z-index: 3;
-  opacity: 0.70;
+  opacity: 0.85;
+  border-radius: 0px 25px 25px 0px / 0px 25px 25px 0px;
 
 }
 .sidebarMenuInner{

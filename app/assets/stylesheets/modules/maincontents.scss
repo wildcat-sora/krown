@@ -15,7 +15,7 @@
     display: inline-block;
     width: calc(100% - 210px);
     height: 25px;
-    margin: 10px 0 10px 1270px;
+    margin: 20px 0 40px 60px;
     .title-left{
       &__awesome{
         font-size:21px;
@@ -31,6 +31,13 @@
         color: silver;
         display: inline-block;
         margin: 0 0 0 -7px;
+      }
+      &__subthema{
+        font-size: 10px;
+        font-family: 'Meiryo';
+        margin: 5px 0 20px 0;
+        color: #71b784;
+        text-shadow: 2px 3px 1px rgba(192, 192, 192, 0.20);
       }
     }
   }
@@ -56,7 +63,6 @@
         display: inline-block;
         margin: 10px 0 0 20px;
         color: lightgray;
-
         input::placeholder{
           color:#c9c9c9;
         }
@@ -90,10 +96,9 @@
 
   .main-tab{
     display: inline-block;
-    height: 300px;
+    height: 380px;
     //background-color: rgba(148,216,45,0.06);
     background-color: #f7fcf7;
-
     width: 1380px;
 
     //margin: 20px 0 0 0;
@@ -146,11 +151,11 @@
 
     .krown-area{
       display: inline-block;
-      width: 850px;
-      height: 310px;
+      width: 940px;
+      height: 350px;
       background-color: white;
       border-radius: 10px;
-      margin: 10px 0 0 70px;
+      margin: 10px 0 0 50px;
       border: 1px solid #74B816;
       //ナレッジへの影付け
       box-shadow: 0 10px 15px 0 rgba(60, 194, 235, 0.45);
@@ -179,6 +184,20 @@
             }
           }
         }
+      .krown-update{
+        &__button{
+          margin: 0 0 0 50px;
+        }
+        &__label{
+          a {
+            color: white;
+          }
+          a:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
         .krown-no{
           font-size: 14px;
           margin: 0 0 5px 10px;
@@ -198,7 +217,7 @@
         }
         .krown-value{
           overflow: auto;
-          height: 210px;
+          height: 250px;
           margin: 8px 30px 0 10px;
           font-size: 12px;
           font-weight: 600;
@@ -208,7 +227,7 @@
       .main-krown-file {
         display: inline-block;
         width: 300px;
-        height: 310px;
+        height: 350px;
         background-color: white;
         border-radius: 10px;
         margin: 10px 0 0 40px;

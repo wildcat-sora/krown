@@ -49,9 +49,9 @@
 
 // ユーザノート表示項目
   .krown-list{
-    height: 250px;
+    //height: 250px;
     width: 100%;
-    margin: 20px 0;
+    margin: 20px 0 40px 0;
     overflow: auto;
 
     .note-info{
@@ -183,7 +183,8 @@ body {
   letter-spacing: 1.25px;
 }
 #sidebarMenu {
-  height: 80%;
+  // 画面上に出力される大きさを指定
+  height: 90%;
   position: fixed;
   left: 0;
   //大きめに設定することで、隠し切れないような表現を施す

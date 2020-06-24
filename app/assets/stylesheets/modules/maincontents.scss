@@ -109,8 +109,13 @@
       font-size:12px;
       font-weight: 400;
       text-align: center;
-      color: grey;
+      //color: grey;
+      color: black;
       display: inline-block;
+      a{
+        text-decoration: underline;
+        font-weight: bold;
+      }
       table {
         width: 1330px;
         border: 1px solid gainsboro;
@@ -147,6 +152,8 @@
   .main-krown-area{
     display: inline-block;
     height: 320px;
+    color: black;
+    font-weight: normal;
     //background-color: black;
     //background-color: rgba(148,216,45,0.06);
 
@@ -221,7 +228,7 @@
           height: 250px;
           margin: 8px 30px 0 10px;
           font-size: 12px;
-          font-weight: 600;
+          //font-weight: 600;
         }
     }
   // 画像表示エリア

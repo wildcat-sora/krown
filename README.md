@@ -12,32 +12,9 @@
 
 アプリケーション実装、バージョンについて <br />
 （１）Ruby：　　v2.5.1  <br />
-（2）Rails：　　v5.4.2.3 <br />
+（２）Rails：　　v5.4.2.3 <br />
 （３）MySQL：　　v5.6 <br />
 （４）AWSにてデプロイ <br />
 
 
 ----------------------------
-
-is README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

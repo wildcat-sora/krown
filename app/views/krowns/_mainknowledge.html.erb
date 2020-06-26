@@ -23,6 +23,7 @@
       <div class="krown-border"></div>
       <div class="krown-value">
         <%#= simple_format(br(@knowledge.content)) %>
+<!--        改行コードを変換後、スペースを変換する-->
         <%= gsub_space(br(@knowledge.content)) %>
       </div>
     <% else %>

@@ -1,4 +1,4 @@
-# 改行する場合は<br />を挿入すること。
+# 改行する場合は<br>を挿入すること。
 # ダブルコーテーション,シングルコーテーションは\を入力する
 # タグは挿入しない。
 
@@ -6,50 +6,50 @@
   user_id: 2
   genre_id: 2
   title:  "(sample)RubyMineの日本語化"
-  content:  "注意事項として、サイトはIDE　Ecripsになっているが正常に実施出来る。<br />
+  content:  "注意事項として、サイトはIDE　Ecripsになっているが正常に実施出来る。<br>
   「https://qiita.com/iwaseasahi/items/e59ac503373adf1a7f11」"
 
 - id: 2,
   user_id: 2
   genre_id: 2
   title:  "(sample)モジュールの取り込み、mixin"
-  content:  "リファレンスは以下の通り<br />
-<br />
-  module Radar<br />
-  def distance_to(other)<br />
-  # 平方根の取得<br />
-  # 呼び出した物体の位置と指定したオブジェトとの距離を測定、距離を返す<br />
-  # 指数の計算に利用する演算子「**」を使用する<br />
-  Math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)<br />
-    end<br />
-  end<br />
-<br />
-  class Robot<br />
-  include Radar<br />
-  attr_accessor :name,:x,:y<br />
-<br />
-  def initialize(name)<br />
-  @name = name<br />
-  @x = @y = 0<br />
-  end<br />
-<br />
-    def move(x,y)<br />
-    @x += x; @y += y<br />
-    end<br />
-  end<br />
-<br />
-  robot1 = Robot.new(\"ロボット1号\")<br />
-  robot2 = Robot.new(\"ロボット2号\")<br />
-<br />
-  robot2.move(12,35)<br />
-  puts \"距離は、#{robot1.distance_to(robot2)}です。\"<br />
+  content:  "リファレンスは以下の通り<br>
+<br>
+  module Radar<br>
+  def distance_to(other)<br>
+  # 平方根の取得<br>
+  # 呼び出した物体の位置と指定したオブジェトとの距離を測定、距離を返す<br>
+  # 指数の計算に利用する演算子「**」を使用する<br>
+  Math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2)<br>
+    end<br>
+  end<br>
+<br>
+  class Robot<br>
+  include Radar<br>
+  attr_accessor :name,:x,:y<br>
+<br>
+  def initialize(name)<br>
+  @name = name<br>
+  @x = @y = 0<br>
+  end<br>
+<br>
+    def move(x,y)<br>
+    @x += x; @y += y<br>
+    end<br>
+  end<br>
+<br>
+  robot1 = Robot.new(\"ロボット1号\")<br>
+  robot2 = Robot.new(\"ロボット2号\")<br>
+<br>
+  robot2.move(12,35)<br>
+  puts \"距離は、#{robot1.distance_to(robot2)}です。\"<br>
   "
 
 - id: 3,
   user_id: 2
   genre_id: 2
   title:  "(sample)include?(指定文字列) 配列に文字列が入っていたらBooleanで。"
-  content:  "a = [1,2,3,4,5] ;<br />
+  content:  "a = [1,2,3,4,5] ;<br>
   a.inclede?(3) => true"
 
 - id: 4,
@@ -60,11 +60,11 @@
   Rubyでは決まった名前のメソッドを定義しておくと、何かイベントが発生した時に、そのイベントをフックして任意の処理を実行することができる。method_missingというメソッドによるフック。このメソッドは、あるオブジェクトで未定義のメソッドが呼び出された場合に、Rubyインタプリタから呼び出される。
   以下はmethod_missingにより、メソッドが未定義である旨のメッセージを表示するクラスを定義した例である。このクラスのオブジェクトは、あらゆるメソッド呼び出しに対して、このメッセージを出力することになる。
 
-  class VerboseObject def method_missing(name)<br />
-  puts name.to_s + \" is not defined me!\" end end obj = VerboseObject.new<br />
-  # obj.foo # foo is not defined me! obj.bar<br />
-  # bar is not defined me! obj.buz<br />
-  # buz is not defined me!<br />
+  class VerboseObject def method_missing(name)<br>
+  puts name.to_s + \" is not defined me!\" end end obj = VerboseObject.new<br>
+  # obj.foo # foo is not defined me! obj.bar<br>
+  # bar is not defined me! obj.buz<br>
+  # buz is not defined me!<br>
   "
 
 - id: 5,
@@ -72,7 +72,7 @@
   genre_id: 2
   title:  "delete(検索文字列)メソッド。これはdelete_atとは動きが異なる"
   content: "
-  a = [1,2,3,4,5] ;<br />
+  a = [1,2,3,4,5] ;<br>
   a.delete(3) => 3 → 検索で削除した文字列を出力。Delete_atとは少し違う。(破壊しないよ)
   "
 
@@ -81,7 +81,7 @@
   genre_id: 2
   title:  'こんなメソッドも便利。マイナスメソッド(自身は破壊しない)'
   content: "
-  a = [1,2,3,4,5];<br />
+  a = [1,2,3,4,5];<br>
   a = a - [1,2,3];a=> [4, 5]"
 
 - id: 7,
@@ -89,7 +89,7 @@
   genre_id: 2
   title:  "配列のように追加は出来ない　<<"
   content:  "
-  a << {3,\"z3\"} <br />
+  a << {3,\"z3\"} <br>
   SyntaxError ((irb):170: syntax error, unexpected \',\', expecting =>)
   "
 
@@ -97,12 +97,12 @@
   user_id: 2
   genre_id: 2
   title:  "ループからでれなくなった場合は？"
-  content: "「end」を入力すると回避できる<br />
-  irb(main):009:0> Dir.chdir(#{home})<br />
-            irb(main):010:1* Dir.getwd<br />
-            irb(main):011:1> end<br />
-            Traceback (most recent call last):<br />
-                    1: from /Users/ichikawadaisuke/.rbenv/versions/2.5.1/bin/irb:11:in \\<main\\<br />
+  content: "「end」を入力すると回避できる<br>
+  irb(main):009:0> Dir.chdir(#{home})<br>
+            irb(main):010:1* Dir.getwd<br>
+            irb(main):011:1> end<br>
+            Traceback (most recent call last):<br>
+                    1: from /Users/ichikawadaisuke/.rbenv/versions/2.5.1/bin/irb:11:in \\<main\\<br>
 "
 
 - id: 9,
@@ -115,7 +115,7 @@
   user_id: 2
   genre_id: 2
   title:  "ブロックでファイルオープンするとクローズはいらない"
-  content: "File.open(\"./test0829.txt\"){|f| f.read} <br />
+  content: "File.open(\"./test0829.txt\"){|f| f.read} <br>
   ブロックの中で、ファイルは閉じられる。"
 
 - id: 11,
@@ -140,17 +140,17 @@
   user_id: 2
   genre_id: 2
   title:  "ハッシュをソートする　sort 元オブジェは変更なし"
-  content: "b = {2=>\"t\",1=>\"test\"};<br />
+  content: "b = {2=>\"t\",1=>\"test\"};<br>
   b.sort=> [[1, \"test\"], [2, \"t\"]]"
 
 - id: 15,
   user_id: 2
   genre_id: 2
   title:  "これは使える！　irbで外部コマンドを呼び出す。"
-  content: "require \'shellwords\'<br />
-            => true<br />
-            irb(main):010:0> system(\"ls\")<br />
-bundle	rails	rake	setup	spring	update	yarn<br />
+  content: "require \'shellwords\'<br>
+            => true<br>
+            irb(main):010:0> system(\"ls\")<br>
+bundle  rails rake  setup spring  update  yarn<br>
 => true
 "
 
@@ -158,14 +158,14 @@ bundle	rails	rake	setup	spring	update	yarn<br />
   user_id: 1
   genre_id: 1
   title:  "subacoのついて"
-  content: "素早く、簡単にメモを残すことが出来ます☆<br />
-<br />
-  subacoの機能：<br />
-  　・気づいたメモを残すことができます。<br />
-  　・記録したメモを色やデザインで分けることができます（未実装）<br />
-  　・身近な画像をメモと共に記録出来ます（メンテナンス中）<br />
-<br />
-  どうぞご利用下さい！<br />
+  content: "素早く、簡単にメモを残すことが出来ます☆<br>
+<br>
+  subacoの機能：<br>
+  　・気づいたメモを残すことができます。<br>
+  　・記録したメモを色やデザインで分けることができます（未実装）<br>
+  　・身近な画像をメモと共に記録出来ます（メンテナンス中）<br>
+<br>
+  どうぞご利用下さい！<br>
 　（削除機能や更新機能は6月中には実装をいたします。）
   "
 

@@ -7,7 +7,12 @@ module ApplicationHelper
 
   #データベース入力されているスペースは明示的に置換する
   def gsub_space(str)
-    str.gsub(" ", "&nbsp").html_safe
+    # 半角スペースを変換する
+    str = str.gsub(" ", "&nbsp").html_safe
+    # タブ文字を変換する
+    str = str.gsub(/\t/, "&nbsp&nbsp&nbsp").html_safe
+
+    str
   end
 
 end

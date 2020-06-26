@@ -23,7 +23,8 @@
       <div class="krown-border"></div>
       <div class="krown-value">
         <%#= simple_format(br(@knowledge.content)) %>
-        <%= br(@knowledge.content) %>
+        <%#= br(@knowledge.content) %>
+        <%= br(gsub_space(@knowledge.content)) %>
       </div>
     <% else %>
       <div class="krown-header">

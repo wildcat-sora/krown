@@ -62,7 +62,7 @@ class KrownsController < ApplicationController
   end
 
   def wordsearch
-    @knowledges = search_result_knowledge_data(keyword: params[:keyword], page: params[:page])
+    @knowledges = search_result_knowledge_data(keywords: params[:keywords], page: params[:page])
     wk_knowledge = @knowledges.order("created_at DESC").limit(1)
     @knowledge = wk_knowledge[0]
   end

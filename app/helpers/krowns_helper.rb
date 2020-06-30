@@ -10,14 +10,46 @@ module KrownsHelper
     data
   end
 
-  def search_result_knowledge_data(keyword: nil, page: nil)
-    tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").order(created_at: :desc,id: :desc)
-    data = tmp_data.page(page).per(13)
+  def search_result_knowledge_data(keywords: nil, page: nil)
+
+    #tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keywords}%","%#{keywords}%").order(created_at: :desc,id: :desc)
+    data = search_result(keywords: keywords).page(page).per(13)
 
     data
   end
 
+  def search_result(keywords: nil)
 
+    unless keywords.present?
+      @tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keywords}%","%#{keywords}%").order(created_at: :desc,id: :desc)
+    end
 
+    #検索結果の初期化
+    key_count = 0
+    #入力されたキーワードに複数キーワードがある場合は分割検索する
+    keywords.split(" ").map do |keyword|
+
+      # 初回のみ検索
+      if key_count == 0
+        @tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").order(created_at: :desc,id: :desc)
+        key_count += 1
+        next
+      end
+
+      # 1回目の検索を元に、2回目の文字からさらに絞り込みを行う。
+      if key_count != 0 && @tmp_data.count != 0
+        @tmp_data = @tmp_data.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").order(created_at: :desc,id: :desc)
+        key_count += 1
+        next
+      end
+
+      # 検索結果がない場合はbreakする
+      break unless @tmp_data.present?
+
+    end
+
+    tmp_data = @tmp_data
+    tmp_data
+  end
 
 end

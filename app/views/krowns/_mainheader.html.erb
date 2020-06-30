@@ -1,12 +1,11 @@
 <!-- メインヘッダー部定義 -->
   <div class="main-header">
     <div class="header-left">
-<!--      <div class="header-left__thema">ノウハウを検索してみよう</div>-->
       <div class="search-box">
         <!-- 検索ボックス定義 -->
         <%= form_tag(wordsearch_krowns_path, method: :get ,remote: :true) do %>
           <div class="input-group">
-            <input class="form-control" name="keyword" placeholder="文字を入力して下さい" type="text" value="">
+            <input class="form-control" name="keywords" placeholder="文字を入力して下さい" type="text" value="">
               <span class="input-group-btn">
                 <button class="btn btn-info" title="検索" type="submit">
                   <i class="fas fa-search"></i>

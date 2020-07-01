@@ -116,6 +116,7 @@ GEM
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    fastimage (2.1.7)
     ffi (1.13.1)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
@@ -318,6 +319,7 @@ DEPENDENCIES
   compass-rails (= 3.1.0)
   devise
   erb2haml
+  fastimage
   font-awesome-rails
   haml-rails
   jbuilder (~> 2.5)

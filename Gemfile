@@ -90,6 +90,7 @@ gem 'jquery-rails'
 
 # 画像添付対応
 gem 'fastimage'
+gem 'rmagick'
 
 #gem 'autoprefixer-rails', '~> 8.0'
 

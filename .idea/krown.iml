@@ -775,6 +775,19 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="fastimage (vbundled(2.1.7)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/fastimage-2.1.7/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/fastimage-2.1.7/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="ffi (vbundled(1.13.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

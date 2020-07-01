@@ -21,35 +21,36 @@ module KrownsHelper
   def search_result(keywords: nil)
 
     unless keywords.present?
-      @tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keywords}%","%#{keywords}%").order(created_at: :desc,id: :desc)
+      tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keywords}%","%#{keywords}%").order(created_at: :desc,id: :desc)
     end
 
     #検索結果の初期化
     key_count = 0
+
+    data = []
     #入力されたキーワードに複数キーワードがある場合は分割検索する
-    keywords.split(" ").map do |keyword|
+    keywords.split(" ").each do |keyword|
 
       # 初回のみ検索
       if key_count == 0
-        @tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").order(created_at: :desc,id: :desc)
+        data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").order(created_at: :desc,id: :desc)
         key_count += 1
         next
       end
 
       # 1回目の検索を元に、2回目の文字からさらに絞り込みを行う。
-      if key_count != 0 && @tmp_data.count != 0
-        @tmp_data = @tmp_data.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").order(created_at: :desc,id: :desc)
+      if key_count != 0 && data.count != 0
+        data = data.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").order(created_at: :desc,id: :desc)
         key_count += 1
         next
       end
 
       # 検索結果がない場合はbreakする
-      break unless @tmp_data.present?
+      break unless data.present?
 
     end
 
-    tmp_data = @tmp_data
-    tmp_data
+    tmp_data = data
   end
 
 end

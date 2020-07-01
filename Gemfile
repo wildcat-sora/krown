@@ -88,6 +88,10 @@ gem 'rspec-rails'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 
+# 画像添付対応
+gem 'fastimage'
+gem 'rmagick'
+
 #gem 'autoprefixer-rails', '~> 8.0'
 
 # 2019.4.14 gemファイルの追加        〜ここまで

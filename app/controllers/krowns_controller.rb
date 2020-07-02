@@ -16,12 +16,16 @@ class KrownsController < ApplicationController
     # 最新ナレッジが存在するかどうか
     set_sql = @knowledges.limit(1)
     @knowledge = set_sql[0]
+    #インシデントに画像の添付ファイルがある場合は同様に取得する
+    set_attachment(@knowledge)
   end
 
   def show
     # showアクションで画面表示に使用しない。
     # @knowledges = search_knowledge_data(page: params[:page])
     @knowledge = Knowledge.find(get_knowledge)
+
+    set_attachment(@knowledge)
     @destroy_flg = true
   end
 
@@ -129,5 +133,10 @@ private
    end
  end
 
+  def set_attachment(knowledge)
+    if @knowledge.img_flg.to_i == 1
+      @attachment = @knowledge.attachments[0]
+    end
+  end
 
 end

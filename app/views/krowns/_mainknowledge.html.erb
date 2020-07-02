@@ -40,9 +40,10 @@
   </div>
   <div class="main-krown-file">
     <div class="box">
-      <%# if @knowledge.img_flg.to_i == 1 %>
-      <% if false %>
-        <%= image_tag(@knowledge.image.url, class: "box__val" )%>
+      <% if @knowledge.img_flg.to_i == 1 %>
+      <%# if false %>
+        <%#= image_tag(@knowledge.image.url, class: "box__val" )%>
+        <%= image_tag(@knowledge.image.thumb.url, class: "box__val" )%>
         <div class="status">
           <div class="status__name">ファイル名表示は未実装</div>
           <div class="status__size">xxxxxｰkb</div>

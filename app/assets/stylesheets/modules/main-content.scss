@@ -12,37 +12,6 @@
   //これで、レイアウトが崩れるため、marginは設定しない。
   //margin: 0 0 0 30px;
 
-  .main-title{
-    display: inline-block;
-    width: calc(100% - 210px);
-    height: 25px;
-    margin: 20px 0 40px 60px;
-    .title-left{
-      &__awesome{
-        font-size:21px;
-        font-weight: 600;
-        font-family: 'Meiryo';
-        color: mediumseagreen;
-        display: inline-block;
-      }
-      &__thema{
-        font-size:25px;
-        font-weight: 600;
-        font-family: 'Meiryo';
-        color: silver;
-        display: inline-block;
-        margin: 0 0 0 -7px;
-      }
-      &__subthema{
-        font-size: 10px;
-        font-family: 'Meiryo';
-        margin: 5px 0 20px 0;
-        color: #71b784;
-        text-shadow: 2px 3px 1px rgba(192, 192, 192, 0.20);
-      }
-    }
-  }
-
 // テーブル表示箇所
   .main-table-area{
     margin: 0 0 0 30px;

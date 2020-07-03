@@ -42,7 +42,6 @@ class KrownsController < ApplicationController
     create_knowledge_service = CreateKnowledgeService.new()
     @knowledge = create_knowledge_service.knowledge_data_create(params_knowledge)
 
-
     # 添付ファイルが存在した場合は、添付レコードを生成する
     if params_knowledge[:image]
       create_attachment_service = CreateAttachmentService.new()
@@ -79,7 +78,6 @@ class KrownsController < ApplicationController
     wk_knowledge = @knowledges.order("created_at DESC").limit(1)
     @knowledge = wk_knowledge[0]
   end
-
 
 
 private

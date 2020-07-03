@@ -24,8 +24,10 @@ class CreateAttachmentService
     attachment.thumb_image_url = image_data.thumb.url
 
     #各イメージファイルの大きさを取得
-    attachment.width_size = attachment.get_image_size[0]
-    attachment.height_size = attachment.get_image_size[1]
+    if attachment.get_image_size
+      attachment.width_size = attachment.get_image_size[0]
+      attachment.height_size = attachment.get_image_size[1]
+    end
 
     attachment
   end

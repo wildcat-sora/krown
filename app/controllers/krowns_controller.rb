@@ -4,7 +4,7 @@ class KrownsController < ApplicationController
   require 'fastimage'
 
   #ユーザが所有しているジャンルの抽出
-  before_action :select_genre, only: [:edit, :new, :index, :show, :search, :wordsearch ]
+  before_action :select_genre
   #カウンター
   before_action :get_count
 

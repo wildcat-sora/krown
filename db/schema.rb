@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_09_090206) do
+ActiveRecord::Schema.define(version: 2020_07_02_005811) do
+
+  create_table "attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "knowledge_id"
+    t.string "sub_id"
+    t.string "name"
+    t.string "width_size"
+    t.string "height_size"
+    t.string "file_type"
+    t.string "file_size"
+    t.text "image"
+    t.text "thumb_image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "image_url"
+    t.index ["knowledge_id"], name: "index_attachments_on_knowledge_id"
+  end
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -56,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_05_09_090206) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attachments", "knowledges"
   add_foreign_key "genres", "users"
   add_foreign_key "knowledges", "genres"
   add_foreign_key "knowledges", "users"

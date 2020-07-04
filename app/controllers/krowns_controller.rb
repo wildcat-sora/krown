@@ -1,6 +1,7 @@
 class KrownsController < ApplicationController
   include ApplicationHelper
   include KrownsHelper
+  require 'fastimage'
 
   #ユーザが所有しているジャンルの抽出
   before_action :select_genre, only: [:edit, :new, :index, :show, :search, :wordsearch ]
@@ -31,14 +32,22 @@ class KrownsController < ApplicationController
   end
 
   def create
-    @knowledge = Knowledge.new(params_knowledge)
+    public_path = "public".freeze
+
+    # ナレッジを作成するためのサービスを呼び出す
+    create_knowledge_service = CreateKnowledgeService.new()
+    @knowledge = create_knowledge_service.knowledge_data_create(params_knowledge)
+
+
+    # 添付ファイルが存在した場合は、添付レコードを生成する
+    if params_knowledge[:image]
+      create_attachment_service = CreateAttachmentService.new()
+      @attachment = create_attachment_service.attachment_data_create(@knowledge.image)
+      #親子関係を保持したままデータを保存する
+      @knowledge.attachments << @attachment
+    end
 
     if @knowledge.save
-      image_check = Knowledge.find(@knowledge.id)
-      if image_check.image?
-        image_check.img_flg = 1
-        image_check.save
-      end
       redirect_to root_path, notice: 'ナレッジを作成しました'
     else
       render :new
@@ -54,7 +63,7 @@ class KrownsController < ApplicationController
   end
 
   def search
-     @knowledges = Knowledge.where(genre_id: params[:format]).page(params[:page]).per(10  ).order("created_at DESC")
+     @knowledges = Knowledge.where(genre_id: params[:format]).page(params[:page]).per(10).order("created_at DESC")
      wk_knowledge = Knowledge.where(genre_id: params[:format]).order("created_at DESC").limit(1)
      @knowledge = wk_knowledge[0]
      # テンプレートの流用(index)

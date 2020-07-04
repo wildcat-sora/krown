@@ -775,6 +775,19 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="fastimage (vbundled(2.1.7)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/fastimage-2.1.7/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/fastimage-2.1.7/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="ffi (vbundled(1.13.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1722,6 +1735,30 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/responders-3.0.1/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="rmagick (vbundled(4.1.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/deprecated" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/deprecated" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/ext" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/.github" />
+          <root url="file://$MODULE_DIR$/vendor/ruby/2.5.0/gems/rmagick-4.1.2/deprecated" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">

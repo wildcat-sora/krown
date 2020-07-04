@@ -1,8 +1,15 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
-  process resize_to_fit: [800, 800]
+  # デフォルトはコメントアウト。画像添付機能追加のため
+   include CarrierWave::RMagick
+  #include CarrierWave::MiniMagick
+
+  # 添付用画像ファイル（2020.7.1 仮配置）
+  process resize_to_fit: [1200,1200]
+  # サムネイル用
+  version :thumb do
+    process :resize_to_limit => [250, 250]
+  end
 
   # Choose what kind of storage to use for this uploader:
   storage :file

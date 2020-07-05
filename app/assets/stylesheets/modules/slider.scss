@@ -1,139 +1,4 @@
-.l-contents{
-  //width: 200px;
-  //background-color: #94d82d;
-  background: linear-gradient(to right, #add96c,#9cd941);
-  display: inline-block;
-  height: 100vh;
-  font-weight: normal;
-  font-family: Meiryo;
-  color: white;
 
-// ユーザ情報表示項目
-  .user-info{
-    //width: calc(100% - 40px);
-    height: 75px;
-    padding: 10px;
-    margin: 20px 0 0 0;
-
-    &__img{
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      background-color: #74b816;
-      border-radius: 50%;
-      font-size: 30px;
-      text-align: center;
-      line-height: 50px;
-    }
-
-    &__name{
-      display: inline-block;
-      vertical-align: top;
-      width: 100px;
-      height: 50px;
-      padding: 11px 0px 13px 10px;
-      font-size: 13px;
-    }
-  }
-    .user-krown-box{
-      font-size: 11px;
-      width: calc(100% - 40px);
-      height: 50px;
-      &__sum{
-        font-size: 13px;
-        padding: 10px 0 0 20px;
-      }
-    }
-
-
-
-// ユーザノート表示項目
-  .krown-list{
-    //height: 250px;
-    width: 100%;
-    margin: 20px 0 40px 0;
-    //overflow: auto;
-
-    .note-info{
-      //width: calc(100% - 40px);
-      height: 40px;
-      padding: 10px 0 0 5px;
-      &__icon{
-        width: 20px;
-        font-size: 16px;
-        margin: 7px;
-        display: inline-block;
-      }
-      &__name{
-        display: inline-block;
-        vertical-align: top;
-        width: 100px;
-        padding: 7px 0 0 0;
-        font-size: 16px;
-      }
-    }
-
-    .note-group1{
-      //width: calc(100% - 60px);
-      // height: 20px;
-      padding: 10px 0 0 15px;
-      &__icon{
-        display:inline-block;
-        width:  10px;
-        margin: 7px 0 0 10px;
-        font-size: 13px;
-      }
-      &__name{
-        display: inline-block;
-        vertical-align: top;
-        width: 140px;
-        margin: 7px 0 0 10px;
-        font-size: 13px;
-      }
-    }
-  }
-
-  .operation_area{
-    width: 100%;
-    margin: 20px 0 0 0;
-
-    .action{
-      //width: calc(100% - 40px);
-      margin: 10px 0 0 10px;
-      &__icon{
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-
-        margin: 7px;
-        background-color: #74b816;
-        border-radius: 50%;
-        text-align: center;
-        i{
-          font-size: 16px;
-          line-height: 30px;
-        }
-      }
-      &__name{
-        display: inline-block;
-        vertical-align: top;
-        width: 120px;
-        padding: 10px 0 0 0;
-        font-size: 16px;
-        text-decoration: none;
-      }
-    }
-  }
-}
-
-.l-contents-line{
-    float: left;
-    display: inline-block;
-    background-color: #74b816;
-    width: 5px;
-    height: 100vh;
-    margin: 0 auto;
-}
 
 //サイドバー 、スライダー化のため
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
@@ -184,13 +49,14 @@ body {
 }
 #sidebarMenu {
   // 画面上に出力される大きさを指定
-  height: 90%;
+  height: 85%;
   position: fixed;
   left: 0;
   //大きめに設定することで、隠し切れないような表現を施す
   width: 280px;
   //デフォルト表示に合わせる必要あり。
-  margin-top: 50px;
+  //ヘッダを別コンテンツにしたため、位置調整のため、要素を排除
+  //margin-top: 50px;
   transform: translateX(-250px);
   transition: transform 250ms ease-in-out;
   //元設定グラデーション
@@ -249,7 +115,7 @@ input[type=checkbox] {
   z-index: 99;
   height: 100%;
   width: 100%;
-  top: 22px;
+  top: 45px;
   left: 15px;
   height: 22px;
   width: 22px;
@@ -279,6 +145,7 @@ input[type=checkbox] {
   float: left;
   // 大画面対応
   background-color: silver;
+  //margin: 25px 0 0 0;
 }
 .diagonal.part-2 {
   transition: all 0.3s;

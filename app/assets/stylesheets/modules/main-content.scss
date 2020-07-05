@@ -12,84 +12,6 @@
   //これで、レイアウトが崩れるため、marginは設定しない。
   //margin: 0 0 0 30px;
 
-  .main-title{
-    display: inline-block;
-    width: calc(100% - 210px);
-    height: 25px;
-    margin: 20px 0 40px 60px;
-    .title-left{
-      &__awesome{
-        font-size:21px;
-        font-weight: 600;
-        font-family: 'Meiryo';
-        color: mediumseagreen;
-        display: inline-block;
-      }
-      &__thema{
-        font-size:25px;
-        font-weight: 600;
-        font-family: 'Meiryo';
-        color: silver;
-        display: inline-block;
-        margin: 0 0 0 -7px;
-      }
-      &__subthema{
-        font-size: 10px;
-        font-family: 'Meiryo';
-        margin: 5px 0 20px 0;
-        color: #71b784;
-        text-shadow: 2px 3px 1px rgba(192, 192, 192, 0.20);
-      }
-    }
-  }
-
-
-// ユーザ情報表示項目(ヘッダ)
-  .main-header{
-    display: block;
-    //width: calc(100% - 210px);
-    //height: 50px;
-    margin: 10px 0 10px 80px;
-    .input-group{
-      width: 400px;
-    }
-    .header-left{
-      width: 50%;
-      display: inline-block;
-      &__thema{
-        font-size:16px;
-        font-weight: 600;
-      }
-      .search-box{
-        display: inline-block;
-        margin: 10px 0 0 20px;
-        color: lightgray;
-        input::placeholder{
-          color:#c9c9c9;
-        }
-
-        &__query{
-          display: inline-block;
-          border-radius: 5px;
-          border: 1px solid #dcdcdc;
-          font-size: 14px;
-          width: 300px;
-          color: silver;
-        }
-        &__btn{
-          display: inline-block;
-          height: 30px;
-          width: 40px;
-          background-color: rgba(148,216,45,0.3);
-          font-size: 18px;
-          color: silver;
-          border-radius: 5px;
-          margin: 0 0 0 15px;
-        }
-      }
-    }
-  }
-
 // テーブル表示箇所
   .main-table-area{
     margin: 0 0 0 30px;
@@ -244,13 +166,13 @@
 
         .box {
           margin: 15px 0 15px 20px;
-          width: 220px;
-          height: 220px;
+          //width: 250px;
+          //height: 250px;
           font-size: 12px;
 
           &__val {
-            width: 150px;
-            height: 100%;
+            width: 250px;
+            height: 250px;
             display: block;
           }
 
@@ -259,6 +181,7 @@
             //font-size: 10px;
             vertical-align: top;
             margin: 15px 0 0 0;
+            width: 90%;
           }
 
           &__name {

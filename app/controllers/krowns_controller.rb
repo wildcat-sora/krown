@@ -4,7 +4,7 @@ class KrownsController < ApplicationController
   require 'fastimage'
 
   #ユーザが所有しているジャンルの抽出
-  before_action :select_genre, only: [:edit, :new, :index, :show, :search, :wordsearch ]
+  before_action :select_genre
   #カウンター
   before_action :get_count
 
@@ -16,12 +16,16 @@ class KrownsController < ApplicationController
     # 最新ナレッジが存在するかどうか
     set_sql = @knowledges.limit(1)
     @knowledge = set_sql[0]
+    #インシデントに画像の添付ファイルがある場合は同様に取得する
+    set_attachment(@knowledge)
   end
 
   def show
     # showアクションで画面表示に使用しない。
     # @knowledges = search_knowledge_data(page: params[:page])
     @knowledge = Knowledge.find(get_knowledge)
+
+    set_attachment(@knowledge)
     @destroy_flg = true
   end
 
@@ -37,7 +41,6 @@ class KrownsController < ApplicationController
     # ナレッジを作成するためのサービスを呼び出す
     create_knowledge_service = CreateKnowledgeService.new()
     @knowledge = create_knowledge_service.knowledge_data_create(params_knowledge)
-
 
     # 添付ファイルが存在した場合は、添付レコードを生成する
     if params_knowledge[:image]
@@ -75,7 +78,6 @@ class KrownsController < ApplicationController
     wk_knowledge = @knowledges.order("created_at DESC").limit(1)
     @knowledge = wk_knowledge[0]
   end
-
 
 
 private
@@ -129,5 +131,10 @@ private
    end
  end
 
+  def set_attachment(knowledge)
+    if @knowledge.img_flg.to_i == 1
+      @attachment = @knowledge.attachments[0]
+    end
+  end
 
 end

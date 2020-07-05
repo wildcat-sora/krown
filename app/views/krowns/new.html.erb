@@ -2,7 +2,7 @@
 <title>subaco メモ追加</title>
 <div class="contents">
   <!-- サイドコンテンツ(左側)表示 -->
-  <%= render "./shared/sidecontents" %>
+  <%= render "./shared/side-contents" %>
 
   <div class="edit-form">
     <%= form_for (@knowledge), url:  krowns_path(:id), method: :post do |f| %>
@@ -95,7 +95,7 @@
           <%= f.label :image do %>
             <%= f.file_field :image ,class: "image-form__file" %>
           <% end %>
-          <font size="2" color="#6495ed">※ 申し訳ありませんが、画像添付機能は未実装です。添付しないで下さい。</font>
+          <font size="2" color="#6495ed">※ 申し訳ありませんが、画像添付機能はjpg、png、gifのみが対象です。</font>
        </div>
 
       <!-- edit-contents終了タグ -->
@@ -107,6 +107,15 @@
             <%= message %><br>
           <% end %>
         </div>
+      <% end %>
+      <% if @attachment %>
+        <% if @attachment.errors.any? %>
+          <div class="edit-message">
+            <% @attachment.errors.full_messages.each do |message| %>
+              <%= message %><br>
+            <% end %>
+          </div>
+        <%end %>
       <% end %>
 
       <!-- ボタン定義エリア -->

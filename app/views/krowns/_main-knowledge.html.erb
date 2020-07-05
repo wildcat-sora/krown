@@ -45,16 +45,16 @@
         <%#= image_tag(@knowledge.image.url, class: "box__val" )%>
         <%= image_tag(@knowledge.image.thumb.url, class: "box__val" )%>
         <div class="status">
-          <div class="status__name">ファイル名表示は未実装</div>
-          <div class="status__size">xxxxxｰkb</div>
+          <div class="status__name">ファイル名：<%= @attachment.name %></div>
+          <div class="status__size">サイズ：<%= "#{number_with_delimiter @attachment.file_size} byte" %></div>
         </div>
       <% else %>
         <div class="box__val">
-          <img src="https://www.tcmobile.jp/dev_blog/wp-content/uploads/2015/09/022c1ca11803434db443573590757756.png" width="150" height="150">
+          <img src="https://www.tcmobile.jp/dev_blog/wp-content/uploads/2015/09/022c1ca11803434db443573590757756.png" width="250" height="250">
         </div>
         <div class="status">
-          <div class="status__name">現在画像表示機能はオフにしています</div>
-          <div class="status__size">100kb</div>
+          <div class="status__name">このインシデントには画像が添付されていません</div>
+<!--          <div class="status__size">---byte</div>-->
         </div>
       <% end %>
     </div>

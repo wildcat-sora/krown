@@ -1,28 +1,33 @@
 <!-- index画面 -->
 <title>subaco トップページ</title>
 
+<!-- メインコンテンツヘッダ部表示 -->
+<%= render "./shared/contents-header"%>
+
 <div class="contents">
+
   <!-- サイドコンテンツ(左側)表示 -->
-  <%= render "./shared/sidecontents" %>
+  <%= render "./shared/side-contents" %>
 
   <div class="main-contents">
 
-    <!-- メインコンテンツタイトル部表示 -->
-    <%= render "maintitle"%>
-
     <div class="main-table-area">
       <!-- メインテーブル定義 -->
-      <%= render "maintable" %>
+      <%= render "main-table" %>
 
     </div>
+
       <!-- メインコンテンツヘッダ部表示 -->
-      <%= render "mainheader"%>
+    <%= render "search-body"%>
 
     <!-- クラウン表示 -->
-    <%= render "mainknowledge" %>
+    <%= render "main-knowledge" %>
 
   <!-- main-contents 終了タグ -->
   </div>
 
 <!-- contents 終了タグ -->
 </div>
+
+<!-- メインコンテンツフッタ部表示 -->
+<%= render "./shared/contents-footer"%>

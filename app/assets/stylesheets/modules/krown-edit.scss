@@ -1,9 +1,10 @@
 .edit-form{
-  width: calc(100% - 205px);
+  width: calc(90%);
   display: inline-block;
   //height: 100vh;
   float: right;
-  font-family:"ＭＳ ゴシック",sans-serif;
+  font-family: Meiryo;
+  font-weight: 400;
   color:#7F7F7F;
 
   .edit-basic{
@@ -20,11 +21,10 @@
       }
       &__value{
         font-size: 12px;
-        font-weight: 600;
+        font-weight: 400;
         width: 130px;
         height: 25px;
         display: inline-block;
-        font-family:"ＭＳ ゴシック",sans-serif;
         color:#7F7F7F;
         border: 1px solid #74B816;
         background-color: gainsboro;
@@ -37,8 +37,8 @@
 // メイン入力部
   .edit-contents{
     display: inline-block;
-    height: 520px;
-    width:  1050px;
+    //height: 520px;
+    width:  95%;
     background-color: rgba(148,216,45,0.06);
     font-weight: 400;
 
@@ -84,6 +84,7 @@
           width: 200px;
           height: 25px;
           border: 1px solid #74B816;
+            border-radius: 5px;
       }
 
     }
@@ -102,6 +103,7 @@
           display: inline-block;
           font-size: 14px;
           width: 150px;
+          font-weight: 600;
       }
       &__text{
           margin: 5px 5px 5px 15px;
@@ -111,13 +113,12 @@
           height: 25px;
           border-radius:5px;
           border: 1px solid #74B816;
-
       }
     }
 
     .ac-border{
         height: 1px;
-        width: 900px;
+        width: 90%;
         margin: 20px 0 10px 40px;
         background-color: darkgray;
     }
@@ -125,6 +126,9 @@
     .content-form{
       margin: 20px 0 0 0;
       width: calc(100%);
+      .required_mark{
+        margin: 12px 0 0 0;
+      }
       &__decoration{
         width: 10px;
         height: 10px;
@@ -133,46 +137,51 @@
         vertical-align: top;
       }
       &__lavel{
-          margin: 13px 5px 5px 5px;
+          margin: 10px 5px 10px 10px;
           display:  inline-block;
           font-size: 14px;
           width: 150px;
-          vertical-align: top;
+          font-weight: 600;
+          display: inline-block;
+          /* margin-top: 2px; */
       }
       &__text{
           margin: 10px 5px 5px 20px;
           font-size: 12px;
-          width: 600px;
-          height: 170px;
+          width: 70%;
+          height: 300px;
           border-radius:5px;
           border: 1px solid #74B816;
+          vertical-align:top;
       }
     }
-    .search-form{
-      margin: 10px 0 0 0;
-      &__decoration{
-        width: 10px;
-        height: 10px;
-        display: inline-block;
-        margin: 10px 5px 10px 50px;
-      }
-      &__lavel{
-          margin: 10px 5px 10px 10px;
-          display: inline-block;
-          font-size: 14px;
-          width: 150px;
-      }
-      &__text{
-          margin: 5px 5px 5px 15px;
-          display: inline-block;
-          font-size: 12px;
-          width: 165px;
-          height: 30px;
-          border-radius:5px;
-          border: 1px solid #74B816;
 
-      }
-    }
+    //.search-form{
+    //  margin: 10px 0 0 0;
+    //  &__decoration{
+    //    width: 10px;
+    //    height: 10px;
+    //    display: inline-block;
+    //    margin: 10px 5px 10px 50px;
+    //  }
+    //  &__lavel{
+    //      margin: 10px 5px 10px 10px;
+    //      display: inline-block;
+    //      font-size: 14px;
+    //      width: 150px;
+    //  }
+    //  &__text{
+    //      margin: 5px 5px 5px 15px;
+    //      display: inline-block;
+    //      font-size: 12px;
+    //      width: 165px;
+    //      height: 30px;
+    //      border-radius:5px;
+    //      border: 1px solid #74B816;
+    //  }
+    //}
+
+
     .image-form{
       margin: 10px 0 0 0;
       width: calc(100%);
@@ -186,7 +195,7 @@
           margin: 10px 5px 10px 10px;
           display: inline-block;
           font-size: 14px;
-          width: 150px;
+          //width: 150px;
       }
       &__file{
           margin: 5px 5px 5px 15px;

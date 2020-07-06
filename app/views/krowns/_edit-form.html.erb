@@ -29,6 +29,7 @@
         </div>
         <%= f.label :yobi_1,"ノウハウを公開します" ,class: "secret-form__lavel"%>
         <%= f.check_box :yobi_1,class: "secret-form__box" ,checked: true%>
+        <div class="info_string">※ 現在シークレット登録は出来ません</div>
       </div>
 
       <!-- ジャンル選択フォーム -->
@@ -36,7 +37,8 @@
         <div class="genre-form__decoration">
           <i class="far fa-folder-open"></i>
         </div>
-        <%= f.label :yobi_1,"ジャンルを登録(必須)" ,class: "genre-form__lavel"%>
+        <div class="required_mark">*</div>
+        <%= f.label :yobi_1,"ジャンル選択" ,class: "genre-form__lavel"%>
         <% if user_signed_in? && @genre_count >= 1 %>
           <%= f.select :genre_id, @genres.map{|t| [t.in_genre,t.id]},{},{class: "genre-form__select"} %>
         <% else %>
@@ -50,35 +52,41 @@
         <div class="title-form__decoration">
           <i class="far fa-hand-point-right"></i>
         </div>
-        <%= f.label :title,"タイトル登録" ,class: "title-form__lavel" %>
-        <%= f.text_field :title ,class: "title-form__text" %>
+        <div class="required_mark">*</div>
+        <div class="title-form__lavel">タイトル</div>
+        <%#= f.label :title,"タイトル" ,class: "title-form__lavel" %>
+        <%= f.text_field :title ,class: "title-form__text",placeholder:"タイトルを入力してください（255文字まで）"%>
       </div>
       <div class="ac-border"></div>
 
       <!-- コンテント入力フォーム -->
       <div class="content-form">
+
         <div class="content-form__decoration">
           <i class="far fa-edit"></i>
         </div>
-        <%= f.label :content,"コンテンツの登録" ,class: "content-form__lavel" %>
+        <div class="required_mark">*</div>
+        <div class="content-form__lavel">コンテンツ</div>
+
+        <%#= f.label :content,"コンテンツ" ,class: "content-form__lavel" %>
         <%= f.text_area :content ,class: "content-form__text" ,placeholder:"コンテンツを入力してください（100,000文字まで）"%>
       </div>
 
       <!-- 検索１入力フォーム -->
-      <div class="search-form">
-        <div class="search-form__decoration">
-          <i class="fas fa-angle-right"></i>
-        </div>
-        <%= f.label :keyword_1,"検索ワード１登録" ,class: "search-form__lavel" %>
-        <%= f.text_field :keyword_1 ,class: "search-form__text" %>
+<!--      <div class="search-form">-->
+<!--        <div class="search-form__decoration">-->
+<!--          <i class="fas fa-angle-right"></i>-->
+<!--        </div>-->
+        <%#= f.label :keyword_1,"検索ワード１登録" ,class: "search-form__lavel" %>
+        <%#= f.text_field :keyword_1 ,class: "search-form__text" %>
 
-        <!-- 検索２入力フォーム -->
-        <div class="search-form__decoration">
-          <i class="fas fa-angle-double-right"></i>
-        </div>
-        <%= f.label :keyword_2,"検索ワード２登録" ,class: "search-form__lavel" %>
-        <%= f.text_field :keyword_2 ,class: "search-form__text" %>
-      </div>
+<!--         検索２入力フォーム -->
+<!--        <div class="search-form__decoration">-->
+<!--          <i class="fas fa-angle-double-right"></i>-->
+<!--        </div>-->
+        <%#= f.label :keyword_2,"検索ワード２登録" ,class: "search-form__lavel" %>
+        <%#= f.text_field :keyword_2 ,class: "search-form__text" %>
+<!--      </div>-->
 
       <!-- イメージ添付エリア（仮置き） -->
       <div class="image-form">
@@ -89,7 +97,7 @@
         <%= f.label :image do %>
           <%= f.file_field :image ,class: "image-form__file" %>
         <% end %>
-        <font size="2" color="#6495ed">※ 申し訳ありませんが、画像添付機能はjpg、png、gifのみが対象です。</font>
+        <div class="info_string">※ 添付対象はjpg、png、gifのみです</div>
       </div>
 
       <!-- edit-contents終了タグ -->

@@ -92,6 +92,10 @@ gem 'jquery-rails'
 gem 'fastimage'
 gem 'rmagick'
 
+# 設定共通化-導入
+gem 'config'
+
+
 #gem 'autoprefixer-rails', '~> 8.0'
 
 # 2019.4.14 gemファイルの追加        〜ここまで

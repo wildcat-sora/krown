@@ -1,132 +1,17 @@
 <!-- 編集画面 -->
 <title>subaco メモ追加</title>
+
+<!-- メインコンテンツヘッダ部表示 -->
+<%= render "./shared/contents-header"%>
+
 <div class="contents">
   <!-- サイドコンテンツ(左側)表示 -->
   <%= render "./shared/side-contents" %>
 
-  <div class="edit-form">
-    <%= form_for (@knowledge), url:  krowns_path(:id), method: :post do |f| %>
-    <!-- 基本情報入力フォーム -->
-      <div class="edit-basic">
-        <%= f.label :id,"知識番号：" ,class: "edit-basic__lavel"%>
-        <%= f.text_field :id ,class: "edit-basic__value" ,value: @knowledge.id, readonly:true %>
-        <%= f.label :user_id,"User-ID：" ,class: "edit-basic__lavel"%>
-        <% if user_signed_in? %>
-          <%= f.text_field :user_id ,class: "edit-basic__value" ,value: current_user.name, readonly:true %>
-          <%= f.hidden_field :user_id  ,value: current_user.id%>
-        <% else %>
-          <%= f.text_field :user_id ,class: "edit-basic__value" ,value: '未ログイン', readonly:true %>
-          <!-- 仮配置.ログインしていない場合は、ユーザid:1ー固定 -->
-          <%= f.hidden_field :user_id  ,value: 1 %>
-        <% end %>
-        <div class="line-fied"></div>
-    <!-- 日付指定フォーム -->
-        <%= f.label :created_at,"作成日時：" ,class: "edit-basic__lavel"%>
-        <%= f.text_field :created_at ,class: "edit-basic__value" ,value: Time.now.strftime('%Y/%m/%d %H:%M'), readonly:true %>
-        <%= f.label :updated_at,"更新日時：" ,class: "edit-basic__lavel"%>
-        <%= f.text_field :updated_at ,class: "edit-basic__value" ,value: Time.now.strftime('%Y/%m/%d %H:%M'), readonly:true %>
-      </div>
-
-      <div class="edit-contents">
-      <!-- シークレットモード選択フォーム -->
-        <div class="secret-form">
-          <div class="secret-form__decoration">
-            <i class="fas fa-key"></i>
-          </div>
-          <%= f.label :yobi_1,"ノウハウを公開します" ,class: "secret-form__lavel"%>
-          <%= f.check_box :yobi_1,class: "secret-form__box" ,checked: true%>
-        </div>
-
-      <!-- ジャンル選択フォーム -->
-        <div class="genre-form">
-          <div class="genre-form__decoration">
-            <i class="far fa-folder-open"></i>
-          </div>
-          <%= f.label :yobi_1,"ジャンルを登録(必須)" ,class: "genre-form__lavel"%>
-          <% if user_signed_in? && @genre_count >= 1 %>
-            <%= f.select :genre_id, @genres.map{|t| [t.in_genre,t.id]},{},{class: "genre-form__select"} %>
-          <% else %>
-            <%= f.select :genre_id, ['未登録'],{},{class: "genre-form__select"} %>
-            <%= f.hidden_field :genre_id  ,value: 1 %>
-          <% end %>
-        </div>
-
-      <!-- タイトル入力フォーム -->
-        <div class="title-form">
-          <div class="title-form__decoration">
-            <i class="far fa-hand-point-right"></i>
-          </div>
-          <%= f.label :title,"タイトル登録" ,class: "title-form__lavel" %>
-          <%= f.text_field :title ,class: "title-form__text" %>
-        </div>
-        <div class="ac-border"></div>
-
-      <!-- コンテント入力フォーム -->
-        <div class="content-form">
-          <div class="content-form__decoration">
-            <i class="far fa-edit"></i>
-          </div>
-          <%= f.label :content,"コンテンツの登録" ,class: "content-form__lavel" %>
-          <%= f.text_area :content ,class: "content-form__text" ,placeholder:"コンテンツを入力してください（100,000文字まで）"%>
-        </div>
-
-      <!-- 検索１入力フォーム -->
-        <div class="search-form">
-          <div class="search-form__decoration">
-            <i class="fas fa-angle-right"></i>
-          </div>
-          <%= f.label :keyword_1,"検索ワード１登録" ,class: "search-form__lavel" %>
-          <%= f.text_field :keyword_1 ,class: "search-form__text" %>
-
-      <!-- 検索２入力フォーム -->
-          <div class="search-form__decoration">
-            <i class="fas fa-angle-double-right"></i>
-          </div>
-          <%= f.label :keyword_2,"検索ワード２登録" ,class: "search-form__lavel" %>
-          <%= f.text_field :keyword_2 ,class: "search-form__text" %>
-        </div>
-
-      <!-- イメージ添付エリア（仮置き） -->
-       <div class="image-form">
-          <div class="image-form__decoration">
-            <i class="fas fa-file-alt"></i>
-          </div>
-          <%= f.label :title,"ファイル添付" ,class: "image-form__lavel" %>
-          <%= f.label :image do %>
-            <%= f.file_field :image ,class: "image-form__file" %>
-          <% end %>
-          <font size="2" color="#6495ed">※ 申し訳ありませんが、画像添付機能はjpg、png、gifのみが対象です。</font>
-       </div>
-
-      <!-- edit-contents終了タグ -->
-      </div>
-
-      <% if @knowledge.errors.any? %>
-        <div class="edit-message">
-          <% @knowledge.errors.full_messages.each do |message| %>
-            <%= message %><br>
-          <% end %>
-        </div>
-      <% end %>
-      <% if @attachment %>
-        <% if @attachment.errors.any? %>
-          <div class="edit-message">
-            <% @attachment.errors.full_messages.each do |message| %>
-              <%= message %><br>
-            <% end %>
-          </div>
-        <%end %>
-      <% end %>
-
-      <!-- ボタン定義エリア -->
-       <div class="edit-button">
-          <%= f.submit "登録する" ,class: "edit-button__submit" %>
-          <div class="edit-button__cancel dis-link"><%= link_to "キャンセル", root_path %></div>
-       </div>
-
-    <!-- form_for閉じタグ -->
-    <% end %>
-  </div>
+  <%= render "edit-form" %>
 
 <!-- contents 終了タグ -->
 </div>
+
+<!-- メインコンテンツフッタ部表示 -->
+<%= render "./shared/contents-footer"%>

@@ -75,39 +75,11 @@
       <div class="ac-border"></div>
 
       <!-- カラーグループ入力フォーム -->
-
-      <div class="color-form">
-        <div class="color-form__decoration">
-          <i class="fas fa-key"></i>
-        </div>
-        <%= f.label :yobi_2,"カラーグループ" ,class: "color-form__lavel"%>
-        <%= f.check_box :yobi_2,class: "color-form__box" ,checked: false%>
-
-        <%= f.radio_button :yobi_3, "single",class:"color-form__button" %>
-        <%= f.label :yobi_3, "single-color", {class: "color-form__tag"} %>
-
-        <%= f.radio_button :yobi_3, "double",class:"color-form__button" %>
-        <%= f.label :yobi_3, "double-color", {class: "color-form__tag"} %>
-
-        <%= f.radio_button :yobi_3, "graphic",class:"color-form__button" %>
-        <%= f.label :yobi_3, "graphic-color", {class: "color-form__tag"} %>
-      </div>
-
-      <!-- カラーグループ入力フォーム1 -->
-      <div class="color-make">
-        <div class="color-make__lavel">color(1)</div>
-        <%= f.text_field :yobi_4 ,class: "color-make__text",placeholder:"カラー入力"%>
-        <div class="info_string">※ single-colorを選択する場合は、color(1)のみが反映されます。</div>
-      </div>
-
-      <!-- カラーグループ入力フォーム2 -->
-      <div class="color-make">
-        <div class="color-make__lavel">color(2)</div>
-        <%= f.text_field :yobi_5 ,class: "color-make__text",placeholder:"カラー入力"%>
-      </div>
+      <%= f.fields_for :color_manages do |data| %>
+        <%= render 'edit-color-group', color_manage_record: data %>
+      <% end %>
 
       <div class="ac-border"></div>
-
 
       <!-- イメージ添付エリア（仮置き） -->
       <div class="image-form">

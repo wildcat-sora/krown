@@ -42,6 +42,7 @@
     background-color: rgba(148,216,45,0.06);
     font-weight: 400;
 
+//情報共有チェックボックス
     .secret-form{
       width: calc(100%);
       &__decoration{
@@ -63,6 +64,7 @@
       }
     }
 
+//ジャンルドロップボックス
     .genre-form{
       width: calc(100%);
       &__decoration{
@@ -89,6 +91,7 @@
 
     }
 
+//タイトル入力フォーム
     .title-form{
       width: calc(100%);
       margin: 10px 0 0 0;
@@ -123,6 +126,7 @@
         background-color: darkgray;
     }
 
+//コンテンツ入力フォーム
     .content-form{
       margin: 20px 0 0 0;
       width: calc(100%);
@@ -156,32 +160,65 @@
       }
     }
 
-    //.search-form{
-    //  margin: 10px 0 0 0;
-    //  &__decoration{
-    //    width: 10px;
-    //    height: 10px;
-    //    display: inline-block;
-    //    margin: 10px 5px 10px 50px;
-    //  }
-    //  &__lavel{
-    //      margin: 10px 5px 10px 10px;
-    //      display: inline-block;
-    //      font-size: 14px;
-    //      width: 150px;
-    //  }
-    //  &__text{
-    //      margin: 5px 5px 5px 15px;
-    //      display: inline-block;
-    //      font-size: 12px;
-    //      width: 165px;
-    //      height: 30px;
-    //      border-radius:5px;
-    //      border: 1px solid #74B816;
-    //  }
-    //}
 
+//カラーグループ
+    .color-form{
+      width: calc(100%);
+      &__decoration{
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 20px 5px 10px 50px;
+      }
+      &__lavel{
+        margin: 20px 5px 10px 10px;
+        display: inline-block;
+        font-size: 14px;
+        width: 150px;
+      }
+      &__tag{
+        font-weight: normal;
+      }
+      &__button{
+        margin: 4px 0 0 50px;
+      }
+      &__box{
+        margin: 8px 5px 8px 15px;
+        display: inline-block;
+        font-size: 40px;
+      }
+    }
 
+//カラー入力フォーム
+    .color-make{
+      width: calc(100%);
+      margin: 10px 0 0 0;
+      &__decoration{
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 10px 5px 10px 50px;
+      }
+      &__lavel{
+        margin: 10px 5px 10px 200px;
+        display: inline-block;
+        font-size: 13px;
+        width: 70px;
+        font-weight: 400;
+      }
+      &__text{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 130px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+    }
+
+//イメージフォーム
     .image-form{
       margin: 10px 0 0 0;
       width: calc(100%);

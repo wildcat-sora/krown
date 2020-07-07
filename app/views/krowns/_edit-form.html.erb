@@ -72,21 +72,14 @@
         <%= f.text_area :content ,class: "content-form__text" ,placeholder:"コンテンツを入力してください（100,000文字まで）"%>
       </div>
 
-      <!-- 検索１入力フォーム -->
-<!--      <div class="search-form">-->
-<!--        <div class="search-form__decoration">-->
-<!--          <i class="fas fa-angle-right"></i>-->
-<!--        </div>-->
-        <%#= f.label :keyword_1,"検索ワード１登録" ,class: "search-form__lavel" %>
-        <%#= f.text_field :keyword_1 ,class: "search-form__text" %>
+      <div class="ac-border"></div>
 
-<!--         検索２入力フォーム -->
-<!--        <div class="search-form__decoration">-->
-<!--          <i class="fas fa-angle-double-right"></i>-->
-<!--        </div>-->
-        <%#= f.label :keyword_2,"検索ワード２登録" ,class: "search-form__lavel" %>
-        <%#= f.text_field :keyword_2 ,class: "search-form__text" %>
-<!--      </div>-->
+      <!-- カラーグループ入力フォーム -->
+      <%= f.fields_for :color_manages do |data| %>
+        <%= render 'edit-color-group', color_manage_record: data %>
+      <% end %>
+
+      <div class="ac-border"></div>
 
       <!-- イメージ添付エリア（仮置き） -->
       <div class="image-form">

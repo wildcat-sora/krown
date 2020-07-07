@@ -1,0 +1,32 @@
+<div class="color-form">
+  <div class="color-form__decoration">
+    <i class="fas fa-key"></i>
+  </div>
+
+  <!-- カラーグループを使用するかのチェックボックス -->
+  <%= color_manage_record.label :color_flg,"カラーグループ" ,class: "color-form__lavel"%>
+  <%= color_manage_record.check_box :color_flg,class: "color-form__box" ,checked: false%>
+
+  <!--  カラータイプ、どの設定にするか。-->
+  <%= color_manage_record.radio_button :color_type, :single ,class:"color-form__button" %>
+  <%= color_manage_record.label :color_type, "single-color", {class: "color-form__tag"} %>
+
+  <%= color_manage_record.radio_button :color_type, :double,class:"color-form__button" %>
+  <%= color_manage_record.label :color_type, "double-color", {class: "color-form__tag"} %>
+
+  <%= color_manage_record.radio_button :color_type, :graphic ,class:"color-form__button" %>
+  <%= color_manage_record.label :color_type, "graphic-color", {class: "color-form__tag"} %>
+</div>
+
+<!-- カラーグループ入力フォーム1 -->
+<div class="color-make">
+  <div class="color-make__lavel">color(1)</div>
+  <%= color_manage_record.text_field :color_1 ,class: "color-make__text",placeholder:"カラー入力" %>
+  <div class="info_string">※ single-colorを選択する場合は、color(1)のみが反映されます。</div>
+</div>
+
+<!-- カラーグループ入力フォーム2 -->
+<div class="color-make">
+  <div class="color-make__lavel">color(2)</div>
+  <%= color_manage_record.text_field :color_2 ,class: "color-make__text",placeholder:"カラー入力" %>
+</div>

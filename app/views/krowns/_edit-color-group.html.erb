@@ -8,7 +8,7 @@
   <%= color_manage_record.check_box :color_flg,class: "color-form__box" ,checked: false%>
 
   <!--  カラータイプ、どの設定にするか。-->
-  <%= color_manage_record.radio_button :color_type, :single ,class:"color-form__button" %>
+  <%= color_manage_record.radio_button :color_type, "single",class:"color-form__button" %>
   <%= color_manage_record.label :color_type, "single-color", {class: "color-form__tag"} %>
 
   <%= color_manage_record.radio_button :color_type, :double,class:"color-form__button" %>

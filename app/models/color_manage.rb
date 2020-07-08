@@ -1,5 +1,5 @@
 class ColorManage < ApplicationRecord
-  enum color_type: { single: 0, double: 1, graphic: 2 }
+  enum color_type: { single: "single", double: "double", graphic: "graphic" }
   belongs_to  :knowledge
   accepts_nested_attributes_for :knowledge
 end

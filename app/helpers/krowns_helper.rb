@@ -56,12 +56,16 @@ module KrownsHelper
         case color_manage_record[:color_type]
 
         when ColorManage.color_types[:single] then
-          # カラーグループ：singleを洗濯した場合
-          #
+          # カラーグループ：singleを選択した場合
+          # シングルカラー表示＋半透明：80%
           color_attributes = "background-color:#{color_manage_record[:color_1]};opacity: 0.8;"
         when ColorManage.color_types[:double] then
+          # カラーグループ：doubleを選択した場合
+          # ダブルカラー表示（斜め線）＋半透明：70%
           color_attributes = "background: linear-gradient(22deg, #{color_manage_record[:color_1]} 50%, #{color_manage_record[:color_2]} 50%);opacity: 0.7;"
         when ColorManage.color_types[:graphic] then
+          # カラーグループ：graphicを選択した場合
+          # グラフィック表示＋半透明：50%
           color_attributes = "background: linear-gradient(#{color_manage_record[:color_1]}, #{color_manage_record[:color_2]}); opacity: 0.5;"
         end
       end

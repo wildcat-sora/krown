@@ -95,6 +95,8 @@ gem 'rmagick'
 # 設定共通化-導入
 gem 'config'
 
+# モーダル出力機能追加
+gem 'data-confirm-modal'
 
 #gem 'autoprefixer-rails', '~> 8.0'
 

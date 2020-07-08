@@ -661,6 +661,21 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="data-confirm-modal (vbundled(1.6.3)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/data-confirm-modal-1.6.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/data-confirm-modal-1.6.3/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/data-confirm-modal-1.6.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/data-confirm-modal-1.6.3/vendor" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="deep_merge (vbundled(1.2.1)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

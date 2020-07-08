@@ -3,32 +3,41 @@
     <table cellspacing="0" cellpadding="5" class="table-striped table-borderles table-hover">
       <!-- ヘッダ部定義 -->
       <tr>
-      <th width="7%">投稿 ユーザ</th>
-      <th width="7%">作成日時</th>
+      <th width="6%">投稿 ユーザ</th>
+      <th width="6%">作成日時</th>
       <th width="3%">番号</th>
+      <th width="2%">color</th>
       <th width="23%">タイトル</th>
       <th width="3%">file</th>
-      <th width="28%">内容</th>
+      <th width="26%">内容</th>
       </tr>
       <!-- データ部定義 -->
       <% if @knowledge.present? %>
         <% @knowledges.each do |knowledge| %>
           <tr>
+            <!-- ユーザ名-->
             <td><%= knowledge.user.name.truncate(10) %></td>
+            <!-- 作成日-->
             <td><%= knowledge.created_at.gmtime.strftime('%m/%d %H:%M') %></td>
+            <!-- 番号-->
             <td><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true  %></td>
-            <td><%= knowledge.title.truncate(25) %></td>
+            <!-- カラーグループ -->
+            <td style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"></td>
+            <!-- タイトル-->
+            <td class="td-decoration__of-title"><%= knowledge.title.truncate(25) %></td>
             <!-- 添付ファイル有無フラグチェック -->
             <% if knowledge.img_flg == "1" %>
               <td><i class="fas fa-file-alt"></i></td>
             <% else %>
               <td> - </td>
             <% end %>
+            <!-- 内容 -->
             <td class="td-decoration"><%= knowledge.content.truncate(45) %></td>
           </tr>
         <% end %>
       <% else %>
           <tr>
+            <td> - </td>
             <td> - </td>
             <td> - </td>
             <td> - </td>

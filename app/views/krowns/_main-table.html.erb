@@ -20,7 +20,7 @@
             <!-- 作成日-->
             <td><%= knowledge.created_at.gmtime.strftime('%m/%d %H:%M') %></td>
             <!-- 番号-->
-            <td><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true  %></td>
+            <td><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true%></td>
             <!-- カラーグループ -->
             <td style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"></td>
             <!-- タイトル-->

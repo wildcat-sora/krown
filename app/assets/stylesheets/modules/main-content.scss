@@ -89,7 +89,7 @@
 
     .krown-area{
       display: inline-block;
-      width: 940px;
+      width: 900px;
       height: 350px;
       background-color: white;
       border-radius: 10px;
@@ -164,7 +164,7 @@
   // 画像表示エリア
       .main-krown-file {
         display: inline-block;
-        width: 300px;
+        width: 400px;
         height: 350px;
         background-color: white;
         border-radius: 10px;
@@ -174,22 +174,20 @@
 
         .box {
           margin: 15px 0 15px 20px;
-          //width: 250px;
-          //height: 250px;
           font-size: 12px;
+          display: block;
 
           &__val {
-            width: 250px;
-            height: 250px;
-            display: block;
+            max-width: 100px;
+            max-height: 100px;
+            display: inline-block;
           }
 
           .status {
             display: inline-block;
-            //font-size: 10px;
             vertical-align: top;
-            margin: 15px 0 0 0;
-            width: 90%;
+            margin: 15px 0 0 10px;
+            //width: 70%;
           }
 
           &__name {

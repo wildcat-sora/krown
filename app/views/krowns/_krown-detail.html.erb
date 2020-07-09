@@ -1,0 +1,39 @@
+<div class="krown-area">
+  <% if not @knowledge.nil? %>
+
+    <div class="krown-header">
+      <div class="krown-header__category">ジャンル： <%= @knowledge.genre.in_genre %></div>
+      <div class="krown-header__date">作成日:<%= @knowledge.created_at.strftime('%y/%m/%d') %></div>
+      <div class="krown-header__date">更新日:<%= @knowledge.updated_at.strftime('%y/%m/%d') %></div>
+      <button type="button" class="btn btn-success btn-xs krown-update__button">
+        <div class="krown-update__label ">
+          このメモを更新
+          <%#= link_to "このメモを更新", krown_path(@knowledge.id), method: :delete  %>
+        </div>
+      </button>
+      <button type="button" class="btn btn-danger btn-xs krown-delete__button">
+        <div class="krown-delete__label ">
+          <%= link_to "このメモを削除", krown_path(@knowledge.id), method: :delete, data: { confirm: '本当に削除しても良いですか。'} %>
+        </div>
+      </button>
+
+    </div>
+    <div class="krown-no">No.<%= @knowledge.id %></div>
+    <div class="krown-title"><%= @knowledge.title %></div>
+    <div class="krown-border"></div>
+    <div class="krown-value">
+      <!--        改行コードを変換後、スペースを変換する 改修前コード：<%#= simple_format(br(@knowledge.content)) %> -->
+      <%= gsub_space(br(@knowledge.content)) %>
+    </div>
+  <% else %>
+    <div class="krown-header">
+      <div class="krown-header__category">ジャンル： - </div>
+      <div class="krown-header__date">作成日: - </div>
+      <div class="krown-header__date">更新日: - </div>
+    </div>
+    <div class="krown-no">No. - </div>
+    <div class="krown-title"> 登録がありません</div>
+    <div class="krown-border"></div>
+    <div class="krown-value">該当するジャンルにクラウンの登録がないため、表示する内容がありません</div>
+  <% end %>
+</div>

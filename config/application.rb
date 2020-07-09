@@ -22,6 +22,7 @@ module Krown
     # the framework and any gems in your application.
 
 
+    # 更新失敗時に表示される更新フォームのクラスを無効化する
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end

@@ -1,7 +1,5 @@
-//alert('アラート');
-$('.main-krown-area').html("<%= escape_javascript(render 'main-knowledge' ) %>");
+// 画像ファイルをクリックした際に、モーダル表示する
 
-//非同期処理のため、再度モーダルを読み込み直す
 $(function(){
     $('.js-modal-open').on('click',function(){
         $('.js-modal').fadeIn();

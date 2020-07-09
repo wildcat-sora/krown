@@ -35,12 +35,12 @@ class Attachment < ApplicationRecord
   #添付されたファイルが以下の種類以外は保存できない。
   # 許容ファイル属性：png,jpg,gif
   def file_type_check
-    if file_type.in?(['png','jpg','gif'])
-      true
-    else
-      errors.add(:file_type , "指定のファイル属性を添付してください。")
-      false
-    end
+    #if file_type.in?(['png','jpg','gif','jpeg'])
+    #  true
+    #else
+    #  errors.add(:file_type , "指定のファイル属性を添付してください。")
+    #  false
+    #end
 
   end
 

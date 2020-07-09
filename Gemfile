@@ -87,6 +87,7 @@ gem 'rspec-rails'
 # 非同期処理導入
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # 画像添付対応
 gem 'fastimage'

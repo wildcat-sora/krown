@@ -10,8 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// 2020/7/9 "require_tree"にしているにもかかわらずjqueryが動作しないため、追記(順番大事)
+//= require jquery3
+// 順番が大事
+//= require jquery
+//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require jquery
+//= require data-confirm-modal
+
+
+
+

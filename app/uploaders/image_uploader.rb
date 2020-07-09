@@ -5,7 +5,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #include CarrierWave::MiniMagick
 
   # 添付用画像ファイル（2020.7.1 仮配置）
-  process resize_to_fit: [1200,1200]
+  #process resize_to_fit: [1200,1200]
   # サムネイル用
   version :thumb do
     process :resize_to_limit => [250, 250]

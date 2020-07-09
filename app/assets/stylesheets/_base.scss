@@ -5,7 +5,8 @@
   background-color: white;
   width: 1440px;
   margin: auto;
-  //display: inline-block;
+  display: inline-block;
+  font-family: Meiryo;
 }
 
 .dis-link {
@@ -20,3 +21,20 @@
   width : 40px;
 }
 
+//注釈用テキストクラス
+.info_string{
+  font-size: small;
+  color: rgb(100, 149, 237);
+  margin: 0 0 0 20px;
+  display: inline-block;
+}
+
+.required_mark{
+  color: red;
+  font-size: small;
+  display: inline-block;
+}
+
+.field_with_errors{
+  display: inline-block;
+}

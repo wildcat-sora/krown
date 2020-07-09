@@ -87,10 +87,17 @@ gem 'rspec-rails'
 # 非同期処理導入
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # 画像添付対応
 gem 'fastimage'
 gem 'rmagick'
+
+# 設定共通化-導入
+gem 'config'
+
+# モーダル出力機能追加
+gem 'data-confirm-modal'
 
 #gem 'autoprefixer-rails', '~> 8.0'
 

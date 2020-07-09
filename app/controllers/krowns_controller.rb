@@ -36,8 +36,6 @@ class KrownsController < ApplicationController
   end
 
   def create
-    public_path = "public".freeze
-
     # ナレッジを作成するためのサービスを呼び出す
     create_knowledge_service = CreateKnowledgeService.new()
     @knowledge = create_knowledge_service.knowledge_data_create(params_knowledge)
@@ -48,6 +46,14 @@ class KrownsController < ApplicationController
       @attachment = create_attachment_service.attachment_data_create(@knowledge.image)
       #親子関係を保持したままデータを保存する
       @knowledge.attachments << @attachment
+    end
+
+    # カラーグループ設定が存在した場合は、レコードを生成する
+    if params_color_mange[:color_flg] == "1"
+      create_color_manage_service = CreateColorManageService.new()
+      @color_manage = create_color_manage_service.color_manage_data_create(params_color_mange)
+      #親子関係を保持したままデータを保存する
+      @knowledge.color_manage << @color_manage
     end
 
     if @knowledge.save
@@ -102,6 +108,16 @@ private
       :created_at,
       :updated_at
       )
+  end
+
+  def params_color_mange
+    params.require(:knowledge).require(:color_manages).permit(
+      :id,
+      :color_flg,
+      :color_type,
+      :color_1,
+      :color_2
+    )
   end
 
   def select_genre

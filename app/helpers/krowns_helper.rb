@@ -50,7 +50,7 @@ module KrownsHelper
 
   def get_color_attribute(knowledge)
     color_attributes = Array.new
-    knowledge.color_manage.each do | color_manage_record |
+    knowledge.color_manages.each do | color_manage_record |
 
       if color_manage_record[:color_flg] == "1"
         case color_manage_record[:color_type]

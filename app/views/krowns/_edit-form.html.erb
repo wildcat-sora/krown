@@ -54,7 +54,6 @@
         </div>
         <div class="required_mark">*</div>
         <div class="title-form__lavel">タイトル</div>
-        <%#= f.label :title,"タイトル" ,class: "title-form__lavel" %>
         <%= f.text_field :title ,class: "title-form__text",placeholder:"タイトルを入力してください（255文字まで）"%>
       </div>
       <div class="ac-border"></div>
@@ -68,15 +67,21 @@
         <div class="required_mark">*</div>
         <div class="content-form__lavel">コンテンツ</div>
 
-        <%#= f.label :content,"コンテンツ" ,class: "content-form__lavel" %>
         <%= f.text_area :content ,class: "content-form__text" ,placeholder:"コンテンツを入力してください（100,000文字まで）"%>
       </div>
 
       <div class="ac-border"></div>
 
-      <!-- カラーグループ入力フォーム -->
-      <%= f.fields_for :color_manages do |data| %>
-        <%= render 'edit-color-group', color_manage_record: data %>
+      <% if @knowledge.new_record? %>
+        <!-- カラーグループ入力フォーム -->
+        <%= f.fields_for :color_manages ,@knowledge.color_manages.build do |data| %>
+          <%= render 'edit-color-group', color_manage_record: data %>
+        <% end %>
+      <% else %>
+      <!-- 更新時-->
+        <%= f.fields_for :color_manages  do |data| %>
+          <%= render 'edit-color-group', color_manage_record: data %>
+        <% end %>
       <% end %>
 
       <div class="ac-border"></div>

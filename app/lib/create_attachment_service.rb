@@ -19,9 +19,9 @@ class CreateAttachmentService
     attachment.sub_id = 1
     # ファイルサイズ挿入
     attachment.file_size = attachment.get_file_size
-    #それぞれファイルのurlを設定しておく
-    attachment.image_url = image_data.url
-    attachment.thumb_image_url = image_data.thumb.url
+    #それぞれファイルのurlを設定しておく(意味がないため、廃止。一旦コメントアウト)
+    #attachment.image_url = image_data.url
+    #attachment.thumb_image_url = image_data.thumb.url
 
     #各イメージファイルの大きさを取得
     if attachment.get_image_size

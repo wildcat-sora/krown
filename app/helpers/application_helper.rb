@@ -15,4 +15,9 @@ module ApplicationHelper
     str
   end
 
+  # ファイルパスとファイルネームを結合して返す
+  def make_path(file_path,file_name)
+    File.join(file_path,file_name)
+  end
+
 end

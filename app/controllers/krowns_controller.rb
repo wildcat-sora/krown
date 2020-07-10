@@ -20,9 +20,18 @@ class KrownsController < ApplicationController
     set_attachment(@knowledge)
   end
 
+  def edit
+    @knowledge = Knowledge.find(params[:id])
+    
+    if @knowledge
+      # アクションへはジャンプしない。テンプレートのみを使用
+      render :template => 'krowns/new'
+    else
+      redirect_to root_path, notice: '該当のレコードがありません'
+    end
+  end
+
   def show
-    # showアクションで画面表示に使用しない。
-    # @knowledges = search_knowledge_data(page: params[:page])
     @knowledge = Knowledge.find(get_knowledge)
 
     set_attachment(@knowledge)
@@ -34,6 +43,14 @@ class KrownsController < ApplicationController
     # 同時並行性は今回考慮しない(工数考慮)
     @knowledge.id = set_id(@knowledge)
   end
+
+  #def update
+  #  if @knowledge.update
+  #    redirect_to root_path, notice: 'ナレッジを作成しました'
+  #  else
+  #    render :new
+  #  end
+  #end
 
   def create
     # ナレッジを作成するためのサービスを呼び出す
@@ -53,7 +70,7 @@ class KrownsController < ApplicationController
       create_color_manage_service = CreateColorManageService.new()
       @color_manage = create_color_manage_service.color_manage_data_create(params_color_mange)
       #親子関係を保持したままデータを保存する
-      @knowledge.color_manage << @color_manage
+      @knowledge.color_manages << @color_manage
     end
 
     if @knowledge.save
@@ -111,13 +128,24 @@ private
   end
 
   def params_color_mange
-    params.require(:knowledge).require(:color_manages).permit(
-      :id,
-      :color_flg,
-      :color_type,
-      :color_1,
-      :color_2
-    )
+    # accepts_nested_attributes_for使用に伴うparams取得変更
+    # params.require(:knowledge).require(:color_manages).permit(
+    #    :id,
+    #    :color_flg,
+    #    :color_type,
+    #    :color_1,
+    #    :color_2
+    #)
+
+    hash_attributes = params.require(:knowledge).require(:color_manages_attributes)
+    hash_attributes["0"].permit(
+        :id,
+        :color_flg,
+        :color_type,
+        :color_1,
+        :color_2
+      )
+
   end
 
   def select_genre

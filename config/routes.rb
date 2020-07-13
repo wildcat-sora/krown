@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
+  #form_forに対応して、指定のアクションのみ定義する
+  post 'krowns/:id' => 'krowns#create'
+
   resources :genres
 
 end

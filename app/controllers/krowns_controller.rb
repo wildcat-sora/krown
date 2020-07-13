@@ -44,13 +44,26 @@ class KrownsController < ApplicationController
     @knowledge.id = set_id(@knowledge)
   end
 
-  #def update
-  #  if @knowledge.update
-  #    redirect_to root_path, notice: 'ナレッジを作成しました'
-  #  else
-  #    render :new
-  #  end
-  #end
+  def update
+    begin
+      @knowledge = Knowledge.find(params[:knowledge][:id])
+
+      if @knowledge.id
+        knowledge_service = UpdateKnowledgeService.new()
+        knowledge_service.update_knowledge(params:params_knowledge)
+      end
+
+      if @knowledge.color_manages.count > 0
+        color_manage_service = UpdateColorManageService.new()
+        color_manage_service.update_color_manage(params: params_color_mange)
+      end
+
+      redirect_to root_path, notice: 'ナレッジを作成しました'
+    rescue
+      render :new, notice: '更新内容を正しく入力してください'
+    end
+
+  end
 
   def create
     # ナレッジを作成するためのサービスを呼び出す
@@ -74,7 +87,8 @@ class KrownsController < ApplicationController
     end
 
     if @knowledge.save
-      redirect_to root_path, notice: 'ナレッジを作成しました'
+      redirect_to root_path notice: 'ナレッジを作成しました'
+      # root_path  # root_path notice: 'ナレッジを作成しました'
     else
       render :new
     end
@@ -82,10 +96,11 @@ class KrownsController < ApplicationController
 
   def destroy
     krown = Knowledge.find(params[:id])
-    if krown.user_id == current_user.id || krown.user_id == 1
+    # 一旦は誰でも削除できるようにしておく
+    #if krown.user_id == current_user.id || krown.user_id == 1
       krown.destroy
       redirect_to root_path, notice: 'ナレッジを削除しました'
-    end
+    #end
   end
 
   def search

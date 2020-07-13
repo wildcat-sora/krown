@@ -1,4 +1,5 @@
 class Knowledge < ApplicationRecord
+
     belongs_to :user
     belongs_to :genre
     has_many   :attachments, dependent: :destroy

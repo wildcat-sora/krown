@@ -18,7 +18,7 @@
             <!-- ユーザ名-->
             <td><%= knowledge.user.name.truncate(10) %></td>
             <!-- 作成日-->
-            <td><%= knowledge.created_at.gmtime.strftime('%m/%d %H:%M') %></td>
+            <td><%= knowledge.updated_at.gmtime.strftime('%m/%d %H:%M') %></td>
             <!-- 番号-->
             <td><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true%></td>
             <!-- カラーグループ -->

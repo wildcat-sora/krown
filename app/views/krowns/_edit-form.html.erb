@@ -1,5 +1,5 @@
 <div class="edit-form">
-  <%= form_for (@knowledge), url:  krowns_path(:id), method: :post do |f| %>
+  <%= form_for (@knowledge), url: krown_path(:id) do |f| %>
     <!-- 基本情報入力フォーム -->
     <div class="edit-basic">
       <%= f.label :id,"知識番号：" ,class: "edit-basic__lavel"%>

@@ -25,12 +25,12 @@
 <!-- カラーグループ入力フォーム1 -->
 <div class="color-make">
   <div class="color-make__lavel">color(1)</div>
-  <%= color_manage_record.text_field :color_1 ,class: "color-make__text",placeholder:"カラー入力" %>
+  <%= color_manage_record.select :color_1 ,Settings.color_select[:select_box],{},{class: "color-make__text"} %>
   <div class="info_string">※ single-colorを選択する場合は、color(1)のみが反映されます。</div>
 </div>
 
 <!-- カラーグループ入力フォーム2 -->
 <div class="color-make">
   <div class="color-make__lavel">color(2)</div>
-  <%= color_manage_record.text_field :color_2 ,class: "color-make__text",placeholder:"カラー入力" %>
+  <%= color_manage_record.select :color_2 ,Settings.color_select[:select_box],{},class: "color-make__text" %>
 </div>

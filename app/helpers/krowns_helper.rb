@@ -5,14 +5,14 @@ module KrownsHelper
   def search_knowledge_data(page: nil)
     # データ表示上限を100件とする
     tmp_data = Knowledge.order(created_at: :desc,id: :desc).limit(100)
-    data = tmp_data.page(page).per(13)
+    data = tmp_data.page(page).per(25)
 
     data
   end
 
   def search_result_knowledge_data(keywords: nil, page: nil)
     #tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keywords}%","%#{keywords}%").order(created_at: :desc,id: :desc)
-    data = search_result(keywords: keywords).page(page).per(13)
+    data = search_result(keywords: keywords).page(page).per(25)
 
     data
   end

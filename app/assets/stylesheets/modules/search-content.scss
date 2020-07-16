@@ -1,22 +1,50 @@
 // ユーザ情報表示項目(ヘッダ)
 .search-contents{
   display: block;
-  //width: calc(100% - 210px);
-  //height: 50px;
-  margin: 10px 0 10px 80px;
+  margin: 30px 0 30px 0;
+  padding: 0 20px 0 20px ;
+
   .input-group{
     width: 400px;
   }
-  .contents-left{
-    width: 50%;
-    display: inline-block;
-    &__thema{
-      font-size:16px;
-      font-weight: 600;
-    }
-    .search-box{
+
+  .search-add-attribute{
+    margin: 0 0 0 10px;
+  }
+
+  .button-link {
+    &__top {
       display: inline-block;
-      margin: 10px 0 0 20px;
+      font-size: 1.0em;
+      font-weight: 600;
+      a {
+          //color: white;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+
+    &__add {
+      display: inline-block;
+      font-size: 1.0em;
+      font-weight: 600;
+      a {
+        //color: white;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .contents-parent{
+    margin: 0 0 0 10px;
+    vertical-align: top;
+    display: inline-block;
+    .search-box{
+      vertical-align: top;
+      display: inline-block;
       color: lightgray;
       input::placeholder{
         color:#c9c9c9;

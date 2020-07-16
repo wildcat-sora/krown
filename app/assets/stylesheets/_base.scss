@@ -1,22 +1,18 @@
 .body {
   //画面サイズが合わない場合の対処：明示的に実行
-  overflow-x: scroll;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 .contents {
-  //font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN','Hannotate TC',sans-serif;
   font-weight: bold;
-  color: white;
   background-color: white;
   font-family: Meiryo;
-//レスポンシブ切替
-  //width: 1440px;
-  //margin: auto;
-  //display: inline-block;
-  width: 100em;
   margin-left: auto;
   margin-right: auto;
+  max-width: 1400px;
+  min-width: 990px;
+  width: 80em;
+  display: flex;
 }
 
 .dis-link {

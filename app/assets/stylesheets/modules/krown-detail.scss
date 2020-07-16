@@ -1,0 +1,127 @@
+// 詳細内容表示箇所
+.main-krown-area{
+  display: block;
+  color: black;
+  font-weight: normal;
+  color: rgba(148,216,45,0.06);
+
+  .krown-area{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 100%;
+    max-width: 1400px;
+    height: 350px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #74B816;
+    color: black;
+    //ナレッジへの影付け
+    box-shadow: 0 10px 15px 0 rgba(60, 194, 235, 0.45);
+    .krown-header{
+      margin: 10px;
+      &__category{
+        font-size: 16px;
+        display: inline-block;
+      }
+      &__date{
+        font-size: 10px;
+        margin:0 0 0 20px;
+        display: inline-block;
+      }
+    }
+    .krown-delete{
+      &__button{
+        margin: 0 0 0 20px;
+      }
+      &__label{
+        a {
+          color: white;
+        }
+        a:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .krown-update{
+      &__button{
+        margin: 0 0 0 50px;
+      }
+      &__label{
+        a {
+          color: white;
+        }
+        a:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .krown-no{
+      font-size: 14px;
+      margin: 0 0 5px 10px;
+      display: inline-block;
+    }
+    .krown-title{
+      font-size: 14px;
+      margin: 0 0 5px 10px;
+      display: inline-block;
+    }
+    .krown-border{
+      height: 1px;
+      width: 75em;
+      margin: 0 0 0 10px;
+      background-color: #308fb8;
+    }
+    .krown-value{
+      overflow: auto;
+      height: 250px;
+      margin: 8px 30px 0 10px;
+      font-size: 12px;
+      //font-weight: 600;
+    }
+  }
+
+  // 画像表示エリア
+  .main-krown-file {
+    display: block;
+    width: 100%;
+    height: 18vh;
+    min-height: 110px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 40px 0 0 0px;
+    border: 1px solid #74B816;
+    vertical-align: top;
+    color: black;
+
+    .box {
+      margin: 15px 0 15px 20px;
+      font-size: 12px;
+      display: inline-block;
+      width: 45%;
+
+      &__val {
+        max-width: 100px;
+        max-height: 100px;
+        display: inline-block;
+      }
+
+      .status {
+        display: inline-block;
+        vertical-align: top;
+        margin: 15px 0 0 10px;
+        //width: 70%;
+      }
+
+      &__name {
+        //font-size: 10px;
+      }
+
+      &__size {
+        //font-size: 10px;
+      }
+    }
+  }
+}

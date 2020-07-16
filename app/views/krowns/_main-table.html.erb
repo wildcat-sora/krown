@@ -23,7 +23,7 @@
               <!-- 番号-->
               <td class="td-decoration__of-number"><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true%></td>
               <!-- カラーグループ -->
-              <td style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"></td>
+              <td style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"><%= get_color_keyword(knowledge) %></td>
               <!-- タイトル-->
               <td class="td-decoration__of-title"><%= knowledge.title.truncate(25) %></td>
               <!-- 添付ファイル有無フラグチェック -->

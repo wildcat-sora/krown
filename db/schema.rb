@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_064805) do
+ActiveRecord::Schema.define(version: 2020_07_16_134945) do
 
   create_table "attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "knowledge_id"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_064805) do
     t.string "color_flg"
     t.string "color_1"
     t.string "color_2"
-    t.string "yobi_1"
-    t.string "yobi_2"
+    t.string "group_word"
+    t.string "word_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["knowledge_id"], name: "index_color_manages_on_knowledge_id"

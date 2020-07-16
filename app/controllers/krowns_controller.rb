@@ -117,6 +117,10 @@ class KrownsController < ApplicationController
     @knowledge = wk_knowledge[0]
   end
 
+  def portfolio
+
+  end
+
 
 private
 
@@ -158,7 +162,9 @@ private
         :color_flg,
         :color_type,
         :color_1,
-        :color_2
+        :color_2,
+        :group_word,
+        :word_color
       )
 
   end

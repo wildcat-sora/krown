@@ -12,14 +12,15 @@
   <% end %>
 
   <!--  カラータイプ、どの設定にするか。-->
+  <%= color_manage_record.radio_button :color_type, :graphic ,class:"color-form__button" %>
+  <%= color_manage_record.label :color_type, "graphic-color", {class: "color-form__tag"} %>
+
   <%= color_manage_record.radio_button :color_type, "single",class:"color-form__button" %>
   <%= color_manage_record.label :color_type, "single-color", {class: "color-form__tag"} %>
 
   <%= color_manage_record.radio_button :color_type, :double,class:"color-form__button" %>
   <%= color_manage_record.label :color_type, "double-color", {class: "color-form__tag"} %>
 
-  <%= color_manage_record.radio_button :color_type, :graphic ,class:"color-form__button" %>
-  <%= color_manage_record.label :color_type, "graphic-color", {class: "color-form__tag"} %>
 </div>
 
 <!-- カラーグループ入力フォーム1 -->

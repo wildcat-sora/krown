@@ -2,23 +2,25 @@
   <%= form_for (@knowledge), url: krown_path(:id) do |f| %>
     <!-- 基本情報入力フォーム -->
     <div class="edit-basic">
-      <%= f.label :id,"知識番号：" ,class: "edit-basic__lavel"%>
-      <%= f.text_field :id ,class: "edit-basic__value" ,value: @knowledge.id, readonly:true %>
-      <%= f.label :user_id,"User-ID：" ,class: "edit-basic__lavel"%>
+      <%= f.label :id,"知識番号：" ,class: "basic-record__lavel"%>
+      <%= f.text_field :id ,class: "basic-record__value" ,value: @knowledge.id, readonly:true %>
+      <%= f.label :user_id,"User-ID：" ,class: "basic-record__lavel basic-record__right"%>
       <% if user_signed_in? %>
-        <%= f.text_field :user_id ,class: "edit-basic__value" ,value: current_user.name, readonly:true %>
+        <%= f.text_field :user_id ,class: "basic-record__value" ,value: current_user.name, readonly:true %>
         <%= f.hidden_field :user_id  ,value: current_user.id%>
       <% else %>
-        <%= f.text_field :user_id ,class: "edit-basic__value" ,value: '未ログイン', readonly:true %>
+        <%= f.text_field :user_id ,class: "basic-record__value" ,value: '未ログイン', readonly:true %>
         <!-- 仮配置.ログインしていない場合は、ユーザid:1ー固定 -->
         <%= f.hidden_field :user_id  ,value: 1 %>
       <% end %>
       <div class="line-fied"></div>
       <!-- 日付指定フォーム -->
-      <%= f.label :created_at,"作成日時：" ,class: "edit-basic__lavel"%>
-      <%= f.text_field :created_at ,class: "edit-basic__value" ,value: Time.now.strftime('%Y/%m/%d %H:%M'), readonly:true %>
-      <%= f.label :updated_at,"更新日時：" ,class: "edit-basic__lavel"%>
-      <%= f.text_field :updated_at ,class: "edit-basic__value" ,value: Time.now.strftime('%Y/%m/%d %H:%M'), readonly:true %>
+      <div class="basic-record__bottom">
+        <%= f.label :created_at,"作成日時：" ,class: "basic-record__lavel "%>
+        <%= f.text_field :created_at ,class: "basic-record__value" ,value: Time.now.strftime('%Y/%m/%d %H:%M'), readonly:true %>
+        <%= f.label :updated_at,"更新日時：" ,class: "basic-record__lavel basic-record__right"%>
+        <%= f.text_field :updated_at ,class: "basic-record__value" ,value: Time.now.strftime('%Y/%m/%d %H:%M'), readonly:true %>
+      </div>
     </div>
 
     <div class="edit-contents">

@@ -1,0 +1,85 @@
+.contents_1p{
+  height: 100vh;
+  width: 100%;
+  background-image: image-url('740548_m.jpg');
+  background-color:rgba(255,255,255,0.7);
+  background-blend-mode:lighten;
+  background-size: 100%;
+  align-items: center;
+  display: flex;
+
+  .title{
+    &__box{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &__lavel{
+      font-size: 50px;
+      font-weight: 600;
+      display: block;
+    }
+    &__sub{
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+
+.contents_2p{
+  height: 100vh;
+  width: 100%;
+  background-image: image-url('3545179_m.jpg');
+  position: relative;
+
+  .p2-title{
+    &__box{
+
+    }
+    &__lavel{
+      font-size: 40px;
+      position: absolute;
+      margin: 50px;
+      text-shadow: 20px 8px 7px grey;
+      font-weight: bold;
+    }
+  }
+
+  .p2-space{
+    &__s1{
+      display: block;
+      height: 200px;
+    }
+    &__s2{
+      display: block;
+      height: 100px;
+    }
+  }
+  .p2-image{
+    box-shadow: 10px 10px 13px 3px grey;
+    &__box{
+      margin-left: 100px;
+      display: inline-block;
+    }
+    &__describe{
+      display: inline-block;
+    }
+
+    &__describe2{
+      display: inline-block;
+      float: right;
+      margin-right: 100px;
+    }
+  }
+}
+
+.contents_3p {
+  height: 100vh;
+  width: 100%;
+  background-image: image-url('740548_m.jpg');
+  background-color: rgba(255, 255, 255, 0.7);
+  background-blend-mode: lighten;
+  background-size: 100%;
+  align-items: center;
+  display: flex;
+}
+

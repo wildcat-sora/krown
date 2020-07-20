@@ -10,13 +10,17 @@
     height: 60vh;
     background-color: #f7fcf7;
 
+
     .tab-box{
       overflow-y: scroll;
       height: 54vh;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
     }
     .table-area{
       width: 90em;
-      margin: 20px 0 0 20px;
+      //margin: 20px 0 0 20px;
       font-size:12px;
       font-weight: 400;
       text-align: center;
@@ -39,7 +43,7 @@
       }
       .td-decoration{
         text-align: left;
-        font-size: 1em;
+        font-size: 0.5em;
         padding: 0 0 0 8px;
         &__of-color{
           font-weight: 600;

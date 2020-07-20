@@ -4,26 +4,26 @@
       <table cellspacing="0" cellpadding="5" class="table-striped table-borderles table-hover">
         <!-- ヘッダ部定義 -->
         <tr>
-        <th width="6%">投稿 ユーザ</th>
-        <th width="6%">作成日時</th>
+        <th width="7%">投稿 ユーザ</th>
+        <th width="6%">更新日時</th>
         <th width="3%">番号</th>
-        <th width="2%">color</th>
+        <th width="3%">color</th>
         <th width="23%">タイトル</th>
         <th width="3%">file</th>
-        <th width="26%">内容</th>
+        <th width="24%">内容</th>
         </tr>
         <!-- データ部定義 -->
         <% if @knowledge.present? %>
           <% @knowledges.each do |knowledge| %>
             <tr>
               <!-- ユーザ名 -->
-              <td class="td-decoration__of-user"><%= knowledge.user.name.truncate(10) %></td>
+              <td class="td-decoration__of-user"><%= knowledge.user.name.truncate(7) %></td>
               <!-- 作成日-->
               <td class="td-decoration__of-time"><%= knowledge.updated_at.gmtime.strftime('%m/%d %H:%M') %></td>
               <!-- 番号-->
               <td class="td-decoration__of-number"><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true%></td>
               <!-- カラーグループ -->
-              <td style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"></td>
+              <td style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"><%= get_color_keyword(knowledge) %></td>
               <!-- タイトル-->
               <td class="td-decoration__of-title"><%= knowledge.title.truncate(25) %></td>
               <!-- 添付ファイル有無フラグチェック -->

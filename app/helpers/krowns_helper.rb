@@ -59,19 +59,39 @@ module KrownsHelper
           # カラーグループ：singleを選択した場合
           # シングルカラー表示＋半透明：80%
           color_attributes = "background-color:#{color_manage_record[:color_1]};opacity: 0.8;"
+          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
         when ColorManage.color_types[:double] then
           # カラーグループ：doubleを選択した場合
           # ダブルカラー表示（斜め線）＋半透明：70%
           color_attributes = "background: linear-gradient(22deg, #{color_manage_record[:color_1]} 50%, #{color_manage_record[:color_2]} 50%);opacity: 0.7;"
+          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
         when ColorManage.color_types[:graphic] then
           # カラーグループ：graphicを選択した場合
           # グラフィック表示＋半透明：50%
           color_attributes = "background: linear-gradient(#{color_manage_record[:color_1]}, #{color_manage_record[:color_2]}); opacity: 0.5;"
+          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
         end
       end
     end
 
     color_attributes << "border-radius: 7px;"
+  end
+
+  def get_color_keyword(knowledge)
+    color_attributes = ""
+    knowledge.color_manages.each do | color_manage_record |
+      if color_manage_record[:color_flg] == "1"
+        color_attributes = color_manage_record[:group_word]
+      end
+    end
+
+    color_attributes
+  end
+
+  def font_color_add_attribute(target_record,word_color)
+    if word_color
+      target_record << "color:#{word_color};"
+    end
   end
 
 end

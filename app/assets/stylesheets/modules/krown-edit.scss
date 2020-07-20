@@ -1,46 +1,59 @@
 .edit-form{
-  width: calc(90%);
-  display: inline-block;
-  //height: 100vh;
-  float: right;
+  width: 80em;
+  display: block;
   font-family: Meiryo;
   font-weight: 400;
   color:#7F7F7F;
+  margin-left: auto;
+  margin-right: auto;
 
   .edit-basic{
-    width: calc(100%);
-    // height: 1px;
+    width: 70%;
     font-weight: 400;
-    margin: 0 0 25px 0;
-      &__lavel{
-        margin: 20px 5px 10px 55px;
+    text-align: center;
+    margin: 20px auto 25px auto;
+
+    .basic-record__right{
+      margin-left: 50px;
+    }
+
+    .basic-record__bottom{
+      margin-top: 20px;
+    }
+
+    .basic-record {
+      &__lavel {
         display: inline-block;
         font-size: 14px;
-        width: 80px;
+        width: 100px;
 
       }
-      &__value{
+
+      &__value {
         font-size: 12px;
         font-weight: 400;
-        width: 130px;
-        height: 25px;
+        min-width: 160px;
+        min-height: 30px;
         display: inline-block;
-        color:#7F7F7F;
+        color: #7F7F7F;
         border: 1px solid #74B816;
         background-color: gainsboro;
-        border-radius:5px;
+        border-radius: 5px;
+        padding: 5px;
       }
+    }
+
     .line-fied{
       display: block
     }
   }
 // メイン入力部
   .edit-contents{
-    display: inline-block;
-    //height: 520px;
-    width:  95%;
+    display: block;
+    width:  90%;
     background-color: rgba(148,216,45,0.06);
     font-weight: 400;
+    margin: 0 auto 0 auto;
 
 //情報共有チェックボックス
     .secret-form{
@@ -84,9 +97,10 @@
           display: inline-block;
           font-size: 12px;
           width: 200px;
-          height: 25px;
+          padding: 5px;
           border: 1px solid #74B816;
-            border-radius: 5px;
+          border-radius: 5px;
+          min-height: 30px;
       }
 
     }
@@ -112,8 +126,8 @@
           margin: 5px 5px 5px 15px;
           display: inline-block;
           font-size: 12px;
-          width: 500px;
-          height: 25px;
+          width: 65%;
+          padding: 5px;
           border-radius:5px;
           border: 1px solid #74B816;
       }
@@ -152,8 +166,9 @@
       &__text{
           margin: 10px 5px 5px 20px;
           font-size: 12px;
-          width: 70%;
-          height: 300px;
+          width: 65%;
+          height: 40vh;
+          max-height: 300px;
           border-radius:5px;
           border: 1px solid #74B816;
           vertical-align:top;
@@ -203,14 +218,14 @@
         margin: 10px 5px 10px 200px;
         display: inline-block;
         font-size: 13px;
-        width: 70px;
+        width: 100px;
         font-weight: 400;
       }
       &__text{
         margin: 5px 5px 5px 15px;
         display: inline-block;
         font-size: 12px;
-        width: 130px;
+        width: 150px;
         height: 25px;
         border-radius:5px;
         border: 1px solid #74B816;
@@ -278,8 +293,6 @@
       font-size: 15px;
       line-height:27px;
     }
-
-
   }
 
 }

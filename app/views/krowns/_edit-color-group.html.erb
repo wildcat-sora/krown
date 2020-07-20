@@ -12,25 +12,39 @@
   <% end %>
 
   <!--  カラータイプ、どの設定にするか。-->
+  <%= color_manage_record.radio_button :color_type, :graphic ,class:"color-form__button" %>
+  <%= color_manage_record.label :color_type, "graphic-color", {class: "color-form__tag"} %>
+
   <%= color_manage_record.radio_button :color_type, "single",class:"color-form__button" %>
   <%= color_manage_record.label :color_type, "single-color", {class: "color-form__tag"} %>
 
   <%= color_manage_record.radio_button :color_type, :double,class:"color-form__button" %>
   <%= color_manage_record.label :color_type, "double-color", {class: "color-form__tag"} %>
 
-  <%= color_manage_record.radio_button :color_type, :graphic ,class:"color-form__button" %>
-  <%= color_manage_record.label :color_type, "graphic-color", {class: "color-form__tag"} %>
 </div>
 
 <!-- カラーグループ入力フォーム1 -->
 <div class="color-make">
   <div class="color-make__lavel">color(1)</div>
-  <%= color_manage_record.text_field :color_1 ,class: "color-make__text",placeholder:"カラー入力" %>
+  <%= color_manage_record.select :color_1 ,Settings.color_select[:select_box],{},{class: "color-make__text"} %>
   <div class="info_string">※ single-colorを選択する場合は、color(1)のみが反映されます。</div>
 </div>
 
 <!-- カラーグループ入力フォーム2 -->
 <div class="color-make">
   <div class="color-make__lavel">color(2)</div>
-  <%= color_manage_record.text_field :color_2 ,class: "color-make__text",placeholder:"カラー入力" %>
+  <%= color_manage_record.select :color_2 ,Settings.color_select[:select_box],{},class: "color-make__text" %>
+</div>
+
+<!-- カラーキーワード -->
+<div class="color-make">
+  <div class="color-make__lavel">keyword</div>
+  <%= color_manage_record.text_field :group_word ,class: "color-make__text",placeholder:"（3文字以下）" %>
+  <div class="info_string">※ カラーグループに対するキーワード。例）RUB,SQL,日報...など</div>
+</div>
+
+<!-- カラーキーワードのカラー -->
+<div class="color-make">
+  <div class="color-make__lavel">group-color</div>
+  <%= color_manage_record.select :word_color ,Settings.color_select[:select_box],{},class: "color-make__text" %>
 </div>

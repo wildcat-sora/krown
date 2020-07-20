@@ -14,7 +14,7 @@
       </div>
 
       <div class="status">
-        <div class="status__name">ファイル名：<%= @attachment.name %></div>
+        <div class="status__name">ファイル名：<%= @attachment.name.truncate(25) %></div>
         <div class="status__size">サイズ：<%= "#{number_with_delimiter @attachment.file_size} byte" %></div>
       </div>
     <% else %>

@@ -1,8 +1,23 @@
 <!-- メインヘッダー部定義 -->
   <div class="search-contents">
-    <div class="contents-left">
+
+    <!--    トップ、デフォルト表示-->
+    <button type="button" class="btn btn-default">
+      <div class="button-link__top">
+        <%= link_to "Default", root_path %>
+      </div>
+    </button>
+
+    <!--    メモ追加リンク-->
+    <button type="button" class="btn btn-default search-add-attribute">
+      <div class="button-link__add">
+        <%= link_to "Subaco-Add", new_krown_path, method: :get %>
+      </div>
+    </button>
+
+    <!-- 検索ボックス定義 -->
+    <div class="contents-parent">
       <div class="search-box">
-        <!-- 検索ボックス定義 -->
         <%= form_tag(wordsearch_krowns_path, method: :get ,remote: :true) do %>
           <div class="input-group">
             <input class="form-control" name="keywords" placeholder="文字を入力して下さい" type="text" value="">
@@ -16,4 +31,6 @@
         <% end %>
       </div>
     </div>
+
+  <!--    search-contents終了-->
   </div>

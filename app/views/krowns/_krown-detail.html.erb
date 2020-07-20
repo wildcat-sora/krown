@@ -1,4 +1,4 @@
-<div class="krown-area">
+<div class="krown-area" xmlns="http://www.w3.org/1999/html">
   <% if not @knowledge.nil? %>
 
     <div class="krown-header">
@@ -21,8 +21,9 @@
     <div class="krown-title"><%= @knowledge.title %></div>
     <div class="krown-border"></div>
     <div class="krown-value">
-      <!--  改行コードを変換後、スペースを変換する 改修前コード：<%#= simple_format(br(@knowledge.content)) %> -->
-      <%= gsub_space(br(@knowledge.content)) %>
+      <textarea rows="10" cols="60" style="border: none; overflow: scroll; outline: none; width: 95%; height: 250px;" ><%= @knowledge.content.html_safe %></textarea>
+      <!--  改行コードを変換後、スペースを変換する 改修前コード：<%##= simple_format(br(@knowledge.content)) %> -->
+      <%#= gsub_space(br(@knowledge.content)) %>
     </div>
   <% else %>
     <div class="krown-header">

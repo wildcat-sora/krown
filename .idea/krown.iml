@@ -2530,6 +2530,21 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="vuejs-rails (vbundled(2.5.13)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/vuejs-rails-2.5.13/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/vuejs-rails-2.5.13/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/vuejs-rails-2.5.13/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/vuejs-rails-2.5.13/vendor" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="warden (vbundled(1.2.8)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

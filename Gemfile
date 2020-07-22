@@ -103,7 +103,7 @@ gem 'data-confirm-modal'
 
 # webpacker追加
 gem 'webpacker', github: 'rails/webpacker'
-
+gem 'vuejs-rails'
 
 # 2019.4.14 gemファイルの追加        〜ここまで
 group :production do

@@ -11,15 +11,43 @@
 // about supported directives.
 //
 // 2020/7/9 "require_tree"にしているにもかかわらずjqueryが動作しないため、追記(順番大事)
-//= require jquery3
+
+//= require vue
 // 順番が大事
-//= require jquery
-//= require jquery_ujs
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 //= require data-confirm-modal
+
+
+new Vue({
+    el: '#app',
+    data: {
+        number: 0,
+        x:0,
+        y:0,
+        z:0,
+    },
+    methods: {
+        countUp: function(times){
+            this.number += 1 * times
+        },
+        changeMousePosition: function(event,divideNumber){
+            console.log(event);
+            this.x = event.clientX;
+            this.y = event.clientY;
+            this.z = divideNumber;
+        },
+        myAlert(){
+            alert('アラート');
+        }
+    }
+})
+
+
+
 
 
 

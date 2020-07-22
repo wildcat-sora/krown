@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   #form_forに対応して、指定のアクションのみ定義する
   post 'krowns/:id' => 'krowns#create'
   get 'portfolio' => 'krowns#portfolio'
+
+  #テスト用表示ビュー
   get 'testpage' => 'krowns#testpage'
 
   resources :genres

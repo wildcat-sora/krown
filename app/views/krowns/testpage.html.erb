@@ -1,4 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
   <p>現在{{number}}回クリック</p>
@@ -7,7 +6,9 @@
     <span v-on:mousemove.stop>反応しないでください</span></p>
   <a v-on:click.prevent href="https://google.com">G</a>
   <p>X:{{x}},Y:{{y}},Z:{{z}}</p>
-  <input type="text" v-on:keyup.space="myAlert" >
+  <input type="text" v-on:keyup.space="myAlert">
 
+<!--  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+  <script type="text/javascript" src="testpage.js"></script>
 </div>
 

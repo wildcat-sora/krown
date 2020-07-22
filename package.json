@@ -2,7 +2,12 @@
   "name": "krown",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "5.1.1"
+    "@rails/webpacker": "5.1.1",
+    "axios": "^0.19.2",
+    "vue-eslint-parser": "^7.1.0",
+    "vue-router": "^3.3.4",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"

@@ -19,8 +19,7 @@ class ColorManage < ApplicationRecord
   validate :single_color_check
   validate :color1_check
   validate :color2_check, if: :multi_color?
-
-
+  validate :multi_color_check, if: :multi_color?
 
   def single?
     self.color_type == "single"
@@ -67,6 +66,14 @@ class ColorManage < ApplicationRecord
     color_palette.include?(color_2)
     unless color_palette.include?(color_1)
       errors.add(:color_2  , "入力可能なカラーはドロップダウン項目のみです")
+      false
+    end
+  end
+
+  # 複数カラー選択時に同じカラーの場合はfalseとする
+  def multi_color_check
+    if color_1 == color_2
+      errors.add(:color_2  , "複数のカラーを指定する場合は別々のカラーを指定してください。")
       false
     end
   end

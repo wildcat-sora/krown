@@ -99,6 +99,9 @@ gem 'config'
 # モーダル出力機能追加
 gem 'data-confirm-modal'
 
+# バリデーション追記
+gem 'jquery-validation-rails'
+
 #gem 'autoprefixer-rails', '~> 8.0'
 
 # 2019.4.14 gemファイルの追加        〜ここまで

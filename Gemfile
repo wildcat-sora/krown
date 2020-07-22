@@ -101,8 +101,11 @@ gem 'data-confirm-modal'
 
 #gem 'autoprefixer-rails', '~> 8.0'
 
-# 2019.4.14 gemファイルの追加        〜ここまで
+# webpacker追加
+gem 'webpacker', github: 'rails/webpacker'
 
+
+# 2019.4.14 gemファイルの追加        〜ここまで
 group :production do
   gem 'unicorn', '5.4.1'
 end

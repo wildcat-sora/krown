@@ -1775,6 +1775,24 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="rack-proxy (vbundled(0.6.5)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rack-proxy-0.6.5/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rack-proxy-0.6.5/test" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rack-proxy-0.6.5/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rack-proxy-0.6.5/test" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/rack-proxy-0.6.5/test" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="rack-test (vbundled(1.1.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2221,6 +2239,27 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="semantic_range (vbundled(2.3.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/semantic_range-2.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/semantic_range-2.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/semantic_range-2.3.0/.github" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/semantic_range-2.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/semantic_range-2.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/semantic_range-2.3.0/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/semantic_range-2.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/semantic_range-2.3.0/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="sexp_processor (vbundled(4.15.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -2514,6 +2553,39 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="webpacker (vbundled(5.1.1)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/.git" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/package" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/gemfiles" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/.git" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/package" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/.git" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/package" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.5.0/bundler/gems/webpacker-bf278f978770/gemfiles" />
+        </excluded>
       </library>
     </orderEntry>
     <orderEntry type="module-library">

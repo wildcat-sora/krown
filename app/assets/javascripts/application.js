@@ -20,6 +20,8 @@
 //= require turbolinks
 //= require_tree .
 //= require data-confirm-modal
+//= require jquery.validate.additional-methods
+//= require jquery.validate
 
 
 

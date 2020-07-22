@@ -1,0 +1,13 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <p>現在{{number}}回クリック</p>
+  <button v-on:click="countUp(3)">カウントアップ</button>
+  <p v-on:mousemove="changeMousePosition($event,10)">マウス載せてください
+    <span v-on:mousemove.stop>反応しないでください</span></p>
+  <a v-on:click.prevent href="https://google.com">G</a>
+  <p>X:{{x}},Y:{{y}},Z:{{z}}</p>
+  <input type="text" v-on:keyup.space="myAlert" >
+
+</div>
+

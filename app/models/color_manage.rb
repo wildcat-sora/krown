@@ -70,7 +70,7 @@ class ColorManage < ApplicationRecord
   def color2_check
     color_palette = Settings.color_select[:select_box]
     color_palette.include?(color_2)
-    unless color_palette.include?(color_1)
+    unless color_palette.include?(color_2)
       errors.add(:color_2  , "入力可能なカラーはドロップダウン項目のみです")
       false
     end
@@ -86,7 +86,10 @@ class ColorManage < ApplicationRecord
 
   # カラーフラグが設定されていなければレコードとして認識されない
   def color_flg_check
-    color_flg == 1
+    if color_flg != "1"
+      errors.add(:color_flg  , "カラーフラグが設定されていない場合はカラー設定が無効になります")
+      false
+    end
   end
 
 end

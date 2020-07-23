@@ -104,8 +104,9 @@ gem 'jquery-validation-rails'
 
 #gem 'autoprefixer-rails', '~> 8.0'
 
-# 2019.4.14 gemファイルの追加        〜ここまで
+gem 'factory_bot_rails'
 
+# 2019.4.14 gemファイルの追加        〜ここまで
 group :production do
   gem 'unicorn', '5.4.1'
 end

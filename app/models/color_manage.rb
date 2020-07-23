@@ -16,10 +16,16 @@ class ColorManage < ApplicationRecord
   validates :word_color,  presence: { message: "ワードを指定した場合はワードカラーが必須です" }, if: :group_word?
 
   #カスタムバリデータ
+  # シングルカラーが選択された場合は、color1のみが反映される。color2の入力値は弾く
   validate :single_color_check
+  # color_1: 入力されたカラーがプルダウンからのもののみかどうか。
   validate :color1_check
+  # color_2: 入力されたカラーがプルダウンからのもののみかどうか。
   validate :color2_check, if: :multi_color?
+  # 複数カラー選択時に同じカラーの場合はfalseとする
   validate :multi_color_check, if: :multi_color?
+  # カラーフラグが設定されていなければレコードとして認識されない
+  validate :color_flg_check
 
   def single?
     self.color_type == "single"
@@ -76,6 +82,11 @@ class ColorManage < ApplicationRecord
       errors.add(:color_2  , "複数のカラーを指定する場合は別々のカラーを指定してください。")
       false
     end
+  end
+
+  # カラーフラグが設定されていなければレコードとして認識されない
+  def color_flg_check
+    color_flg == 1
   end
 
 end

@@ -7,6 +7,8 @@ class KrownsController < ApplicationController
   before_action :select_genre
   #カウンター
   before_action :get_count
+  #カラーグループ
+  before_action :color_group_select
 
   def index
     # アプリケーション起動時、ログオンユーザがない場合は新規作成する
@@ -200,6 +202,10 @@ private
     if @knowledge.img_flg.to_i == 1
       @attachment = @knowledge.attachments[0]
     end
+  end
+
+  def color_group_select
+    @color_select = ColorManage.where(group_flg: "1")
   end
 
 end

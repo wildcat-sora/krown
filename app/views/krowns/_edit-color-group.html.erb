@@ -1,8 +1,23 @@
 <div class="color-form">
+
+  <!-- カラーグループ選択フォーム -->
+  <div class="color-group-form">
+    <div class="color-group-form__decoration">
+      <i class="far fa-folder-open"></i>
+    </div>
+    <div class="color-group-form__lavel">カラーグループ選択</div>
+    <% if @color_select.count >= 1 %>
+      <%= color_manage_record.select :knowledge_id, @color_select.map{|t| [t.group_word,t.id]},{},{class: "color-group-form__select"} %>
+    <% else %>
+      <%= color_manage_record.select :knowledge_id, ['未登録'],{},{class: "color-group-form__select"} %>
+      <%= color_manage_record.hidden_field :knowledge_id  ,value: 1 %>
+    <% end %>
+  </div>
+
+  <!--カラーグループ入力フォーム-->
   <div class="color-form__decoration">
     <i class="fas fa-key"></i>
   </div>
-
   <!-- カラーグループを使用するかのチェックボックス -->
   <%= color_manage_record.label :color_flg,"カラーグループ" ,class: "color-form__lavel"%>
   <% if color_manage_record.object[:color_flg] == "1" %>

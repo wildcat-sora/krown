@@ -175,6 +175,34 @@
       }
     }
 
+    //カラードロップボックス
+    .color-group-form{
+      width: calc(100%);
+      &__decoration{
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 10px 5px 10px 50px;
+      }
+      &__lavel{
+        margin: 10px 5px 10px 10px;
+        display: inline-block;
+        font-size: 14px;
+        width: 150px;
+      }
+      &__select{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 200px;
+        padding: 5px;
+        border: 1px solid #74B816;
+        border-radius: 5px;
+        min-height: 30px;
+      }
+
+    }
+
 
 //カラーグループ
     .color-form{

@@ -18,7 +18,9 @@ module KrownsHelper
 
   def search_result(keywords: nil)
     unless keywords.present?
-      tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keywords}%","%#{keywords}%").includes(:color_manages,:user,:attachments).order(created_at: :desc,id: :desc)
+      tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
+                     .includes(:color_manages,:user,:attachments)
+                     .order(created_at: :desc,id: :desc)
     end
     #検索結果の初期化
     key_count = 0
@@ -28,14 +30,21 @@ module KrownsHelper
     keywords.split(" ").each do |keyword|
       # 初回のみ検索
       if key_count == 0
-        data = Knowledge.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").includes(:color_manages,:user,:attachments).order(created_at: :desc,id: :desc)
+        # 1)ナレッジからキーワード検索を実施する
+        # 2)カラーDBから抽出する(or条件)
+        data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
+                        .or(Knowledge.where(id:Knowledge.joins(:color_manages)
+                          .where('group_word LIKE(?)',"%#{keyword}%").select("knowledge_id")))
         key_count += 1
         next
       end
 
       # 1回目の検索を元に、2回目の文字からさらに絞り込みを行う。
       if key_count != 0 && data.count != 0
-        data = data.where('title LIKE(?) OR content LIKE(?)' ,"%#{keyword}%","%#{keyword}%").includes(:color_manages,:user,:attachments).order(created_at: :desc,id: :desc)
+        # 1)上記と同様の検索仕様
+        data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
+                        .or(Knowledge.where(id:Knowledge.joins(:color_manages)
+                          .where('group_word LIKE(?)',"%#{keyword}%").select("knowledge_id")))
         key_count += 1
         next
       end

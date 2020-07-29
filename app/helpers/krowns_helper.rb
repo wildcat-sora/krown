@@ -57,31 +57,32 @@ module KrownsHelper
   end
 
   def get_color_attribute(knowledge)
+    return unless knowledge.color_manage
+
     color_attributes = Array.new
-    knowledge.color_manage.each do | color_manage_record |
+    color_manage_record = knowledge.color_manage
 
-      if color_manage_record[:color_flg] == "1"
-        case color_manage_record[:color_type]
+    if color_manage_record[:color_flg] == "1"
+      case color_manage_record[:color_type]
 
-        when ColorManage.color_types[:single] then
-          # カラーグループ：singleを選択した場合
-          # シングルカラー表示＋半透明：80%
-          color_attributes = "background-color:#{color_manage_record[:color_1]};opacity: 0.8;"
-          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
+      when "single" then
+        # カラーグループ：singleを選択した場合
+        # シングルカラー表示＋半透明：80%
+        color_attributes = "background-color:#{color_manage_record[:color_1]};opacity: 0.8;"
+        font_color_add_attribute(color_attributes,color_manage_record[:word_color])
 
-        when ColorManage.color_types[:double] then
-          # カラーグループ：doubleを選択した場合
-          # ダブルカラー表示（斜め線）＋半透明：70%
-          color_attributes = "background: linear-gradient(22deg, #{color_manage_record[:color_1]} 50%, #{color_manage_record[:color_2]} 50%);opacity: 0.7;"
-          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
+      when "double" then
+        # カラーグループ：doubleを選択した場合
+        # ダブルカラー表示（斜め線）＋半透明：70%
+        color_attributes = "background: linear-gradient(22deg, #{color_manage_record[:color_1]} 50%, #{color_manage_record[:color_2]} 50%);opacity: 0.7;"
+        font_color_add_attribute(color_attributes,color_manage_record[:word_color])
 
-        when ColorManage.color_types[:graphic] then
-          # カラーグループ：graphicを選択した場合
-          # グラフィック表示＋半透明：50%
-          color_attributes = "background: linear-gradient(#{color_manage_record[:color_1]}, #{color_manage_record[:color_2]}); opacity: 0.5;"
-          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
+      when "graphic" then
+        # カラーグループ：graphicを選択した場合
+        # グラフィック表示＋半透明：50%
+        color_attributes = "background: linear-gradient(#{color_manage_record[:color_1]}, #{color_manage_record[:color_2]}); opacity: 0.5;"
+        font_color_add_attribute(color_attributes,color_manage_record[:word_color])
 
-        end
       end
     end
 
@@ -89,11 +90,12 @@ module KrownsHelper
   end
 
   def get_color_keyword(knowledge)
-    color_attributes = ""
-    knowledge.color_manage.each do | color_manage_record |
-      if color_manage_record[:color_flg] == "1"
-        color_attributes = color_manage_record[:group_word]
-      end
+    return unless knowledge.color_manage
+
+    color_attributes = Array.new
+    color_manage_record = knowledge.color_manage
+    if color_manage_record[:color_flg] == "1"
+      color_attributes = color_manage_record[:group_word]
     end
 
     color_attributes

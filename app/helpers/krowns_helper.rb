@@ -4,7 +4,7 @@ module KrownsHelper
   # ページネーションオブジェクトを含める
   def search_knowledge_data(page: nil)
     # データ表示上限を100件とする
-    tmp_data = Knowledge.order(created_at: :desc,id: :desc).includes(:color_manages,:user,:attachments).limit(100)
+    tmp_data = Knowledge.order(created_at: :desc,id: :desc).includes(:color_manage,:user,:attachments).limit(100)
     data = tmp_data.page(page).per(25)
 
     data
@@ -19,7 +19,7 @@ module KrownsHelper
   def search_result(keywords: nil)
     unless keywords.present?
       tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                     .includes(:color_manages,:user,:attachments)
+                     .includes(:color_manage,:user,:attachments)
                      .order(created_at: :desc,id: :desc)
     end
     #検索結果の初期化
@@ -33,7 +33,7 @@ module KrownsHelper
         # 1)ナレッジからキーワード検索を実施する
         # 2)カラーDBから抽出する(or条件)
         data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                        .or(Knowledge.where(id:Knowledge.joins(:color_manages)
+                        .or(Knowledge.where(id:Knowledge.joins(:color_manage)
                           .where('group_word LIKE(?)',"%#{keyword}%").select("knowledge_id")))
         key_count += 1
         next
@@ -43,7 +43,7 @@ module KrownsHelper
       if key_count != 0 && data.count != 0
         # 1)上記と同様の検索仕様
         data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                        .or(Knowledge.where(id:Knowledge.joins(:color_manages)
+                        .or(Knowledge.where(id:Knowledge.joins(:color_manage)
                           .where('group_word LIKE(?)',"%#{keyword}%").select("knowledge_id")))
         key_count += 1
         next
@@ -58,7 +58,7 @@ module KrownsHelper
 
   def get_color_attribute(knowledge)
     color_attributes = Array.new
-    knowledge.color_manages.each do | color_manage_record |
+    knowledge.color_manage.each do | color_manage_record |
 
       if color_manage_record[:color_flg] == "1"
         case color_manage_record[:color_type]
@@ -90,7 +90,7 @@ module KrownsHelper
 
   def get_color_keyword(knowledge)
     color_attributes = ""
-    knowledge.color_manages.each do | color_manage_record |
+    knowledge.color_manage.each do | color_manage_record |
       if color_manage_record[:color_flg] == "1"
         color_attributes = color_manage_record[:group_word]
       end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_083119) do
+ActiveRecord::Schema.define(version: 2020_07_29_030148) do
 
   create_table "attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "knowledge_id"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_083119) do
   end
 
   create_table "color_manages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "knowledge_id"
     t.string "color_type"
     t.string "color_flg"
     t.string "color_1"
@@ -40,7 +39,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_083119) do
     t.datetime "updated_at", null: false
     t.string "group_flg"
     t.string "parent_id"
-    t.index ["knowledge_id"], name: "index_color_manages_on_knowledge_id"
   end
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,6 +67,8 @@ ActiveRecord::Schema.define(version: 2020_07_28_083119) do
     t.datetime "updated_at", null: false
     t.text "image"
     t.string "public_flg"
+    t.bigint "color_manage_id"
+    t.index ["color_manage_id"], name: "index_knowledges_on_color_manage_id"
     t.index ["genre_id"], name: "index_knowledges_on_genre_id"
     t.index ["user_id"], name: "index_knowledges_on_user_id"
   end
@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_083119) do
   end
 
   add_foreign_key "attachments", "knowledges"
-  add_foreign_key "color_manages", "knowledges"
   add_foreign_key "genres", "users"
   add_foreign_key "knowledges", "genres"
   add_foreign_key "knowledges", "users"

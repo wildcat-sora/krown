@@ -126,13 +126,13 @@ module KrownsHelper
     end
 
     if @color_manage
-      knowledge_save_flg = false unless @color_manage.save!
+      knowledge_save_flg = false unless @color_manage.save
       #保存したのち、新規カラーidを取得し、ナレッジにセットする
       @knowledge.color_manage_id = @color_manage.id
     end
 
     if @knowledge
-      knowledge_save_flg = false unless @knowledge.save!
+      knowledge_save_flg = false unless @knowledge.save
     end
 
     knowledge_save_flg

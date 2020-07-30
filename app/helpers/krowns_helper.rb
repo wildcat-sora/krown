@@ -17,12 +17,18 @@ module KrownsHelper
   end
 
   def search_result(keywords: nil)
+
+    #キーワードが何もない時の処理
     unless keywords.present?
-      tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                     .includes(:color_manage,:user,:attachments)
-                     .order(created_at: :desc,id: :desc)
+      #tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
+      #               .includes(:color_manage,:user,:attachments)
+      #               .order(created_at: :desc,id: :desc)
+      #search_knowledge_data
+      #キーワードを入力してくださいのバリデーションをかける
     end
+
     #検索結果の初期化
+
     key_count = 0
 
     data = []
@@ -32,9 +38,10 @@ module KrownsHelper
       if key_count == 0
         # 1)ナレッジからキーワード検索を実施する
         # 2)カラーDBから抽出する(or条件)
-        data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                        .or(Knowledge.where(id:Knowledge.joins(:color_manage)
-                          .where('group_word LIKE(?)',"%#{keyword}%").select("knowledge_id")))
+        data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keyword}%","%#{keyword}%","%#{keyword}%")
+                        .or(Knowledge.where(color_manage_id: ColorManage.joins(:knowledges)
+                          .where('group_word LIKE(?)',"%#{keyword}%").select("id")))
+
         key_count += 1
         next
       end
@@ -42,9 +49,10 @@ module KrownsHelper
       # 1回目の検索を元に、2回目の文字からさらに絞り込みを行う。
       if key_count != 0 && data.count != 0
         # 1)上記と同様の検索仕様
-        data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                        .or(Knowledge.where(id:Knowledge.joins(:color_manage)
-                          .where('group_word LIKE(?)',"%#{keyword}%").select("knowledge_id")))
+        data = data.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keyword}%","%#{keyword}%","%#{keyword}%")
+                        .or(Knowledge.where(color_manage_id: ColorManage.joins(:knowledges)
+                          .where('group_word LIKE(?)',"%#{keyword}%").select("id")))
+
         key_count += 1
         next
       end
@@ -53,7 +61,7 @@ module KrownsHelper
       break unless data.present?
     end
 
-    tmp_data = data
+    tmp_data = data.order(created_at: :desc,id: :desc)
   end
 
   def get_color_attribute(knowledge)

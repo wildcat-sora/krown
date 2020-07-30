@@ -107,4 +107,26 @@ module KrownsHelper
     end
   end
 
+  def knowledge_save
+    knowledge_save_flg = true
+
+    if @attachment
+      #親子関係を保持したままデータを保存する
+      @knowledge.attachments << @attachment
+    end
+
+    if @color_manage
+      knowledge_save_flg = false unless @color_manage.save
+      #保存したのち、新規カラーidを取得し、ナレッジにセットする
+      @knowledge.color_manage_id = @color_manage.id
+    end
+
+    if @knowledge
+      knowledge_save_flg = false unless @knowledge.save
+    end
+
+    knowledge_save_flg
+
+  end
+
 end

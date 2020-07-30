@@ -74,14 +74,13 @@
 
       <div class="ac-border"></div>
 
-      <% if @knowledge.new_record? %>
+      <% if @knowledge.new_record? || @color_manage.nil?  %>
         <!-- カラーグループ入力フォーム -->
-        <%= f.fields_for :color_manages ,@knowledge.color_manages.build do |data| %>
+        <%= f.fields_for :color_manage ,ColorManage.find_or_initialize_by(id: @knowledge.color_manage_id) do |data| %>
           <%= render 'edit-color-group', color_manage_record: data %>
         <% end %>
-      <% else %>
-      <!-- 更新時-->
-        <%= f.fields_for :color_manages  do |data| %>
+      <% else @color_manage %>
+        <%= f.fields_for :color_manage ,@color_manage do |data| %>
           <%= render 'edit-color-group', color_manage_record: data %>
         <% end %>
       <% end %>
@@ -109,6 +108,15 @@
           <%= message %><br>
         <% end %>
       </div>
+    <% end %>
+    <% if @color_manage %>
+      <% if @color_manage.errors.any? %>
+        <div class="edit-message">
+          <% @color_manage.errors.full_messages.each do |message| %>
+            <%= message %><br>
+          <% end %>
+        </div>
+      <%end %>
     <% end %>
     <% if @attachment %>
       <% if @attachment.errors.any? %>

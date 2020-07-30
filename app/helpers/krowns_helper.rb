@@ -20,11 +20,11 @@ module KrownsHelper
 
     #キーワードが何もない時の処理
     unless keywords.present?
-      #tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
+      # キーワードを入力してくださいのバリデーションをかける
+      # tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
       #               .includes(:color_manage,:user,:attachments)
       #               .order(created_at: :desc,id: :desc)
-      #search_knowledge_data
-      #キーワードを入力してくださいのバリデーションをかける
+
     end
 
     #検索結果の初期化
@@ -35,6 +35,8 @@ module KrownsHelper
     #入力されたキーワードに複数キーワードがある場合は分割検索する
     keywords.split(" ").each do |keyword|
       # 初回のみ検索
+      # 実際のデータベース検索は1回目のみ。2回目以降は取得したデータに対してキーワードで検索する
+      # ※)memo: 一つ目のキーワードが主検索となる。2、3の絞り込みもDBに対して行う場合は1回目の検索結果に追記していく仕様が望ましい
       if key_count == 0
         # 1)ナレッジからキーワード検索を実施する
         # 2)カラーDBから抽出する(or条件)

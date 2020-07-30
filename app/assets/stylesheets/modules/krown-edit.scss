@@ -140,6 +140,12 @@
         background-color: darkgray;
     }
 
+    .ac-bashed-border{
+      width: 90%;
+      margin: 20px 0 10px 40px;
+      border: 0.5px lightskyblue dashed;
+    }
+
 //コンテンツ入力フォーム
     .content-form{
       margin: 20px 0 0 0;
@@ -166,14 +172,50 @@
       &__text{
           margin: 10px 5px 5px 20px;
           font-size: 12px;
-          width: 65%;
-          height: 40vh;
+          width: 60%;
+          height: 30vh;
           max-height: 300px;
           border-radius:5px;
           border: 1px solid #74B816;
           vertical-align:top;
       }
     }
+
+
+  //備考欄入力フォーム
+  .remark-form{
+    margin: 20px 0 0 0;
+    width: calc(100%);
+    .required_mark{
+      margin: 12px 0 0 0;
+    }
+    &__decoration{
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin: 10px 5px 10px 50px;
+      vertical-align: top;
+    }
+    &__lavel{
+      margin: 10px 5px 10px 10px;
+      display:  inline-block;
+      font-size: 14px;
+      width: 150px;
+      font-weight: 600;
+      display: inline-block;
+      /* margin-top: 2px; */
+    }
+    &__text{
+      margin: 10px 5px 5px 25px;
+      font-size: 12px;
+      width: 60%;
+      height: 25vh;
+      max-height: 300px;
+      border-radius:5px;
+      border: 1px solid #74B816;
+      vertical-align:top;
+    }
+  }
 
     //カラードロップボックス
     .color-group-form{

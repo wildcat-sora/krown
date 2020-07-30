@@ -72,6 +72,19 @@
         <%= f.text_area :content ,class: "content-form__text" ,placeholder:"コンテンツを入力してください（100,000文字まで）"%>
       </div>
 
+      <div class="ac-bashed-border"></div>
+
+      <!-- 備考欄入力フォーム -->
+      <div class="remark-form">
+
+        <div class="remark-form__decoration">
+          <i class="far fa-edit"></i>
+        </div>
+        <div class="remark-form__lavel">備考・補足</div>
+
+        <%= f.text_area :remark ,class: "remark-form__text" ,placeholder:"補足事項があれば入力して下さい（100,000文字まで）"%>
+      </div>
+
       <div class="ac-border"></div>
 
       <% if @knowledge.new_record? || @color_manage.nil?  %>

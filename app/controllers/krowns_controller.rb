@@ -135,7 +135,8 @@ private
       :image,
       :created_at,
       :updated_at,
-      :color_manage_id
+      :color_manage_id,
+      :remark
       )
   end
 

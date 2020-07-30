@@ -134,20 +134,12 @@ private
       :yobi_1,
       :image,
       :created_at,
-      :updated_at
+      :updated_at,
+      :color_manage_id
       )
   end
 
   def params_color_mange
-    # accepts_nested_attributes_for使用に伴うparams取得変更
-    # params.require(:knowledge).require(:color_manages).permit(
-    #    :id,
-    #    :color_flg,
-    #    :color_type,
-    #    :color_1,
-    #    :color_2
-    #)
-
     hash_attributes = params.require(:knowledge).require(:color_manage_attributes)
     hash_attributes.permit(
         :id,

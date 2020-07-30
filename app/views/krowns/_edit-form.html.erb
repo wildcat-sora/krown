@@ -81,7 +81,7 @@
         <% end %>
       <% else @color_manage %>
         <%= f.fields_for :color_manage ,@color_manage do |data| %>
-          <%= render 'edit-color-group', color_manage_record: data %>
+          <%= render 'edit-color-group', color_manage_record: data, knowledge_record: f %>
         <% end %>
       <% end %>
 

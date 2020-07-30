@@ -17,13 +17,8 @@
   <!--   カラーグループ選択フォーム-->
   <div class="color-make">
     <div class="color-make__lavel">グループ選択</div>
-    <% if @color_select.count >= 1 %>
-      <%= knowledge_record.select :color_manage_id, @color_select.map{|t| [t.group_word,t.id]},{},{class: "color-make__text color-form__control"} %>
-    <% else %>
-      <%= knowledge_record.select :color_manage_id, ['未登録のため選択できません'],{},{class: "color-make__text color-form__control"} %>
-      <%= knowledge_record.hidden_field :color_manage_id ,value: nil %>
-    <% end %>
-    <div class="info_string">カラーグループを選択した場合、グループの新規追加はできません。</div>
+      <%= knowledge_record.select :color_manage_id, color_select_box(@color_select),{},{class: "color-make__text color-form__control",disabled: true} %>
+    <div class="info_string">個別カラーを作成した場合は、反映されません</div>
   </div>
 
   <!--  カラータイプ、どの設定にするか。-->
@@ -67,6 +62,14 @@
   <div class="color-make__lavel">group-color</div>
   <%= color_manage_record.select :word_color ,Settings.color_select[:select_box],{},class: "color-make__text color-form__control",disabled: true %>
 </div>
+
+<!--   カラーグループ選択フォーム-->
+<div class="color-make">
+  <div class="color-make__lavel">グループ登録</div>
+  <%= color_manage_record.check_box :group_flg,class: "color-form__box color-form__control" ,checked: false%>
+  <div class="info_string">グループ登録の場合はチェック！</div>
+</div>
+
 
 <!--入力制御用jquery-->
 <script>

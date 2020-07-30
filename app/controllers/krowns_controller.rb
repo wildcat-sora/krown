@@ -50,7 +50,7 @@ class KrownsController < ApplicationController
         knowledge_service.update_knowledge(params:params_knowledge)
       end
 
-      if @knowledge.color_manage.count > 0
+      if @knowledge.color_manage
         color_manage_service = UpdateColorManageService.new()
         color_manage_service.update_color_manage(params: params_color_mange)
       end
@@ -148,7 +148,8 @@ private
         :color_1,
         :color_2,
         :group_word,
-        :word_color
+        :word_color,
+        :group_flg
       )
 
   end

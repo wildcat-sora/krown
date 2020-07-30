@@ -126,16 +126,24 @@ module KrownsHelper
     end
 
     if @color_manage
-      knowledge_save_flg = false unless @color_manage.save
+      knowledge_save_flg = false unless @color_manage.save!
       #保存したのち、新規カラーidを取得し、ナレッジにセットする
       @knowledge.color_manage_id = @color_manage.id
     end
 
     if @knowledge
-      knowledge_save_flg = false unless @knowledge.save
+      knowledge_save_flg = false unless @knowledge.save!
     end
 
     knowledge_save_flg
+
+  end
+
+
+  # 選択ボックスの編集（誤ってカラーグループが選択されないようにデフォルト空白を設定）
+  def color_select_box(color_object)
+    select_box = [""]
+    select_box + color_object.map{|t| [t.group_word,t.id]} if color_object
 
   end
 

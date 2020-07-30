@@ -83,10 +83,21 @@
     }
     .krown-help{
       display: inline-block;
-      width: 38%;
+      width: 36%;
+      margin-left: 20px;
     }
   }
-  textarea.krown-textarea{
+  textarea.krown-textarea_default{
+    border: none;
+    overflow: scroll;
+    outline: none;
+    width: 96%;
+    height: 250px;
+    resize: none;
+    margin-left: 5px;
+  }
+
+  textarea.krown-textarea_remark{
     border: none;
     overflow: scroll;
     outline: none;

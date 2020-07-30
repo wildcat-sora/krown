@@ -4,7 +4,7 @@ module KrownsHelper
   # ページネーションオブジェクトを含める
   def search_knowledge_data(page: nil)
     # データ表示上限を100件とする
-    tmp_data = Knowledge.order(created_at: :desc,id: :desc).includes(:color_manages,:user,:attachments).limit(100)
+    tmp_data = Knowledge.order(created_at: :desc,id: :desc).includes(:color_manage,:user,:attachments).limit(100)
     data = tmp_data.page(page).per(25)
 
     data
@@ -17,24 +17,33 @@ module KrownsHelper
   end
 
   def search_result(keywords: nil)
+
+    #キーワードが何もない時の処理
     unless keywords.present?
-      tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                     .includes(:color_manages,:user,:attachments)
-                     .order(created_at: :desc,id: :desc)
+      # キーワードを入力してくださいのバリデーションをかける
+      # tmp_data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
+      #               .includes(:color_manage,:user,:attachments)
+      #               .order(created_at: :desc,id: :desc)
+
     end
+
     #検索結果の初期化
+
     key_count = 0
 
     data = []
     #入力されたキーワードに複数キーワードがある場合は分割検索する
     keywords.split(" ").each do |keyword|
       # 初回のみ検索
+      # 実際のデータベース検索は1回目のみ。2回目以降は取得したデータに対してキーワードで検索する
+      # ※)memo: 一つ目のキーワードが主検索となる。2、3の絞り込みもDBに対して行う場合は1回目の検索結果に追記していく仕様が望ましい
       if key_count == 0
         # 1)ナレッジからキーワード検索を実施する
         # 2)カラーDBから抽出する(or条件)
-        data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                        .or(Knowledge.where(id:Knowledge.joins(:color_manages)
-                          .where('group_word LIKE(?)',"%#{keyword}%").select("knowledge_id")))
+        data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keyword}%","%#{keyword}%","%#{keyword}%")
+                        .or(Knowledge.where(color_manage_id: ColorManage.joins(:knowledges)
+                          .where('group_word LIKE(?)',"%#{keyword}%").select("id")))
+
         key_count += 1
         next
       end
@@ -42,9 +51,10 @@ module KrownsHelper
       # 1回目の検索を元に、2回目の文字からさらに絞り込みを行う。
       if key_count != 0 && data.count != 0
         # 1)上記と同様の検索仕様
-        data = Knowledge.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keywords}%","%#{keywords}%","%#{keywords}%")
-                        .or(Knowledge.where(id:Knowledge.joins(:color_manages)
-                          .where('group_word LIKE(?)',"%#{keyword}%").select("knowledge_id")))
+        data = data.where('title LIKE(?) OR content LIKE(?) OR remark LIKE(?)' ,"%#{keyword}%","%#{keyword}%","%#{keyword}%")
+                        .or(Knowledge.where(color_manage_id: ColorManage.joins(:knowledges)
+                          .where('group_word LIKE(?)',"%#{keyword}%").select("id")))
+
         key_count += 1
         next
       end
@@ -53,35 +63,36 @@ module KrownsHelper
       break unless data.present?
     end
 
-    tmp_data = data
+    tmp_data = data.order(created_at: :desc,id: :desc)
   end
 
   def get_color_attribute(knowledge)
+    return unless knowledge.color_manage
+
     color_attributes = Array.new
-    knowledge.color_manages.each do | color_manage_record |
+    color_manage_record = knowledge.color_manage
 
-      if color_manage_record[:color_flg] == "1"
-        case color_manage_record[:color_type]
+    if color_manage_record[:color_flg] == "1"
+      case color_manage_record[:color_type]
 
-        when ColorManage.color_types[:single] then
-          # カラーグループ：singleを選択した場合
-          # シングルカラー表示＋半透明：80%
-          color_attributes = "background-color:#{color_manage_record[:color_1]};opacity: 0.8;"
-          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
+      when "single" then
+        # カラーグループ：singleを選択した場合
+        # シングルカラー表示＋半透明：80%
+        color_attributes = "background-color:#{color_manage_record[:color_1]};opacity: 0.8;"
+        font_color_add_attribute(color_attributes,color_manage_record[:word_color])
 
-        when ColorManage.color_types[:double] then
-          # カラーグループ：doubleを選択した場合
-          # ダブルカラー表示（斜め線）＋半透明：70%
-          color_attributes = "background: linear-gradient(22deg, #{color_manage_record[:color_1]} 50%, #{color_manage_record[:color_2]} 50%);opacity: 0.7;"
-          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
+      when "double" then
+        # カラーグループ：doubleを選択した場合
+        # ダブルカラー表示（斜め線）＋半透明：70%
+        color_attributes = "background: linear-gradient(22deg, #{color_manage_record[:color_1]} 50%, #{color_manage_record[:color_2]} 50%);opacity: 0.7;"
+        font_color_add_attribute(color_attributes,color_manage_record[:word_color])
 
-        when ColorManage.color_types[:graphic] then
-          # カラーグループ：graphicを選択した場合
-          # グラフィック表示＋半透明：50%
-          color_attributes = "background: linear-gradient(#{color_manage_record[:color_1]}, #{color_manage_record[:color_2]}); opacity: 0.5;"
-          font_color_add_attribute(color_attributes,color_manage_record[:word_color])
+      when "graphic" then
+        # カラーグループ：graphicを選択した場合
+        # グラフィック表示＋半透明：50%
+        color_attributes = "background: linear-gradient(#{color_manage_record[:color_1]}, #{color_manage_record[:color_2]}); opacity: 0.5;"
+        font_color_add_attribute(color_attributes,color_manage_record[:word_color])
 
-        end
       end
     end
 
@@ -89,11 +100,12 @@ module KrownsHelper
   end
 
   def get_color_keyword(knowledge)
-    color_attributes = ""
-    knowledge.color_manages.each do | color_manage_record |
-      if color_manage_record[:color_flg] == "1"
-        color_attributes = color_manage_record[:group_word]
-      end
+    return unless knowledge.color_manage
+
+    color_attributes = Array.new
+    color_manage_record = knowledge.color_manage
+    if color_manage_record[:color_flg] == "1"
+      color_attributes = color_manage_record[:group_word]
     end
 
     color_attributes
@@ -103,6 +115,36 @@ module KrownsHelper
     if word_color
       target_record << "color:#{word_color};"
     end
+  end
+
+  def knowledge_save
+    knowledge_save_flg = true
+
+    if @attachment
+      #親子関係を保持したままデータを保存する
+      @knowledge.attachments << @attachment
+    end
+
+    if @color_manage
+      knowledge_save_flg = false unless @color_manage.save
+      #保存したのち、新規カラーidを取得し、ナレッジにセットする
+      @knowledge.color_manage_id = @color_manage.id
+    end
+
+    if @knowledge
+      knowledge_save_flg = false unless @knowledge.save
+    end
+
+    knowledge_save_flg
+
+  end
+
+
+  # 選択ボックスの編集（誤ってカラーグループが選択されないようにデフォルト空白を設定）
+  def color_select_box(color_object)
+    select_box = [""]
+    select_box + color_object.map{|t| [t.group_word,t.id]} if color_object
+
   end
 
 end

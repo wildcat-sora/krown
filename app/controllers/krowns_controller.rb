@@ -24,13 +24,9 @@ class KrownsController < ApplicationController
 
   def edit
     @knowledge = Knowledge.find(params[:id])
-    
-    if @knowledge
-      # アクションへはジャンプしない。テンプレートのみを使用
-      render :template => 'krowns/new'
-    else
-      redirect_to root_path, notice: '該当のレコードがありません'
-    end
+    @color_manage = @knowledge.color_manage_id ? ColorManage.find(@knowledge.color_manage_id) : nil
+
+    render :template => 'krowns/new'
   end
 
   def show
@@ -41,9 +37,8 @@ class KrownsController < ApplicationController
   end
 
   def new
-    @knowledge = Knowledge.new
     # 同時並行性は今回考慮しない(工数考慮)
-    @knowledge.id = set_id(@knowledge)
+    @knowledge = Knowledge.new(id: set_id(@knowledge))
   end
 
   def update
@@ -55,7 +50,7 @@ class KrownsController < ApplicationController
         knowledge_service.update_knowledge(params:params_knowledge)
       end
 
-      if @knowledge.color_manages.count > 0
+      if @knowledge.color_manage
         color_manage_service = UpdateColorManageService.new()
         color_manage_service.update_color_manage(params: params_color_mange)
       end
@@ -76,21 +71,16 @@ class KrownsController < ApplicationController
     if params_knowledge[:image]
       create_attachment_service = CreateAttachmentService.new()
       @attachment = create_attachment_service.attachment_data_create(@knowledge.image)
-      #親子関係を保持したままデータを保存する
-      @knowledge.attachments << @attachment
     end
 
     # カラーグループ設定が存在した場合は、レコードを生成する
     if params_color_mange[:color_flg] == "1"
       create_color_manage_service = CreateColorManageService.new()
       @color_manage = create_color_manage_service.color_manage_data_create(params_color_mange)
-      #親子関係を保持したままデータを保存する
-      @knowledge.color_manages << @color_manage
     end
 
-    if @knowledge.save
+    if knowledge_save
       redirect_to root_path notice: 'ナレッジを作成しました'
-      # root_path  # root_path notice: 'ナレッジを作成しました'
     else
       render :new
     end
@@ -144,29 +134,23 @@ private
       :yobi_1,
       :image,
       :created_at,
-      :updated_at
+      :updated_at,
+      :color_manage_id,
+      :remark
       )
   end
 
   def params_color_mange
-    # accepts_nested_attributes_for使用に伴うparams取得変更
-    # params.require(:knowledge).require(:color_manages).permit(
-    #    :id,
-    #    :color_flg,
-    #    :color_type,
-    #    :color_1,
-    #    :color_2
-    #)
-
-    hash_attributes = params.require(:knowledge).require(:color_manages_attributes)
-    hash_attributes["0"].permit(
+    hash_attributes = params.require(:knowledge).require(:color_manage_attributes)
+    hash_attributes.permit(
         :id,
         :color_flg,
         :color_type,
         :color_1,
         :color_2,
         :group_word,
-        :word_color
+        :word_color,
+        :group_flg
       )
 
   end

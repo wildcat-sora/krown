@@ -21,12 +21,17 @@
     <div class="krown-title"><%= @knowledge.title %></div>
     <div class="krown-border"></div>
     <div class="krown-value">
-      <textarea class="krown-textarea" readonly ><%= @knowledge.content.html_safe %></textarea>
-      <!--  改行コードを変換後、スペースを変換する 改修前コード：<%##= simple_format(br(@knowledge.content)) %> -->
+      <!-- 以前はヘルパーで加工した内容を表示していた。-->
       <%#= gsub_space(br(@knowledge.content)) %>
-      <div class="krown-help">
-        <textarea class="help-textarea" readonly ><%= @knowledge.remark.html_safe if @knowledge.remark %></textarea>
-      </div>
+      <!--  備考欄がある場合は、出力内容を変更する-->
+      <% if @knowledge.remark %>
+        <textarea class="krown-textarea_remark" readonly ><%= @knowledge.content.html_safe %></textarea>
+        <div class="krown-help">
+          <textarea class="help-textarea" readonly ><%= @knowledge.remark.html_safe %></textarea>
+        </div>
+      <% else %>
+        <textarea class="krown-textarea_default" readonly ><%= @knowledge.content.html_safe %></textarea>
+      <% end %>
     </div>
 
   <% else %>

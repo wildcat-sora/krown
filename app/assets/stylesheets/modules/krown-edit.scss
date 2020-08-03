@@ -275,6 +275,94 @@
     }
 
 //カラー入力フォーム
+    .color-select{
+      width: calc(100%);
+      margin: 10px 0 0 0;
+
+      &__lavel1{
+        margin: 10px 5px 10px 200px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+
+      &__lavel2{
+        margin: 10px 5px 10px 40px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+
+      &__text1{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+
+      &__text2{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+    }
+
+//キーワード、カラー入力フォーム
+    .color-keyword{
+      width: calc(100%);
+      margin: 10px 0 0 0;
+
+      &__lavel1{
+        margin: 10px 5px 10px 200px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+
+      &__lavel2{
+        margin: 10px 5px 10px 40px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+
+      &__text1{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+
+      &__text2{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+    }
+
+//カラー入力フォーム
     .color-make{
       width: calc(100%);
       margin: 10px 0 0 0;

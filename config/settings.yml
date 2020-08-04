@@ -1,6 +1,6 @@
 version_manager:
   application_subaco: 'v3.0.2'
 release_date:
-  application_subaco: '20200730_1600'
+  application_subaco: '20200803_1000'
 color_select:
   select_box: ["","black","white","red","blue","yellow","green","grey","pink","orange","brown","purple","lightgreen","lightskyblue","palevioletred","lightgrey","lightyellow","lightseagreen","aqua"]

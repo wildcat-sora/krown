@@ -8,23 +8,25 @@
   <div class="color-form__lavel">マーカー</div>
 
   <!--   カラーグループ選択フォーム-->
-  <div class="color-make">
-    <div class="color-make__lavel">グループ選択</div>
-    <%= knowledge_record.select :color_manage_id, color_select_box(@color_select),{},{class: "color-make__text",disabled: true} %>
+  <div class="color-group">
+    <div class="color-group__lavel">group-select</div>
+    <%= knowledge_record.select :color_manage_id, color_select_box(@color_select),{},{class: "color-group__text"} %>
     <div class="info_string">個別カラーを作成した場合は、反映されません</div>
   </div>
+
+  <div class="ac-space"></div>
 
   <!-- カラーグループを使用するかのチェックボックス -->
   <div class="color-individual">
     <div class="color-individual__lavel">color-individual-set</div>
       <!-- 更新時はチェックフラグが予め設定されているため、チェックボックスのコントロールは行わない-->
       <% if color_manage_record.object[:color_flg] == "1" %>
-        <%= color_manage_record.check_box :color_flg,class: "color-individual__box" ,checked: true%>
+        <%= color_manage_record.check_box :color_flg,class: "color-individual__box" ,id: "color_check",checked: true%>
       <% else %>
         <%= color_manage_record.check_box :color_flg,class: "color-individual__box" ,id: "color_check",checked: false%>
       <% end %>
 
-    <div class="info_string">カラー機能を利用する場合はチェックしてください</div>
+    <div class="info_string">個別カラーを設定する場合はチェック。※グループカラーは空白にしてください</div>
   </div>
 
   <!--  カラータイプ、どの設定にするか。-->

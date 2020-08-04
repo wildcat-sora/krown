@@ -140,6 +140,12 @@
         background-color: darkgray;
     }
 
+    .ac-space{
+      height: 30px;
+      width: 100%;
+      background-color: none;
+    }
+
     .ac-bashed-border{
       width: 90%;
       margin: 20px 0 10px 40px;
@@ -217,8 +223,10 @@
     }
   }
 
-    //カラードロップボックス
-    .color-group-form{
+//***********************
+
+    //カラーグループ
+    .color-form{
       width: calc(100%);
       &__decoration{
         width: 10px;
@@ -227,33 +235,9 @@
         margin: 10px 5px 10px 50px;
       }
       &__lavel{
-        margin: 10px 5px 10px 10px;
-        display: inline-block;
-        font-size: 14px;
-        width: 150px;
-      }
-      &__select{
-        margin: 5px 5px 5px 15px;
-        display: inline-block;
-        font-size: 12px;
-        width: 200px;
-        padding: 5px;
-        border: 1px solid #74B816;
-        border-radius: 5px;
-        min-height: 30px;
-      }
-
-    }
-
-
-//カラーグループ
-    .color-form{
-      width: calc(100%);
-      &__lavel{
         margin: 20px 5px 10px 10px;
         display: inline-block;
         font-size: 14px;
-        width: 150px;
       }
       &__tag{
         font-weight: normal;
@@ -268,7 +252,36 @@
       }
     }
 
-//個別カラーセレクトボックス
+    //カラー入力フォーム
+    .color-group{
+      display: inline-block;
+      margin: 10px 0 0 35px;
+      &__decoration{
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 10px 5px 10px 50px;
+      }
+      &__lavel{
+        margin: 10px 5px 10px 20px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+      &__text{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+    }
+
+    //個別カラーセレクトボックス
     .color-individual{
       width: calc(100%);
       margin: 10px 0 0 0;
@@ -286,7 +299,7 @@
       }
     }
 
-//カラー入力フォーム
+    //カラー入力フォーム
     .color-select{
       width: calc(100%);
       margin: 10px 0 0 0;
@@ -330,7 +343,7 @@
       }
     }
 
-//キーワード、カラー入力フォーム
+    //キーワード、カラー入力フォーム
     .color-keyword{
       width: calc(100%);
       margin: 10px 0 0 0;
@@ -374,7 +387,7 @@
       }
     }
 
-//カラー入力フォーム
+    //カラー入力フォーム
     .color-make{
       width: calc(100%);
       margin: 10px 0 0 0;
@@ -402,6 +415,8 @@
         padding: 0 0 0 10px;
       }
     }
+
+//***********************
 
 //イメージフォーム
     .image-form{

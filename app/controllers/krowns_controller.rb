@@ -53,6 +53,13 @@ class KrownsController < ApplicationController
       if @knowledge.color_manage
         color_manage_service = UpdateColorManageService.new()
         color_manage_service.update_color_manage(params: params_color_mange)
+      #ナレッジに紐つくカラーが無く、更新操作によってカラーが登録された場合
+      elsif params_color_mange
+        create_color_manage_service = CreateColorManageService.new()
+        @color_manage = create_color_manage_service.color_manage_data_create(params_color_mange)
+
+        @color_manage.save!
+        @knowledge.update_attributes(color_manage_id: @color_manage.id)
       end
 
       redirect_to root_path, notice: 'ナレッジを作成しました'

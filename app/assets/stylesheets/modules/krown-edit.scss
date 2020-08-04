@@ -140,6 +140,18 @@
         background-color: darkgray;
     }
 
+    .ac-space{
+      height: 30px;
+      width: 100%;
+      background-color: none;
+    }
+
+    .ac-bashed-border{
+      width: 90%;
+      margin: 20px 0 10px 40px;
+      border: 0.5px lightskyblue dashed;
+    }
+
 //コンテンツ入力フォーム
     .content-form{
       margin: 20px 0 0 0;
@@ -166,8 +178,8 @@
       &__text{
           margin: 10px 5px 5px 20px;
           font-size: 12px;
-          width: 65%;
-          height: 40vh;
+          width: 60%;
+          height: 30vh;
           max-height: 300px;
           border-radius:5px;
           border: 1px solid #74B816;
@@ -175,8 +187,46 @@
       }
     }
 
-    //カラードロップボックス
-    .color-group-form{
+
+  //備考欄入力フォーム
+  .remark-form{
+    margin: 20px 0 0 0;
+    width: calc(100%);
+    .required_mark{
+      margin: 12px 0 0 0;
+    }
+    &__decoration{
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      margin: 10px 5px 10px 50px;
+      vertical-align: top;
+    }
+    &__lavel{
+      margin: 10px 5px 10px 10px;
+      display:  inline-block;
+      font-size: 14px;
+      width: 150px;
+      font-weight: 600;
+      display: inline-block;
+      /* margin-top: 2px; */
+    }
+    &__text{
+      margin: 10px 5px 5px 25px;
+      font-size: 12px;
+      width: 60%;
+      height: 25vh;
+      max-height: 300px;
+      border-radius:5px;
+      border: 1px solid #74B816;
+      vertical-align:top;
+    }
+  }
+
+//***********************
+
+    //カラーグループ
+    .color-form{
       width: calc(100%);
       &__decoration{
         width: 10px;
@@ -185,39 +235,9 @@
         margin: 10px 5px 10px 50px;
       }
       &__lavel{
-        margin: 10px 5px 10px 10px;
-        display: inline-block;
-        font-size: 14px;
-        width: 150px;
-      }
-      &__select{
-        margin: 5px 5px 5px 15px;
-        display: inline-block;
-        font-size: 12px;
-        width: 200px;
-        padding: 5px;
-        border: 1px solid #74B816;
-        border-radius: 5px;
-        min-height: 30px;
-      }
-
-    }
-
-
-//カラーグループ
-    .color-form{
-      width: calc(100%);
-      &__decoration{
-        width: 10px;
-        height: 10px;
-        display: inline-block;
-        margin: 20px 5px 10px 50px;
-      }
-      &__lavel{
         margin: 20px 5px 10px 10px;
         display: inline-block;
         font-size: 14px;
-        width: 150px;
       }
       &__tag{
         font-weight: normal;
@@ -232,7 +252,142 @@
       }
     }
 
-//カラー入力フォーム
+    //カラー入力フォーム
+    .color-group{
+      display: inline-block;
+      margin: 10px 0 0 35px;
+      &__decoration{
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 10px 5px 10px 50px;
+      }
+      &__lavel{
+        margin: 10px 5px 10px 20px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+      &__text{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+    }
+
+    //個別カラーセレクトボックス
+    .color-individual{
+      width: calc(100%);
+      margin: 10px 0 0 0;
+      &__lavel{
+        margin: 10px 5px 10px 200px;
+        display: inline-block;
+        font-size: 13px;
+        width: 200px;
+        font-weight: 400;
+      }
+      &__box{
+        margin: 8px 5px 8px 15px;
+        display: inline-block;
+        font-size: 40px;
+      }
+    }
+
+    //カラー入力フォーム
+    .color-select{
+      width: calc(100%);
+      margin: 10px 0 0 0;
+
+      &__lavel1{
+        margin: 10px 5px 10px 200px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+
+      &__lavel2{
+        margin: 10px 5px 10px 40px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+
+      &__text1{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+
+      &__text2{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+    }
+
+    //キーワード、カラー入力フォーム
+    .color-keyword{
+      width: calc(100%);
+      margin: 10px 0 0 0;
+
+      &__lavel1{
+        margin: 10px 5px 10px 200px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+
+      &__lavel2{
+        margin: 10px 5px 10px 40px;
+        display: inline-block;
+        font-size: 13px;
+        width: 100px;
+        font-weight: 400;
+      }
+
+      &__text1{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+
+      &__text2{
+        margin: 5px 5px 5px 15px;
+        display: inline-block;
+        font-size: 12px;
+        width: 150px;
+        height: 25px;
+        border-radius:5px;
+        border: 1px solid #74B816;
+        padding: 0 0 0 10px;
+      }
+    }
+
+    //カラー入力フォーム
     .color-make{
       width: calc(100%);
       margin: 10px 0 0 0;
@@ -260,6 +415,8 @@
         padding: 0 0 0 10px;
       }
     }
+
+//***********************
 
 //イメージフォーム
     .image-form{

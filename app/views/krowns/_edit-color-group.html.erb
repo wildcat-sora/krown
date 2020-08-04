@@ -1,32 +1,33 @@
 <div class="color-form">
 
-  <!-- カラーグループ選択フォーム -->
-  <div class="color-group-form">
-    <div class="color-group-form__decoration">
-      <i class="far fa-folder-open"></i>
-    </div>
-    <div class="color-group-form__lavel">カラーグループ選択</div>
-    <% if @color_select.count >= 1 %>
-      <%= color_manage_record.select :knowledge_id, @color_select.map{|t| [t.group_word,t.id]},{},{class: "color-group-form__select"} %>
-    <% else %>
-      <%= color_manage_record.select :knowledge_id, ['未登録'],{},{class: "color-group-form__select"} %>
-      <%= color_manage_record.hidden_field :knowledge_id  ,value: 1 %>
-    <% end %>
-  </div>
-
   <!--カラーグループ入力フォーム-->
   <div class="color-form__decoration">
-    <i class="fas fa-key"></i>
+    <i class="fas fa-palette"></i>
   </div>
-  <!-- カラーグループを使用するかのチェックボックス -->
-  <%= color_manage_record.label :color_flg,"カラーグループ" ,class: "color-form__lavel"%>
-  <% if color_manage_record.object[:color_flg] == "1" %>
-    <%= color_manage_record.check_box :color_flg,class: "color-form__box" ,checked: true%>
-  <% else %>
-    <%= color_manage_record.check_box :color_flg,class: "color-form__box" ,id: "color_check",checked: false%>
-  <% end %>
 
-  <div class="info_string">カラー機能を利用する場合はチェックしてください</div>
+  <div class="color-form__lavel">マーカー</div>
+
+  <!--   カラーグループ選択フォーム-->
+  <div class="color-group">
+    <div class="color-group__lavel">group-select</div>
+    <%= knowledge_record.select :color_manage_id, color_select_box(@color_select),{},{class: "color-group__text"} %>
+    <div class="info_string">個別カラーを作成した場合は、反映されません</div>
+  </div>
+
+  <div class="ac-space"></div>
+
+  <!-- カラーグループを使用するかのチェックボックス -->
+  <div class="color-individual">
+    <div class="color-individual__lavel">color-individual-set</div>
+      <!-- 更新時はチェックフラグが予め設定されているため、チェックボックスのコントロールは行わない-->
+      <% if color_manage_record.object[:color_flg] == "1" %>
+        <%= color_manage_record.check_box :color_flg,class: "color-individual__box" ,id: "color_check",checked: true%>
+      <% else %>
+        <%= color_manage_record.check_box :color_flg,class: "color-individual__box" ,id: "color_check",checked: false%>
+      <% end %>
+
+    <div class="info_string">個別カラーを設定する場合はチェック。※グループカラーは空白にしてください</div>
+  </div>
 
   <!--  カラータイプ、どの設定にするか。-->
   <div class="color-make">
@@ -43,32 +44,29 @@
 
 </div>
 
-<!-- カラーグループ入力フォーム1 -->
-<div class="color-make">
-  <div class="color-make__lavel">color(1)</div>
-  <%= color_manage_record.select :color_1 ,Settings.color_select[:select_box],{},{class: "color-make__text color-form__control",disabled: true} %>
-  <div class="info_string">single-colorを選択する場合は、color(1)のみが反映されます。</div>
-</div>
-
-<!-- カラーグループ入力フォーム2 -->
-<div class="color-make">
-  <div class="color-make__lavel">color(2)</div>
-  <%= color_manage_record.select :color_2 ,Settings.color_select[:select_box],{},{class: "color-make__text color-form__control",disabled: true} %>
-  <div class="info_string">グラフィックやダブルカラーを選択した場合はcolor(2)が必須です</div>
+<!-- カラーグループ入力フォーム -->
+<div class="color-select">
+  <div class="color-select__lavel1">color(1)</div>
+  <%= color_manage_record.select :color_1 ,Settings.color_select[:select_box],{},{class: "color-select__text1 color-form__control",disabled: true} %>
+  <div class="color-select__lavel2">color(2)</div>
+  <%= color_manage_record.select :color_2 ,Settings.color_select[:select_box],{},{class: "color-select__text2 color-form__control",disabled: true} %>
 </div>
 
 <!-- カラーキーワード -->
-<div class="color-make">
-  <div class="color-make__lavel">keyword</div>
-  <%= color_manage_record.text_field :group_word ,class: "color-make__text color-form__control",placeholder:"（3文字以下）",disabled: true %>
-  <div class="info_string">カラーグループに対するキーワード。例）RUB,SQL,日報...など</div>
+<div class="color-keyword">
+  <div class="color-keyword__lavel1">keyword</div>
+  <%= color_manage_record.text_field :group_word ,class: "color-keyword__text1 color-form__control",placeholder:"（3文字まで）",disabled: true %>
+  <div class="color-keyword__lavel2">word-color</div>
+  <%= color_manage_record.select :word_color ,Settings.color_select[:select_box],{},class: "color-keyword__text2 color-form__control",disabled: true %>
 </div>
 
-<!-- カラーキーワードのカラー -->
+<!--   カラーグループ選択フォーム-->
 <div class="color-make">
-  <div class="color-make__lavel">group-color</div>
-  <%= color_manage_record.select :word_color ,Settings.color_select[:select_box],{},class: "color-make__text color-form__control",disabled: true %>
+  <div class="color-make__lavel">register</div>
+  <%= color_manage_record.check_box :group_flg,class: "color-form__box color-form__control" ,checked: false%>
+  <div class="info_string">グループ登録の場合はチェック！</div>
 </div>
+
 
 <!--入力制御用jquery-->
 <script>

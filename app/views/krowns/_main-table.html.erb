@@ -8,9 +8,10 @@
         <th width="6%">更新日時</th>
         <th width="3%">番号</th>
         <th width="3.5%">color</th>
-        <th width="23%">タイトル</th>
-        <th width="3%">file</th>
-        <th width="22%">内容</th>
+        <th width="25%">タイトル</th>
+        <th width="2%">file</th>
+        <th width="2%">補足</th>
+        <th width="17%">内容</th>
         </tr>
         <!-- データ部定義 -->
         <% if @knowledge.present? %>
@@ -23,17 +24,23 @@
               <!-- 番号-->
               <td class="td-decoration__of-number"><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true%></td>
               <!-- カラーグループ -->
-              <td style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"><%= get_color_keyword(knowledge) %></td>
+              <td ><div style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"><%= get_color_keyword(knowledge) %></div></td>
               <!-- タイトル-->
-              <td class="td-decoration__of-title"><%= knowledge.title.truncate(25) %></td>
+              <td class="td-decoration__of-title"><%= knowledge.title.truncate(30) %></td>
               <!-- 添付ファイル有無フラグチェック -->
               <% if knowledge.img_flg == "1" %>
-                <td><i class="fas fa-file-alt"></i></td>
+                <td><i class="fas fa-camera-retro"></i></td>
+              <% else %>
+                <td> - </td>
+              <% end %>
+              <!-- 備考欄入力有無-->
+              <% if knowledge.remark_flg == "1" %>
+                <td><i class="fas fa-info-circle"></i></td>
               <% else %>
                 <td> - </td>
               <% end %>
               <!-- 内容 -->
-              <td class="td-decoration"><%= knowledge.content.truncate(45) %></td>
+              <td class="td-decoration"><%= knowledge.content.truncate(35) %></td>
             </tr>
           <% end %>
         <% else %>

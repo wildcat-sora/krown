@@ -14,7 +14,6 @@ class UpdateKnowledgeService
         end
       end
     end
-
   end
 
 end

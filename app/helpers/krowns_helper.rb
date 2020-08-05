@@ -96,7 +96,7 @@ module KrownsHelper
       end
     end
 
-    color_attributes << "border-radius: 7px;"
+    color_attributes
   end
 
   def get_color_keyword(knowledge)

@@ -24,7 +24,7 @@
       <!-- 以前はヘルパーで加工した内容を表示していた。-->
       <%#= gsub_space(br(@knowledge.content)) %>
       <!--  備考欄がある場合は、出力内容を変更する-->
-      <% if @knowledge.remark %>
+      <% if @knowledge.remark_flg == "1" %>
         <textarea class="krown-textarea_remark" readonly ><%= @knowledge.content.html_safe %></textarea>
         <div class="krown-help">
           <textarea class="help-textarea" readonly ><%= @knowledge.remark.html_safe %></textarea>

@@ -50,11 +50,13 @@ class KrownsController < ApplicationController
         knowledge_service.update_knowledge(params:params_knowledge)
       end
 
-      if @knowledge.color_manage
+      # ナレッジに紐つくカラーがあり、且つカラーの更新がある場合
+      if Knowledge.find(params[:knowledge][:id]).color_manage && params_color_mange[:color_flg] == "1"
         color_manage_service = UpdateColorManageService.new()
         color_manage_service.update_color_manage(params: params_color_mange)
+
       #ナレッジに紐つくカラーが無く、更新操作によってカラーが登録された場合
-      elsif params_color_mange
+      elsif Knowledge.find(params[:knowledge][:id]).color_manage.nil? && params_color_mange[:color_flg] == "1"
         create_color_manage_service = CreateColorManageService.new()
         @color_manage = create_color_manage_service.color_manage_data_create(params_color_mange)
 
@@ -63,6 +65,7 @@ class KrownsController < ApplicationController
       end
 
       redirect_to root_path, notice: 'ナレッジを作成しました'
+
     rescue
       render :new, notice: '更新内容を正しく入力してください'
     end

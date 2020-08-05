@@ -90,6 +90,7 @@
   textarea.krown-textarea_default{
     border: none;
     overflow: scroll;
+    -ms-overflow-style: none;   //IE・Edgeスクロール非表示対応
     outline: none;
     width: 96%;
     height: 250px;
@@ -100,6 +101,7 @@
   textarea.krown-textarea_remark{
     border: none;
     overflow: scroll;
+    -ms-overflow-style: none;   //IE・Edgeスクロール非表示対応
     outline: none;
     width: 60%;
     height: 250px;
@@ -115,6 +117,18 @@
     height: 250px;
     resize: none;
     margin-left: 5px;
+    -ms-overflow-style: none;   //IE・Edgeスクロール非表示対応
+  }
+
+  // スクロールバー非表示対応
+  textarea.krown-textarea_remark::-webkit-scrollbar{
+    display:none;
+  }
+  textarea.krown-textarea_default::-webkit-scrollbar{
+    display:none;
+  }
+  textarea.help-textarea::-webkit-scrollbar{
+    display:none;
   }
 
 

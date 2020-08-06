@@ -50,6 +50,12 @@
           width: 95%;
           height: 90%;
           border-radius: 3px;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+          align-items: center; /* 縦方向中央揃え */
+          -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+          justify-content: center; /* 横方向中央揃え */
         }
         &__of-title{
           text-align: left;

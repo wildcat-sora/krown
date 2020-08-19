@@ -9,6 +9,9 @@ class Knowledge < ApplicationRecord
     accepts_nested_attributes_for :attachments
     accepts_nested_attributes_for :color_manage
 
+    # モデルを満たすバリデーションの実装については、随時行っていきます。
+    # 現在はカラーを管理するモデルに対してバリデーションを実装しています。
+
     validates :id, presence: { message: "が入力されていません。"}
     validates :id, numericality: { message: "数字で入力してください。"}
     validates :title, presence: { message: "が入力されていません。"}

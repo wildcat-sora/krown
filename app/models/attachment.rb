@@ -3,6 +3,9 @@ class Attachment < ApplicationRecord
   belongs_to :knowledge
   mount_uploader :image, ImageUploader
 
+  # モデルを満たすバリデーションの実装については、随時行っていきます。
+  # 現在はカラーを管理するモデルに対してバリデーションを実装しています。
+
   validate :file_type_check
 
   def public_path

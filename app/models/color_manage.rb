@@ -3,8 +3,11 @@ class ColorManage < ApplicationRecord
   enum color_type: { single: "single", double: "double", graphic: "graphic" }
   has_many :knowledges
 
-  #各バリデーション
+  # 各バリデーション
+  # こちらのバリデーションに対してはRspecを実装しています
+
   #カラー指定の場合はカラータイプ必須
+
   validates :color_type, presence: { message: "カラーを指定した場合は必須です"}
   #カラー指定の場合はcolor(1)必須
   validates :color_1, presence: { message: "カラー指定の場合はカラー(1)が必須です"}

@@ -2,6 +2,7 @@ class KrownsController < ApplicationController
   include ApplicationHelper
   include KrownsHelper
   require 'fastimage'
+  #protect_from_forgery except: :show
 
   #ユーザが所有しているジャンルの抽出
   before_action :select_genre
@@ -34,6 +35,13 @@ class KrownsController < ApplicationController
 
     set_attachment(@knowledge)
     @destroy_flg = true
+
+    respond_to do | format|
+      format.js
+      #p request.format
+    end
+    # エラーになってしまうよ。render 'krowns/show.js.erb'
+
   end
 
   def new
@@ -98,8 +106,8 @@ class KrownsController < ApplicationController
 
   def destroy
     krown = Knowledge.find(params[:id])
-    # 一旦は誰でも削除できるようにしておく
-    #if krown.user_id == current_user.id || krown.user_id == 1
+    # (仮)誰でも削除できるようにしておく
+    # if krown.user_id == current_user.id || krown.user_id == 1
       krown.destroy
       redirect_to root_path, notice: 'ナレッジを削除しました'
     #end

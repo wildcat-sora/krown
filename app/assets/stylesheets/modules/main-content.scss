@@ -18,6 +18,7 @@
       padding-right: 20px;
       padding-top: 20px;
     }
+
     .table-area{
       width: 90em;
       //margin: 20px 0 0 20px;
@@ -34,13 +35,19 @@
         max-width: 100em;
         border: 1px solid gainsboro;
       }
+
+      table tr{
+      }
+
       table th{
         background-color: rgba(148,216,45,0.60);
         text-align: center;
       }
+
       table td{
         height: 22px;
       }
+
       .td-decoration{
         text-align: left;
         font-size: 0.5em;
@@ -73,6 +80,22 @@
 
       }
     }
+
+    a.block_link{
+      display: block;
+    }
+
+    a.block_link-none_decoration{
+      display: block;
+      text-decoration: none;
+    }
+
+    //リンクに対する余計な効果を排除
+    a.block_link-none_decoration:link, a.block_link-none_decoration:visited, a.block_link-none_decoration:hover, a.block_link-none_decoration:active {
+      color: black;
+      font-weight: 400;
+    }
+
     .pagination{
       text-align: left;
       margin: 10px 30px;

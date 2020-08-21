@@ -14,7 +14,6 @@
 //= require jquery3
 // 順番が大事
 //= require jquery
-//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

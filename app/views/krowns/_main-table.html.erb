@@ -6,27 +6,28 @@
         <tr>
         <th width="7%">投稿 ユーザ</th>
         <th width="6%">更新日時</th>
-        <th width="3%">番号</th>
+<!--    セキュリティの観点からDBのidを表示しない <th width="3%">番号</th> -->
         <th width="3.5%">color</th>
         <th width="25%">タイトル</th>
         <th width="2%">file</th>
         <th width="2%">補足</th>
-        <th width="17%">内容</th>
+        <th width="20%">内容</th>
         </tr>
         <!-- データ部定義 -->
         <% if @knowledge.present? %>
           <% @knowledges.each do |knowledge| %>
             <tr>
+              <!--  <tr type="text/javascript" data-remote="true" data-href=<%#= krown_path(knowledge.id) %>> -->
               <!-- ユーザ名 -->
-              <td class="td-decoration__of-user"><%= knowledge.user.name.truncate(7) %></td>
+              <td class="td-decoration__of-user"><%= link_to knowledge.user.name.truncate(7),krown_path(knowledge.id),remote: :true,class: "block_link-none_decoration" %></td>
               <!-- 作成日-->
-              <td class="td-decoration__of-time"><%= knowledge.updated_at.gmtime.strftime('%m/%d %H:%M') %></td>
+              <td class="td-decoration__of-time"><%= link_to knowledge.updated_at.gmtime.strftime('%m/%d %H:%M'),krown_path(knowledge.id),remote: :true,class: "block_link-none_decoration" %></td>
               <!-- 番号-->
-              <td class="td-decoration__of-number"><%= link_to knowledge.id, krown_path(knowledge.id),remote: :true%></td>
+<!--          セキュリティの観点からDBのidを表示しない <td class="td-decoration__of-number"><%#= link_to knowledge.id, krown_path(knowledge.id),remote: :true,class: "block_link" %></td>-->
               <!-- カラーグループ -->
               <td ><div style="<%= get_color_attribute(knowledge)%>" class="td-decoration__of-color"><%= get_color_keyword(knowledge) %></div></td>
               <!-- タイトル-->
-              <td class="td-decoration__of-title"><%= knowledge.title.truncate(30) %></td>
+              <td class="td-decoration__of-title"><%= link_to knowledge.title.truncate(30),krown_path(knowledge.id),remote: :true,class: "block_link-none_decoration" %></td>
               <!-- 添付ファイル有無フラグチェック -->
               <% if knowledge.img_flg == "1" %>
                 <td><i class="fas fa-camera-retro"></i></td>
@@ -40,7 +41,7 @@
                 <td> - </td>
               <% end %>
               <!-- 内容 -->
-              <td class="td-decoration"><%= knowledge.content.truncate(25) %></td>
+              <td class="td-decoration"><%= link_to knowledge.content.truncate(30),krown_path(knowledge.id),remote: :true,class: "block_link-none_decoration" %></td>
             </tr>
           <% end %>
         <% else %>
@@ -62,3 +63,20 @@
     <%= paginate(@knowledges) %>
   </div>
 </div>
+
+<!--テーブルのレコード選択時のリンクを設定するも、MIMEのtypeがhtmlのまま。このため、他の方法に変更する-->
+<!--<script>-->
+<!--    jQuery(function($) {-->
+<!--        //data-hrefの属性を持つtrを選択しclassにclickableを付加-->
+<!--        $('tr[data-href]').addClass('clickable')-->
+<!--            //クリックイベント-->
+<!--            .click(function(e) {-->
+<!--                //e.targetはクリックした要素自体、それがa要素以外であれば-->
+<!--                if(!$(e.target).is('a')){-->
+<!--                    //その要素の先祖要素で一番近いtrの-->
+<!--                    //data-href属性の値に書かれているURLに遷移する-->
+<!--                    // window.location = $(e.target).closest('tr').data('href') + "?type=text/javascript";}-->
+<!--                window.location = $(e.target).closest('tr').data('href') + "? remote: true";}-->
+<!--            });-->
+<!--    });-->
+<!--</script>-->

@@ -8,7 +8,7 @@ class GenresController < ApplicationController
   def create
     @genre = Genre.new(params_genre)
     if @genre.save!
-      redirect_to root_path, notice: 'ジャンルを作成しました'
+      redirect_to root_path, notice: 'グループを作成しました'
     else
       render :new
     end

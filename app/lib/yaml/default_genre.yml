@@ -1,6 +1,6 @@
 - id: 1,
   user_id: 1
-  in_genre: 'ジャンル未登録'
+  in_genre: 'グループ未登録'
 - id: 2,
   user_id: 2
   in_genre: 'サンプル'

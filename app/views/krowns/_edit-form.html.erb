@@ -34,13 +34,13 @@
         <div class="info_string">※ 現在シークレット登録は出来ません</div>
       </div>
 
-      <!-- ジャンル選択フォーム -->
+      <!-- グループ選択フォーム -->
       <div class="genre-form">
         <div class="genre-form__decoration">
           <i class="far fa-folder-open"></i>
         </div>
         <div class="required_mark">*</div>
-        <%= f.label :yobi_1,"ジャンル選択" ,class: "genre-form__lavel"%>
+        <%= f.label :yobi_1,"グループ選択" ,class: "genre-form__lavel"%>
         <% if user_signed_in? && @genre_count >= 1 %>
           <%= f.select :genre_id, @genres.map{|t| [t.in_genre,t.id]},{},{class: "genre-form__select"} %>
         <% else %>

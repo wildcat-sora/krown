@@ -4,7 +4,7 @@ class KrownsController < ApplicationController
   require 'fastimage'
   #protect_from_forgery except: :show
 
-  #ユーザが所有しているジャンルの抽出
+  #ユーザが所有しているグループの抽出
   before_action :select_genre
   #カウンター
   before_action :get_count
@@ -13,7 +13,7 @@ class KrownsController < ApplicationController
 
   def index
     # アプリケーション起動時、ログオンユーザがない場合は新規作成する
-    make_default_user if User.count == 0 && Genre.count == 0
+    #make_default_user if User.count == 0 && Genre.count == 0
 
     @knowledges = search_knowledge_data(page: params[:page])
     # 最新ナレッジが存在するかどうか

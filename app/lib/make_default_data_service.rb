@@ -60,9 +60,9 @@ class MakeDefaultDataService
           default_genre.in_genre = data["in_genre"]
 
           if default_genre.save!
-            p "（ジャンル）データID：#{default_genre.id}を登録しました。"
+            p "（グループ）データID：#{default_genre.id}を登録しました。"
           else
-            p "（ジャンル）データID：#{default_genre.id}の登録に失敗しました。"
+            p "（グループ）データID：#{default_genre.id}の登録に失敗しました。"
             p default_genre
             p default_genre.errors.full_messages
           end

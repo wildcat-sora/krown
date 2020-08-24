@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_033919) do
+ActiveRecord::Schema.define(version: 2020_08_24_023724) do
 
   create_table "attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "knowledge_id"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 2020_08_05_033919) do
     t.datetime "updated_at", null: false
     t.string "group_flg"
     t.string "parent_id"
+  end
+
+  create_table "display_controls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "control_type"
+    t.string "control_value"
+    t.string "yobi_1"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -2,23 +2,18 @@
   <div class="header-title">
     <div class="title-left">
       <div class="title-left__awesome">
-<!--        <i class="fab fa-envira"></i>-->
-<!--        葉っぱ2<i class="fab fa-pagelines"></i>-->
-<!--        <i class="fas fa-fighter-jet"></i>-->
       </div>
-<!--      <div class="title-left__thema">-->
-<!--        Su-baco-->
-<!--      </div>-->
       <div class="title-left__thema">
-        <%= image_tag('subaco_title2.png') %>
-<!--        <img border="0" src=image-url('subaco_title.png') >-->
+        <%= image_tag('subaco_title.png') %>
       </div>
       <div class="title-left__subthema">
         たくさんのメモを残して技術の引き出しを増やそう...
       </div>
       <div class="title-left__version">
         Application-<%=Settings.version_manager[:application_subaco] %><br>
-        Release-<%=Settings.release_date[:application_subaco] %>
+<!--    バージョンアップに伴い、毎回ソースを更新しなければならないため、廃止-->
+<!--    Release-<%#=Settings.release_date[:application_subaco] %>-->
+        <%= update_timing %>
       </div>
       <div class="title-left__border"></div>
 

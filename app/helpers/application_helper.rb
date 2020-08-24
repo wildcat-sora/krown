@@ -20,4 +20,10 @@ module ApplicationHelper
     File.join(file_path,file_name)
   end
 
+  # ヘッダにバージョン情報を表示する
+  def update_timing
+    control_record = DisplayControl.where(control_type: 'uptiming')
+    control_record.count != 0 ? control_record.first[:control_value] : "更新情報を入力してください"
+  end
+
 end

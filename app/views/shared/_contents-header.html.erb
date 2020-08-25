@@ -13,7 +13,7 @@
         Application-<%=Settings.version_manager[:application_subaco] %><br>
 <!--    バージョンアップに伴い、毎回ソースを更新しなければならないため、廃止-->
 <!--    Release-<%#=Settings.release_date[:application_subaco] %>-->
-        <%= update_timing %>
+        <%= get_display_control_info(param_control_type: "uptiming") %>
       </div>
       <div class="title-left__border"></div>
 

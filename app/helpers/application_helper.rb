@@ -20,10 +20,19 @@ module ApplicationHelper
     File.join(file_path,file_name)
   end
 
-  # ヘッダにバージョン情報を表示する
-  def update_timing
-    control_record = DisplayControl.where(control_type: 'uptiming')
-    control_record.count != 0 ? control_record.first[:control_value] : "更新情報を入力してください"
+  # 画面に情報を表示するための情報をdbから取得する
+  def get_display_control_info(param_control_type: '')
+    proc = Proc.new do | param |
+      control_record = DisplayControl.where(control_type: param)
+      control_record.count != 0 ? control_record.first[:control_value] : "情報の取得に失敗しました"
+    end
+
+    unless param_control_type.empty?
+      proc.call(param_control_type)
+    else
+      return "パラメータ未入力"
+    end
+
   end
 
 end

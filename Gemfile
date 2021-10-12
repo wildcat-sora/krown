@@ -11,7 +11,7 @@ gem 'rails', '~> 5.2.1'
 # gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'mysql2', '0.5.2'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 
 # 2019.4.14 railsバージョン明示変更
